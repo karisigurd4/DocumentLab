@@ -1,0 +1,238 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.Contracts", "Libraries\DocumentLab.Contracts\DocumentLab.Contracts.csproj", "{57BDF394-9BDD-49E8-AE1A-3436F73D1451}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.Core", "Libraries\DocumentLab.Core\DocumentLab.Core.csproj", "{A82EB56D-EA9C-4E0B-B411-E8E8BB16FAB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.ImageProcessor", "Libraries\DocumentLab.ImageProcessing\DocumentLab.ImageProcessor.csproj", "{C5F9819F-5A25-40E5-BFF0-865B40BC3623}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.Ocr", "Libraries\DocumentLab.Ocr\DocumentLab.Ocr.csproj", "{C86347F7-EABC-4541-916D-414F8F8B48D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.PageAnalyzer", "Libraries\DocumentLab.PageAnalyzer\DocumentLab.PageAnalyzer.csproj", "{431F6728-67E7-4A0B-819D-6EFD8872A108}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.PageInterpreter", "Libraries\DocumentLab.PageInterpreter\DocumentLab.PageInterpreter.csproj", "{4A714576-905E-43D2-8347-95190490FE60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.TextAnalyzer", "Libraries\DocumentLab.TextAnalyzer\DocumentLab.TextAnalyzer.csproj", "{347D62F9-14EB-408B-BBF9-240850F27721}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{0964BB76-68FC-4B16-9446-025003D1CCA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{7404CB9A-5B0B-440E-B06F-35CFAA854BFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.PageAnalyzerUnitTest", "Test\DocumentLab.PageAnalyzerUnitTest\DocumentLab.PageAnalyzerUnitTest.csproj", "{815813D8-E5C5-40AA-89A3-9E286FA5A619}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.PageInterpreterUnitTest", "Test\DocumentLab.PageInterpreterUnitTest\DocumentLab.PageInterpreterUnitTest.csproj", "{B83FA34E-422F-41F8-9C28-14BC247A971B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.Test", "Test\DocumentLab.Test\DocumentLab.Test.csproj", "{658BA695-7061-420F-8361-134395CF0781}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.TextAnalyzerUnitTest", "Test\DocumentLab.TextAnalyzerUnitTest\DocumentLab.TextAnalyzerUnitTest.csproj", "{16A2DE17-6836-44B0-9C4D-7F0081B19B66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{18AE01FA-DE36-41E0-80D8-D8334D679444}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab", "Nuget\DocumentLab\DocumentLab.csproj", "{2E423F58-1944-49B8-B84F-F8C982424577}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57BDF394-9BDD-49E8-AE1A-3436F73D1451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57BDF394-9BDD-49E8-AE1A-3436F73D1451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57BDF394-9BDD-49E8-AE1A-3436F73D1451}.Debug|x64.ActiveCfg = Debug|x64
+		{57BDF394-9BDD-49E8-AE1A-3436F73D1451}.Debug|x64.Build.0 = Debug|x64
+		{57BDF394-9BDD-49E8-AE1A-3436F73D1451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57BDF394-9BDD-49E8-AE1A-3436F73D1451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57BDF394-9BDD-49E8-AE1A-3436F73D1451}.Release|x64.ActiveCfg = Release|x64
+		{57BDF394-9BDD-49E8-AE1A-3436F73D1451}.Release|x64.Build.0 = Release|x64
+		{A82EB56D-EA9C-4E0B-B411-E8E8BB16FAB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A82EB56D-EA9C-4E0B-B411-E8E8BB16FAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A82EB56D-EA9C-4E0B-B411-E8E8BB16FAB9}.Debug|x64.ActiveCfg = Debug|x64
+		{A82EB56D-EA9C-4E0B-B411-E8E8BB16FAB9}.Debug|x64.Build.0 = Debug|x64
+		{A82EB56D-EA9C-4E0B-B411-E8E8BB16FAB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A82EB56D-EA9C-4E0B-B411-E8E8BB16FAB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A82EB56D-EA9C-4E0B-B411-E8E8BB16FAB9}.Release|x64.ActiveCfg = Release|x64
+		{A82EB56D-EA9C-4E0B-B411-E8E8BB16FAB9}.Release|x64.Build.0 = Release|x64
+		{C5F9819F-5A25-40E5-BFF0-865B40BC3623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5F9819F-5A25-40E5-BFF0-865B40BC3623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5F9819F-5A25-40E5-BFF0-865B40BC3623}.Debug|x64.ActiveCfg = Debug|x64
+		{C5F9819F-5A25-40E5-BFF0-865B40BC3623}.Debug|x64.Build.0 = Debug|x64
+		{C5F9819F-5A25-40E5-BFF0-865B40BC3623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5F9819F-5A25-40E5-BFF0-865B40BC3623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5F9819F-5A25-40E5-BFF0-865B40BC3623}.Release|x64.ActiveCfg = Release|x64
+		{C5F9819F-5A25-40E5-BFF0-865B40BC3623}.Release|x64.Build.0 = Release|x64
+		{C86347F7-EABC-4541-916D-414F8F8B48D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C86347F7-EABC-4541-916D-414F8F8B48D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C86347F7-EABC-4541-916D-414F8F8B48D2}.Debug|x64.ActiveCfg = Debug|x64
+		{C86347F7-EABC-4541-916D-414F8F8B48D2}.Debug|x64.Build.0 = Debug|x64
+		{C86347F7-EABC-4541-916D-414F8F8B48D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C86347F7-EABC-4541-916D-414F8F8B48D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C86347F7-EABC-4541-916D-414F8F8B48D2}.Release|x64.ActiveCfg = Release|x64
+		{C86347F7-EABC-4541-916D-414F8F8B48D2}.Release|x64.Build.0 = Release|x64
+		{431F6728-67E7-4A0B-819D-6EFD8872A108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{431F6728-67E7-4A0B-819D-6EFD8872A108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{431F6728-67E7-4A0B-819D-6EFD8872A108}.Debug|x64.ActiveCfg = Debug|x64
+		{431F6728-67E7-4A0B-819D-6EFD8872A108}.Debug|x64.Build.0 = Debug|x64
+		{431F6728-67E7-4A0B-819D-6EFD8872A108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{431F6728-67E7-4A0B-819D-6EFD8872A108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{431F6728-67E7-4A0B-819D-6EFD8872A108}.Release|x64.ActiveCfg = Release|x64
+		{431F6728-67E7-4A0B-819D-6EFD8872A108}.Release|x64.Build.0 = Release|x64
+		{4A714576-905E-43D2-8347-95190490FE60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A714576-905E-43D2-8347-95190490FE60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A714576-905E-43D2-8347-95190490FE60}.Debug|x64.ActiveCfg = Debug|x64
+		{4A714576-905E-43D2-8347-95190490FE60}.Debug|x64.Build.0 = Debug|x64
+		{4A714576-905E-43D2-8347-95190490FE60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A714576-905E-43D2-8347-95190490FE60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A714576-905E-43D2-8347-95190490FE60}.Release|x64.ActiveCfg = Release|x64
+		{4A714576-905E-43D2-8347-95190490FE60}.Release|x64.Build.0 = Release|x64
+		{347D62F9-14EB-408B-BBF9-240850F27721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347D62F9-14EB-408B-BBF9-240850F27721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347D62F9-14EB-408B-BBF9-240850F27721}.Debug|x64.ActiveCfg = Debug|x64
+		{347D62F9-14EB-408B-BBF9-240850F27721}.Debug|x64.Build.0 = Debug|x64
+		{347D62F9-14EB-408B-BBF9-240850F27721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347D62F9-14EB-408B-BBF9-240850F27721}.Release|Any CPU.Build.0 = Release|Any CPU
+		{347D62F9-14EB-408B-BBF9-240850F27721}.Release|x64.ActiveCfg = Release|x64
+		{347D62F9-14EB-408B-BBF9-240850F27721}.Release|x64.Build.0 = Release|x64
+		{815813D8-E5C5-40AA-89A3-9E286FA5A619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{815813D8-E5C5-40AA-89A3-9E286FA5A619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{815813D8-E5C5-40AA-89A3-9E286FA5A619}.Debug|x64.ActiveCfg = Debug|x64
+		{815813D8-E5C5-40AA-89A3-9E286FA5A619}.Debug|x64.Build.0 = Debug|x64
+		{815813D8-E5C5-40AA-89A3-9E286FA5A619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{815813D8-E5C5-40AA-89A3-9E286FA5A619}.Release|Any CPU.Build.0 = Release|Any CPU
+		{815813D8-E5C5-40AA-89A3-9E286FA5A619}.Release|x64.ActiveCfg = Release|x64
+		{815813D8-E5C5-40AA-89A3-9E286FA5A619}.Release|x64.Build.0 = Release|x64
+		{B83FA34E-422F-41F8-9C28-14BC247A971B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B83FA34E-422F-41F8-9C28-14BC247A971B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B83FA34E-422F-41F8-9C28-14BC247A971B}.Debug|x64.ActiveCfg = Debug|x64
+		{B83FA34E-422F-41F8-9C28-14BC247A971B}.Debug|x64.Build.0 = Debug|x64
+		{B83FA34E-422F-41F8-9C28-14BC247A971B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B83FA34E-422F-41F8-9C28-14BC247A971B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B83FA34E-422F-41F8-9C28-14BC247A971B}.Release|x64.ActiveCfg = Release|x64
+		{B83FA34E-422F-41F8-9C28-14BC247A971B}.Release|x64.Build.0 = Release|x64
+		{658BA695-7061-420F-8361-134395CF0781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{658BA695-7061-420F-8361-134395CF0781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{658BA695-7061-420F-8361-134395CF0781}.Debug|x64.ActiveCfg = Debug|x64
+		{658BA695-7061-420F-8361-134395CF0781}.Debug|x64.Build.0 = Debug|x64
+		{658BA695-7061-420F-8361-134395CF0781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{658BA695-7061-420F-8361-134395CF0781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{658BA695-7061-420F-8361-134395CF0781}.Release|x64.ActiveCfg = Release|x64
+		{658BA695-7061-420F-8361-134395CF0781}.Release|x64.Build.0 = Release|x64
+		{16A2DE17-6836-44B0-9C4D-7F0081B19B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16A2DE17-6836-44B0-9C4D-7F0081B19B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16A2DE17-6836-44B0-9C4D-7F0081B19B66}.Debug|x64.ActiveCfg = Debug|x64
+		{16A2DE17-6836-44B0-9C4D-7F0081B19B66}.Debug|x64.Build.0 = Debug|x64
+		{16A2DE17-6836-44B0-9C4D-7F0081B19B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16A2DE17-6836-44B0-9C4D-7F0081B19B66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16A2DE17-6836-44B0-9C4D-7F0081B19B66}.Release|x64.ActiveCfg = Release|x64
+		{16A2DE17-6836-44B0-9C4D-7F0081B19B66}.Release|x64.Build.0 = Release|x64
+		{2E423F58-1944-49B8-B84F-F8C982424577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E423F58-1944-49B8-B84F-F8C982424577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E423F58-1944-49B8-B84F-F8C982424577}.Debug|x64.ActiveCfg = Debug|x64
+		{2E423F58-1944-49B8-B84F-F8C982424577}.Debug|x64.Build.0 = Debug|x64
+		{2E423F58-1944-49B8-B84F-F8C982424577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E423F58-1944-49B8-B84F-F8C982424577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E423F58-1944-49B8-B84F-F8C982424577}.Release|x64.ActiveCfg = Release|x64
+		{2E423F58-1944-49B8-B84F-F8C982424577}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{57BDF394-9BDD-49E8-AE1A-3436F73D1451} = {0964BB76-68FC-4B16-9446-025003D1CCA8}
+		{A82EB56D-EA9C-4E0B-B411-E8E8BB16FAB9} = {0964BB76-68FC-4B16-9446-025003D1CCA8}
+		{C5F9819F-5A25-40E5-BFF0-865B40BC3623} = {0964BB76-68FC-4B16-9446-025003D1CCA8}
+		{C86347F7-EABC-4541-916D-414F8F8B48D2} = {0964BB76-68FC-4B16-9446-025003D1CCA8}
+		{431F6728-67E7-4A0B-819D-6EFD8872A108} = {0964BB76-68FC-4B16-9446-025003D1CCA8}
+		{4A714576-905E-43D2-8347-95190490FE60} = {0964BB76-68FC-4B16-9446-025003D1CCA8}
+		{347D62F9-14EB-408B-BBF9-240850F27721} = {0964BB76-68FC-4B16-9446-025003D1CCA8}
+		{815813D8-E5C5-40AA-89A3-9E286FA5A619} = {7404CB9A-5B0B-440E-B06F-35CFAA854BFF}
+		{B83FA34E-422F-41F8-9C28-14BC247A971B} = {7404CB9A-5B0B-440E-B06F-35CFAA854BFF}
+		{658BA695-7061-420F-8361-134395CF0781} = {7404CB9A-5B0B-440E-B06F-35CFAA854BFF}
+		{16A2DE17-6836-44B0-9C4D-7F0081B19B66} = {7404CB9A-5B0B-440E-B06F-35CFAA854BFF}
+		{2E423F58-1944-49B8-B84F-F8C982424577} = {18AE01FA-DE36-41E0-80D8-D8334D679444}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {701A6698-D495-4C6B-B68A-B0D778ADB656}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 12
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://karisigurd.visualstudio.com/
+		SccProjectUniqueName0 = Libraries\\DocumentLab.Contracts\\DocumentLab.Contracts.csproj
+		SccProjectTopLevelParentUniqueName0 = DocumentLab.sln
+		SccProjectName0 = Libraries/DocumentLab.Contracts
+		SccAuxPath0 = https://karisigurd.visualstudio.com
+		SccLocalPath0 = Libraries\\DocumentLab.Contracts
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = Libraries\\DocumentLab.Core\\DocumentLab.Core.csproj
+		SccProjectTopLevelParentUniqueName1 = DocumentLab.sln
+		SccProjectName1 = Libraries/DocumentLab.Core
+		SccAuxPath1 = https://karisigurd.visualstudio.com
+		SccLocalPath1 = Libraries\\DocumentLab.Core
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = Libraries\\DocumentLab.ImageProcessing\\DocumentLab.ImageProcessor.csproj
+		SccProjectTopLevelParentUniqueName2 = DocumentLab.sln
+		SccProjectName2 = Libraries/DocumentLab.ImageProcessing
+		SccAuxPath2 = https://karisigurd.visualstudio.com
+		SccLocalPath2 = Libraries\\DocumentLab.ImageProcessing
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName3 = Libraries\\DocumentLab.Ocr\\DocumentLab.Ocr.csproj
+		SccProjectTopLevelParentUniqueName3 = DocumentLab.sln
+		SccProjectName3 = Libraries/DocumentLab.Ocr
+		SccAuxPath3 = https://karisigurd.visualstudio.com
+		SccLocalPath3 = Libraries\\DocumentLab.Ocr
+		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName4 = Libraries\\DocumentLab.PageAnalyzer\\DocumentLab.PageAnalyzer.csproj
+		SccProjectTopLevelParentUniqueName4 = DocumentLab.sln
+		SccProjectName4 = Libraries/DocumentLab.PageAnalyzer
+		SccAuxPath4 = https://karisigurd.visualstudio.com
+		SccLocalPath4 = Libraries\\DocumentLab.PageAnalyzer
+		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName5 = Libraries\\DocumentLab.PageInterpreter\\DocumentLab.PageInterpreter.csproj
+		SccProjectTopLevelParentUniqueName5 = DocumentLab.sln
+		SccProjectName5 = Libraries/DocumentLab.PageInterpreter
+		SccAuxPath5 = https://karisigurd.visualstudio.com
+		SccLocalPath5 = Libraries\\DocumentLab.PageInterpreter
+		SccProvider5 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName6 = Libraries\\DocumentLab.TextAnalyzer\\DocumentLab.TextAnalyzer.csproj
+		SccProjectTopLevelParentUniqueName6 = DocumentLab.sln
+		SccProjectName6 = Libraries/DocumentLab.TextAnalyzer
+		SccAuxPath6 = https://karisigurd.visualstudio.com
+		SccLocalPath6 = Libraries\\DocumentLab.TextAnalyzer
+		SccProvider6 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName7 = Test\\DocumentLab.PageAnalyzerUnitTest\\DocumentLab.PageAnalyzerUnitTest.csproj
+		SccProjectTopLevelParentUniqueName7 = DocumentLab.sln
+		SccProjectName7 = Test/DocumentLab.PageAnalyzerUnitTest
+		SccAuxPath7 = https://karisigurd.visualstudio.com
+		SccLocalPath7 = Test\\DocumentLab.PageAnalyzerUnitTest
+		SccProvider7 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName8 = Test\\DocumentLab.PageInterpreterUnitTest\\DocumentLab.PageInterpreterUnitTest.csproj
+		SccProjectTopLevelParentUniqueName8 = DocumentLab.sln
+		SccProjectName8 = Test/DocumentLab.PageInterpreterUnitTest
+		SccAuxPath8 = https://karisigurd.visualstudio.com
+		SccLocalPath8 = Test\\DocumentLab.PageInterpreterUnitTest
+		SccProvider8 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName9 = Test\\DocumentLab.Test\\DocumentLab.Test.csproj
+		SccProjectTopLevelParentUniqueName9 = DocumentLab.sln
+		SccProjectName9 = Test/DocumentLab.Test
+		SccAuxPath9 = https://karisigurd.visualstudio.com
+		SccLocalPath9 = Test\\DocumentLab.Test
+		SccProvider9 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName10 = Test\\DocumentLab.TextAnalyzerUnitTest\\DocumentLab.TextAnalyzerUnitTest.csproj
+		SccProjectTopLevelParentUniqueName10 = DocumentLab.sln
+		SccProjectName10 = Test/DocumentLab.TextAnalyzerUnitTest
+		SccAuxPath10 = https://karisigurd.visualstudio.com
+		SccLocalPath10 = Test\\DocumentLab.TextAnalyzerUnitTest
+		SccProvider10 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName11 = Nuget\\DocumentLab\\DocumentLab.csproj
+		SccProjectTopLevelParentUniqueName11 = DocumentLab.sln
+		SccProjectName11 = Nuget/DocumentLab
+		SccAuxPath11 = https://karisigurd.visualstudio.com
+		SccLocalPath11 = Nuget\\DocumentLab
+		SccProvider11 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

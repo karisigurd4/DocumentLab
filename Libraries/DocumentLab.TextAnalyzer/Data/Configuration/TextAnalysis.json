@@ -1,0 +1,49 @@
+﻿{
+    "ConvertDatesToFormat": "yyyy-MM-dd",
+    "EmailAddressRegex": "((?<!\\w)\\w+\\@.+\\.(\\w{2}(?!\\w)|\\w{3}(?!\\w)))",
+    "BadOcrEmailAddressRegex": "((?<!\\w)\\w+\\@\\w+)",
+    "WebAddressRegex": "((?<!\\w)w{3}?\\.?\\w+\\.(\\w{2}(?!\\w)|\\w{3}(?!\\w)))",
+    "BadOcrWebAddressRegex": "((?<!\\w)w{3}\\w+(?!\\w))",
+    "TextRegex": ".+",
+    "AmountIgnoreRegex": "kr",
+    "StreetAddressRegexes": [
+    ],
+    "PostalCodeRegexes": [
+        "((?<!\\d)\\d{5}(?!\\d))"
+    ],
+    "KnownDateDelimiters": [
+        "\\s",
+        "-",
+        "/"
+    ],
+    "AmountRegexes": [
+        "\\d+(((,|\\.)\\d+)|kr)",
+        "\\d+(,|\\.)\\d+(,|\\.)\\d+"
+    ],
+    "PercentageRegexes": [
+        "\\d*[\\.|\\,]?\\d*%"
+    ],
+    "NumberRegexes": [
+        "(?<!(\\.|,))\\d+(?!\\d|((\\.|,)(d+)))"
+    ],
+    "DateRegexes": [
+        "\\d{2}(-+|/+|\\s)\\d{2}(-+|/+|—+|\\s)\\d{2}",
+        "\\d{4}(-+|/+|\\s)\\d{2}(-+|/+|—+|\\s)\\d{2}",
+        "(?<!\\d)\\d{6}(?!\\d)",
+        "(?<!\\d)\\d{8}(?!\\d)"
+    ],
+    "FirstPassPageNumberRexeges": [
+        "((?<page>\\d+)\\(\\d+)\\)",
+        "((?<page>\\d+)[\\\\||\\/]\\d+)",
+        "(Page(?<page>\\w+))"
+    ],
+    "SecondPassPageNumberRegexes": [
+        "(?<page>(\\d+(?!\\+)))"
+    ],
+    "InvoiceNumberRegexes": [
+        "((?<!\\w)\\w+\\d+)"
+    ],
+    "LettersRegexes": [
+        "\\p{L}+"
+    ]
+}

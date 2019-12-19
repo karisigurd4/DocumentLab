@@ -1,0 +1,6 @@
+﻿[
+    {
+        "TextType": "StreetAddress",
+        "PostCaptureRegex": "((?<textpart>{textpart})(\\s*(?<numberpart>\\d+))?)"
+    }
+]
