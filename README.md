@@ -17,7 +17,7 @@ The DocumentLab component exposes a simple to use method called 'Interpret' for 
 
 The bitmap sent in must be at least > 250 DPI for the OCR to yield any usable results.
 
-For a query script example, if we query an invoice we can get the receiver's name, address and city as with the following query,
+For a query script example, if we want to query an invoice for the receiver's name, address and city we can achieve that with the following query,
 ```
 Receiver:
 'ReceiverName': [Text] Down 'ReceiverStreetAddress': [StreetAddress] Down 'ReceiverCity': [City] Down 'ReceiverEmail': [Email];
