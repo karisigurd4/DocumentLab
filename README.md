@@ -1,7 +1,7 @@
 # DocumentLab
 A two year research project culminating in a generalized method for querying textual information from images. Involving a mix of optical character recognition, text classification, data structuring and a query language implementation
 
-What does it do?
+## What does it do?
 
 1. You send in a bitmap (of a document or whatever data you'd like to query)
 2. It analyzes the structure of the bitmap and performs optical character recognition on it
