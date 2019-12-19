@@ -1,5 +1,31 @@
 # DocumentLab
-A two year research project culminating in a generalized method for querying textual information from images. Involving a mix of optical character recognition, text classification, data structuring and a query language implementation
+This is a solution for optical character recognition and information retrieval from documents with textual information. The entire process is implemented so that for you the end user you only need to specify in terms of *queries* and *patterns* what data you would like to retrieve. You send in a bitmap of a document an a *script* and the rest is taken care of for you.
+
+Examples:
+
+Want to capture all dates in a document?
+```
+AllDates:
+Any [Date];
+```
+
+Want to capture invoice receiver information in one go? 
+```
+Receiver:
+'Name': [Text] Down 'Address': [StreetAddress] Down 'City': [Town] Down 'PostalCode': [PostalCode];
+```
+
+Want to capture by a label -> value?
+```
+YourData:
+Text(LabelToMatch) RD 10 'MyData': [Text];
+```
+
+Let's say you have another document, similar in structure but the label is different, you can make the same script capture that one by adding to the pattern predicate parameters like so,
+```
+YourData:
+Text(LabelToMatch||AnotherLabelToMatch) RD 10 'MyData': [Text];
+```
 
 One of the goals of the project was to be able to query textual data from images based solely on contextual information that would not depend on any previously determined localization. In order to achieve that goal, the process implementation in this library builds up a grid datastructure whose cells are analogous to the actual locations of text from the image. Each cell will contain the corresponding text from the document as well as the text classifications that were identified. The query language introduces a *pattern* concept which allows us to define a context and what we want to capture.
 
@@ -67,28 +93,3 @@ Text(Invoice number||Invoice no) Down [InvoiceNumber];
 ```
 
 The first pattern is considered highest priority, if a match cannot be found for it the interpreter will continue onto the next until it finds a match. If no patterns match then the result is empty. The result will contain the captured [InvoiceNumber] cell value. A script can contain any number of query output labels + prioritized pattern definitions. A single script can define all query labels and patterns to interpret the contents of an entire invoice, the use of prioritization in patterns means that a script can potentially be defined to handle countless different types of invoices. 
-
-#### Extra stuff
-Want to capture all dates in a document?
-```
-AllDates:
-Any [Date];
-```
-
-Want to capture invoice receiver information in one go? 
-```
-Receiver:
-'Name': [Text] Down 'Address': [StreetAddress] Down 'City': [Town] Down 'PostalCode': [PostalCode];
-```
-
-Want to capture by a label -> value?
-```
-YourData:
-Text(LabelToMatch) RD 10 'MyData': [Text];
-```
-
-Let's say you have another document, similar in structure but the label is different, you can make the same script capture that one by adding to the pattern predicate parameters like so,
-```
-YourData:
-Text(LabelToMatch||AnotherLabelToMatch) RD 10 'MyData': [Text];
-```
