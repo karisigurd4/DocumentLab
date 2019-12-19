@@ -1,5 +1,5 @@
 # DocumentLab
-This is a solution for optical character recognition and information retrieval from documents with textual information. The entire process is implemented so that for you the end user you only need to specify in terms of *queries* and *patterns* what data you would like to retrieve. You send in a bitmap of a document an a *script* and the rest is taken care of for you.
+This is a solution for optical character recognition and information retrieval from documents with textual information. The entire process is implemented so that for you the end user you only need to specify in terms of *queries* and *patterns* what data you would like to retrieve. You send in a bitmap of a document and a *script* and the rest is taken care of for you.
 
 Examples:
 
