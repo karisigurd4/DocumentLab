@@ -27,6 +27,15 @@ YourData:
 Text(LabelToMatch||AnotherLabelToMatch) RD 10 'MyData': [Text];
 ```
 
+Now let's say you get another slightly different document in your hands, this time the value is above the label, you can extend your existing script with the following, 
+```
+YourData:
+Text(LabelToMatch||AnotherLabelToMatch) RD 10 'MyData': [Text];
+Text(LabelToMatch||AnotherLabelToMatch) Up 'MyData': [Text];
+```
+
+Patterns are prioritised first - last. This allows your single script to handle multiple varieties of documents. 
+
 One of the goals of the project was to be able to query textual data from images based solely on contextual information that would not depend on any previously determined localization. In order to achieve that goal, the process implementation in this library builds up a grid datastructure whose cells are analogous to the actual locations of text from the image. Each cell will contain the corresponding text from the document as well as the text classifications that were identified. The query language introduces a *pattern* concept which allows us to define a context and what we want to capture.
 
 ## Text classification
@@ -83,7 +92,7 @@ An explanation of each token follows,
 * **Any**: (Optional) Normally the interpreter will stop after finding a single match, specifying **Any** at the start of a pattern indicates to the interpeter to find **All** instances matching the pattern in the document.
 * **TextType**: This is a predicate in the pattern. This can be any text classification resulting from the TextAnalyzer. The pattern can be made more definite by specifying for example *Text("CustomerNumber")* meaning that only cell with a TextType: Text and a Value: "CustomerNumber* is a match. Furthermore, definite value matches can be separated by || if for example "CustNo" should also be considered. If the interpreter determines that a page traverser is not on a cell matching the text type specified in the pattern it will not continue. 
 * **Traverse**: Direction for the PageTraverser to move at any step in the pattern, can be "Up", "Down", "Left", "Right"
-* **Captue**: A capture token is defined with the following syntax: [TextType], for example: [Text]. When a PageTraverser reaches a capture token the interpreter will check if the specified text type in it matches the cell the traverser is on. If it is a match the interpreter will add the value of the current cell to its result set. A pattern can contain any number of capture tokens, they can be further differentiated in the result set with the following syntax: 'ResultPropertyName': [Text], for example: 'CustomerNumber': [Text]
+* **Capture**: A capture token is defined with the following syntax: [TextType], for example: [Text]. When a PageTraverser reaches a capture token the interpreter will check if the specified text type in it matches the cell the traverser is on. If it is a match the interpreter will add the value of the current cell to its result set. A pattern can contain any number of capture tokens, they can be further differentiated in the result set with the following syntax: 'ResultPropertyName': [Text], for example: 'CustomerNumber': [Text]
 * **RightDownSearch**: This is a more advanced search than just the normal set of directions that the PageTraverser offers. This can best be explained by example. Say we have invoice A that has a label 'Customer number' and a value 'C001' below it, then we have another invoice B that has a label 'Customer number' and a value 'C002' to the right of it. A *Right Down Search* will split the current page traverser into two at its current location and traverse down with one and right with the other. The traverser which makes a correct match with the rest of the pattern first will be chosen as the one to use for a result. The syntax for this token is *RD* and a numerical value follows designating the number of steps we'll allow the traverser to step through before we stop the search. The reason being that we can define how far away the next step in the pattern can be.
 
 #### Query language
