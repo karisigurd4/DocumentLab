@@ -6,8 +6,8 @@ A two year research project culminating in a generalized method for querying tex
 1. You send in a bitmap (of a document or whatever data you'd like to query)
 2. It analyzes the structure of the bitmap and performs optical character recognition on it
 3. It performs text classification on the results
-4. It builds a three dimensional matrix of the results
-5. We send in a script to query the results
+4. It builds a three dimensional matrix of the classified results
+5. We can query the results!
 
 ... More documentation pending
 
