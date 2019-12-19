@@ -70,7 +70,9 @@ Querying the page datastructure described above is made possible by defining a c
 * It reports erroneous states when it moves beyond the boundaries of the page
 
 #### Patterns
-The query language implementation defines a conecpt of a *pattern*. A pattern consists of a set of predicates, directions for the page traverser to move, and a set of one or more captures. A predicate in a pattern can be any text type classified in the TextAnalyzer component, moreover, a predicate can be made more definite by stating what explicit text should be matched within it (**note:** fuzzy matching using Levenshtein distance 2 is implicit by default).
+The query language implementation defines a conecpt of a *pattern*. A pattern can be thought of as a set of commands which the interpreter and page traverser must execute. A pattern definition is executed left to right. A pattern yields a result from its capture token declarations if the interpreter encounters no error in the execution of the whole pattern. The interpreter implementation provided in this solution works by iterating through each cell in the page grid, initializing a page traverser and testing whether the whole pattern can be executed without error. 
+
+A pattern consists of a set of predicates, directions for the page traverser to move, and a set of one or more captures. A predicate in a pattern can be any text type classified in the TextAnalyzer component, moreover, a predicate can be made more definite by stating what explicit text should be matched within it (**note:** fuzzy matching using Levenshtein distance 2 is implicit by default).
 
 A pattern in the query language is defined in the following ANTLR4 syntax,
 ```
