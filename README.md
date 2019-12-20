@@ -1,46 +1,70 @@
 # DocumentLab
 This is a solution for optical character recognition and information retrieval from documents with textual information. The entire process is implemented so that you only need to specify in terms of *queries* what data you would like to retrieve. You send in a bitmap of a document and a *script* and the rest is taken care of for you.
 
-Examples:
+One of the goals of the project was to be able to query textual data from images based solely on contextual information that would not depend on any previously determined localization. In order to achieve that goal, the process implementation in this library builds up a grid datastructure whose cells are analogous to the actual locations of text from the image. Each cell will contain the corresponding text from the document as well as the text classifications that were identified. The query language introduces a *pattern* concept which allows us to define a context and what we want to capture.
 
-Want to capture all dates in a document?
+## Overview
+
+The basic idea is, imagine you have the following top half of an invoice as an image file,
+![Imgur](https://i.imgur.com/t6KHwN7.png)
+
+We'll perform OCR on the invoice, text analysis and then place that information in a grid that reflects the original image such as the following,
+![Imgur](https://imgur.com/xRDr8t3.png)
+
+Let's say we're out to find out the receiver name, normally the structure of how they're presented on an invoice follows a pattern of name -> address -> city -> postal code. We can define a query such as the following,
 ```
-AllDates:
-Any [Date];
+ReceiverName: PostalCode Up City Up StreetAddress Up [Text];
 ```
 
-Want to capture invoice receiver information in one go? 
+And then we have an interpreter which can traverse the grid and verify if any actual pattern in the grid matches the pattern we define in our query. The [Text] item in the query indicates this is the one we want to capture, i.e., the receiver name.
+
+...or if we want to capture all receiver information in one go,
 ```
 Receiver:
 'Name': [Text] Down 'Address': [StreetAddress] Down 'City': [Town] Down 'PostalCode': [PostalCode];
 ```
 
-Want to capture by a label -> value?
+Then we get the following output,
 ```
-YourData:
-Text(LabelToMatch) RD 10 'MyData': [Text];
-```
-
-Let's say you have another document, similar in structure but the label is different, you can make the same script capture that one by adding to the pattern predicate parameters like so,
-```
-YourData:
-Text(LabelToMatch||AnotherLabelToMatch) RD 10 'MyData': [Text];
+"Receiver": {
+  "Name": "John Adams",
+  "Address": "SomeStreet 13",
+  "City": "ImagineCity",
+  "PostalCode": "553322"
+}
 ```
 
-Now let's say you get another slightly different document in your hands, this time the value is above the label, you can extend your existing script with the following, 
+Or if we want to be able to interpret two distinct types of invoices, one which follows the previous pattern and another which might have a pattern like name -> receiver address -> co address -> city -> postal code. Then we can add a new pattern below the first one like, 
 ```
-YourData:
-Text(LabelToMatch||AnotherLabelToMatch) RD 10 'MyData': [Text];
-Text(LabelToMatch||AnotherLabelToMatch) Up 'MyData': [Text];
+Receiver:
+'Name': [Text] Down 'Address': [StreetAddress] Down 'City': [Town] Down 'PostalCode': [PostalCode];
+'Name': [Text] Down 'Address': [StreetAddress] Down Address Down 'City': [Town] Down 'PostalCode': [PostalCode];
 ```
 
-Patterns are prioritised first - last. This allows your single script to handle multiple varieties of documents. 
+The priority of which patterns to use if they match anything in the grid is from top to bottom. So if the first one doesn't match, we'd still get a match on the second one for the different type of invoice. Allowing a lot of flexibility for differing document types within one query definition.
 
-One of the goals of the project was to be able to query textual data from images based solely on contextual information that would not depend on any previously determined localization. In order to achieve that goal, the process implementation in this library builds up a grid datastructure whose cells are analogous to the actual locations of text from the image. Each cell will contain the corresponding text from the document as well as the text classifications that were identified. The query language introduces a *pattern* concept which allows us to define a context and what we want to capture.
+We can extend our queries by adding,
+```
+TotalAmount: Text(TotalAmount) [Amount];
+Dates: Any [Date];
+```
 
-## Overview
+Which would result in,
+```
+...
+"TotalAmount": { "0": "500.00" },
+"Dates": [
+  "2019-12-30",
+  "2020-01-10"
+]
+```
 
-... 
+... Just to provide some example
+
+The library consists of distinct components that play a distinct part in the process. The following figure represents a high-level view of how they interact and the direction of data throughout them,
+![Imgur](https://i.imgur.com/UiJhaVi.png)
+
+The following sections will explain the parts each component plays more extensively.
 
 ## Image processing & OCR
 
