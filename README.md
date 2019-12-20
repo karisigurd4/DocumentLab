@@ -61,7 +61,8 @@ Which would result in,
 
 ... Just to provide some example
 
-The library consists of distinct components that play a distinct part in the process. The following figure represents a high-level view of how they interact and the direction of data throughout them,
+The library consists of distinct components that play a part in the process. The following figure represents a high-level view of how they interact and the direction of data throughout them,
+
 ![Imgur](https://i.imgur.com/UiJhaVi.png)
 
 The following sections will explain the parts each component plays more extensively.
