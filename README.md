@@ -38,6 +38,14 @@ Patterns are prioritised first - last. This allows your single script to handle 
 
 One of the goals of the project was to be able to query textual data from images based solely on contextual information that would not depend on any previously determined localization. In order to achieve that goal, the process implementation in this library builds up a grid datastructure whose cells are analogous to the actual locations of text from the image. Each cell will contain the corresponding text from the document as well as the text classifications that were identified. The query language introduces a *pattern* concept which allows us to define a context and what we want to capture.
 
+## Overview
+
+... 
+
+## Image processing & OCR
+
+... 
+
 ## Text classification
 The TextAnalyzer component in this solution is able to identify the following types of text out of the box,
 * AmountOrNumber
