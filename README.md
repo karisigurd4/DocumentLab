@@ -78,7 +78,7 @@ Note that no additional configuration is necessarily required for adding these c
 ### Page analysis
 Once the OCR and text classification step of the process is finished, we've got a set of analyzed text and their coordinate positions. The process that comes next is referred to as *Page Analysis* whereupon we take this information and build up a grid datastructure whose cells try to reflect the position of text extracted from the document as accurately as possible. Each cell in the grid is an N-dimensional array where N is the number of text classifications that were found for each text. The grid is essentially a three-dimensional array where the X and Y reflect position and the Z axis the possible matching text classifications.
 
-### Querying the page
+### Interpreter: Querying the page
 #### Page traversal
 Querying the page datastructure described above is made possible by defining a conceptual entity called *Page Traverser*. The page traverser has the following mode of behavior,
 * It can be initialized on any cell in the page
