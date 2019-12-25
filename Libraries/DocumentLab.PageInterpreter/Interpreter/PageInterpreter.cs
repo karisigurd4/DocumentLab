@@ -14,9 +14,6 @@
   using System;
   using System.Collections.Generic;
   using System.Linq;
-  using Antlr4.Runtime;
-  using Microsoft.VisualStudio.TestTools.UITesting;
-  using System.Drawing;
 
   public class PageInterpreter : PageInterpreterBaseVisitor<Symbol>
   {

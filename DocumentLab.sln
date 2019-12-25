@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.Contracts", "Libraries\DocumentLab.Contracts\DocumentLab.Contracts.csproj", "{57BDF394-9BDD-49E8-AE1A-3436F73D1451}"
 EndProject
@@ -157,82 +157,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {701A6698-D495-4C6B-B68A-B0D778ADB656}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 12
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://karisigurd.visualstudio.com/
-		SccProjectUniqueName0 = Libraries\\DocumentLab.Contracts\\DocumentLab.Contracts.csproj
-		SccProjectTopLevelParentUniqueName0 = DocumentLab.sln
-		SccProjectName0 = Libraries/DocumentLab.Contracts
-		SccAuxPath0 = https://karisigurd.visualstudio.com
-		SccLocalPath0 = Libraries\\DocumentLab.Contracts
-		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName1 = Libraries\\DocumentLab.Core\\DocumentLab.Core.csproj
-		SccProjectTopLevelParentUniqueName1 = DocumentLab.sln
-		SccProjectName1 = Libraries/DocumentLab.Core
-		SccAuxPath1 = https://karisigurd.visualstudio.com
-		SccLocalPath1 = Libraries\\DocumentLab.Core
-		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName2 = Libraries\\DocumentLab.ImageProcessing\\DocumentLab.ImageProcessor.csproj
-		SccProjectTopLevelParentUniqueName2 = DocumentLab.sln
-		SccProjectName2 = Libraries/DocumentLab.ImageProcessing
-		SccAuxPath2 = https://karisigurd.visualstudio.com
-		SccLocalPath2 = Libraries\\DocumentLab.ImageProcessing
-		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName3 = Libraries\\DocumentLab.Ocr\\DocumentLab.Ocr.csproj
-		SccProjectTopLevelParentUniqueName3 = DocumentLab.sln
-		SccProjectName3 = Libraries/DocumentLab.Ocr
-		SccAuxPath3 = https://karisigurd.visualstudio.com
-		SccLocalPath3 = Libraries\\DocumentLab.Ocr
-		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName4 = Libraries\\DocumentLab.PageAnalyzer\\DocumentLab.PageAnalyzer.csproj
-		SccProjectTopLevelParentUniqueName4 = DocumentLab.sln
-		SccProjectName4 = Libraries/DocumentLab.PageAnalyzer
-		SccAuxPath4 = https://karisigurd.visualstudio.com
-		SccLocalPath4 = Libraries\\DocumentLab.PageAnalyzer
-		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName5 = Libraries\\DocumentLab.PageInterpreter\\DocumentLab.PageInterpreter.csproj
-		SccProjectTopLevelParentUniqueName5 = DocumentLab.sln
-		SccProjectName5 = Libraries/DocumentLab.PageInterpreter
-		SccAuxPath5 = https://karisigurd.visualstudio.com
-		SccLocalPath5 = Libraries\\DocumentLab.PageInterpreter
-		SccProvider5 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName6 = Libraries\\DocumentLab.TextAnalyzer\\DocumentLab.TextAnalyzer.csproj
-		SccProjectTopLevelParentUniqueName6 = DocumentLab.sln
-		SccProjectName6 = Libraries/DocumentLab.TextAnalyzer
-		SccAuxPath6 = https://karisigurd.visualstudio.com
-		SccLocalPath6 = Libraries\\DocumentLab.TextAnalyzer
-		SccProvider6 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName7 = Test\\DocumentLab.PageAnalyzerUnitTest\\DocumentLab.PageAnalyzerUnitTest.csproj
-		SccProjectTopLevelParentUniqueName7 = DocumentLab.sln
-		SccProjectName7 = Test/DocumentLab.PageAnalyzerUnitTest
-		SccAuxPath7 = https://karisigurd.visualstudio.com
-		SccLocalPath7 = Test\\DocumentLab.PageAnalyzerUnitTest
-		SccProvider7 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName8 = Test\\DocumentLab.PageInterpreterUnitTest\\DocumentLab.PageInterpreterUnitTest.csproj
-		SccProjectTopLevelParentUniqueName8 = DocumentLab.sln
-		SccProjectName8 = Test/DocumentLab.PageInterpreterUnitTest
-		SccAuxPath8 = https://karisigurd.visualstudio.com
-		SccLocalPath8 = Test\\DocumentLab.PageInterpreterUnitTest
-		SccProvider8 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName9 = Test\\DocumentLab.Test\\DocumentLab.Test.csproj
-		SccProjectTopLevelParentUniqueName9 = DocumentLab.sln
-		SccProjectName9 = Test/DocumentLab.Test
-		SccAuxPath9 = https://karisigurd.visualstudio.com
-		SccLocalPath9 = Test\\DocumentLab.Test
-		SccProvider9 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName10 = Test\\DocumentLab.TextAnalyzerUnitTest\\DocumentLab.TextAnalyzerUnitTest.csproj
-		SccProjectTopLevelParentUniqueName10 = DocumentLab.sln
-		SccProjectName10 = Test/DocumentLab.TextAnalyzerUnitTest
-		SccAuxPath10 = https://karisigurd.visualstudio.com
-		SccLocalPath10 = Test\\DocumentLab.TextAnalyzerUnitTest
-		SccProvider10 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName11 = Nuget\\DocumentLab\\DocumentLab.csproj
-		SccProjectTopLevelParentUniqueName11 = DocumentLab.sln
-		SccProjectName11 = Nuget/DocumentLab
-		SccAuxPath11 = https://karisigurd.visualstudio.com
-		SccLocalPath11 = Nuget\\DocumentLab
-		SccProvider11 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 	EndGlobalSection
 EndGlobal
