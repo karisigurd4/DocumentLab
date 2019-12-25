@@ -68,8 +68,11 @@ The library consists of distinct components that play a part in the process. The
 The following sections will explain the parts each component plays more extensively.
 
 ## Image processing & OCR
+Before we perform any actual OCR the bitmap is run through filters and analyzed in order to identify sections in the bitmap which contain cohesive information. The bitmap is split and cropped into several smaller bitmaps of those sections. This allows us to OCR sections in parallel and it appears that the OCR performance is not linear with respect ro image size. This increases performance quite a bit. 
 
-... 
+The OCR processing makes sure to maintain positional information for lines of text that belong together. This information is preserved all throughout and used by the PageAnalyzer when building a grid of the data. 
+
+The OCR is handled by Tesseract and the image processing by Imagemagick and EmguCV.
 
 ## Text classification
 The TextAnalyzer component in this solution is able to identify the following types of text out of the box,
@@ -102,6 +105,8 @@ Note that no additional configuration is necessarily required for adding these c
 
 ### Page analysis
 Once the OCR and text classification step of the process is finished, we've got a set of analyzed text and their coordinate positions. The process that comes next is referred to as *Page Analysis* whereupon we take this information and build up a grid datastructure whose cells try to reflect the position of text extracted from the document as accurately as possible. Each cell in the grid is an N-dimensional array where N is the number of text classifications that were found for each text. The grid is essentially a three-dimensional array where the X and Y reflect position and the Z axis the possible matching text classifications.
+
+Additionally: since we're dealing with images we don't trust the exact pixel positions completely in order to build the grid. So we use a lot of rounding there to begin with. A Page Trimmer component on top of that provides an algorithm to fix any issues that might occur because of rounding. Resulting in a very reliable grid. 
 
 ### Interpreter: Querying the page
 #### Page traversal
