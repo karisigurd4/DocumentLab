@@ -1,5 +1,6 @@
 ﻿{
     "NumberOfThreads": 32,
     "TesseractEnginePoolSize": 10,
-    "ResultChunkSize": 2
+    "ResultChunkSize": 2,
+    "Language": "swe"
 }
