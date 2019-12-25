@@ -5,7 +5,7 @@ One of the goals of the project was to be able to query textual data from images
 
 ## Overview
 
-The basic idea is, you have the following top half of an invoice as an image file,
+The basic idea is, you have the following image of an invoice,
 ![Imgur](https://i.imgur.com/t6KHwN7.png)
 
 The solution performs OCR on the invoice, text analysis and then places that information in a grid that reflects the original image such as the following,
