@@ -5,10 +5,10 @@ One of the goals of the project was to be able to query textual data from images
 
 ## Overview
 
-The basic idea is, imagine you have the following top half of an invoice as an image file,
+The basic idea is, you have the following top half of an invoice as an image file,
 ![Imgur](https://i.imgur.com/t6KHwN7.png)
 
-We'll perform OCR on the invoice, text analysis and then place that information in a grid that reflects the original image such as the following,
+The solution performs OCR on the invoice, text analysis and then places that information in a grid that reflects the original image such as the following,
 ![Imgur](https://imgur.com/xRDr8t3.png)
 
 Let's say we're out to find out the receiver name, normally the structure of how they're presented on an invoice follows a pattern of name -> address -> city -> postal code. We can define a query such as the following,
