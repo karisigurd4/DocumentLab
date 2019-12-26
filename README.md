@@ -52,7 +52,7 @@ Dates: Any [Date];
 Which would result in,
 ```
 ...
-"TotalAmount": { "0": "500.00" },
+"TotalAmount": "500.00",
 "Dates": [
   "2019-12-30",
   "2020-01-10"
