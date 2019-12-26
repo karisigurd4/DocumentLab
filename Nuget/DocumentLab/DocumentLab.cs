@@ -1,18 +1,16 @@
 ﻿namespace DocumentLab
 {
   using System.Drawing;
-  using global::DocumentLab.Contracts.Contracts.PageInterpreter;
-  using global::DocumentLab.Contracts.Enums.Operations;
-  using global::DocumentLab.ImageProcessor.Extensions;
-  using global::DocumentLab.Interfaces;
+  using Contracts.Enums.Operations;
+  using ImageProcessor.Extensions;
+  using Interfaces;
+  using PageInterpreter;
 
   public class DocumentLab : DocumentLabBase, IDocumentLab
   {
-    public DocumentLab() : base()
-    {
-    }
+    public DocumentLab() : base() { }
 
-    public InterpreterResult Interpret(string script, Bitmap bitmap)
+    public string InterpretToJson(string script, Bitmap bitmap)
     {
       var downscaled = imageProcessor.Process(ProcessImageOperation.Downsample, bitmap.ToByteArray(Ocr.Constants.ConvertBetween));
 
@@ -20,7 +18,7 @@
       var page = pageAnalyzer.PerformPageAnalysis(ocrResults);
       var trimmedPage = pageTrimmer.TrimPage(page);
 
-      return interpreter.Interpret(trimmedPage, script);
+      return interpreter.Interpret(trimmedPage, script).ConvertToJson(script);
     }
   }
 }

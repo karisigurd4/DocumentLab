@@ -74,6 +74,7 @@
     <Compile Include="Contracts\PageAnalysis\Page.cs" />
     <Compile Include="Contracts\PageAnalysis\PageUnit.cs" />
     <Compile Include="Contracts\PageAnalysis\PageUnitBoundingBox.cs" />
+    <Compile Include="Contracts\PageInterpreter\AnalyzedQuery.cs" />
     <Compile Include="Contracts\PageInterpreter\AnalyzedTableColumns.cs" />
     <Compile Include="Contracts\PageInterpreter\Coordinate.cs" />
     <Compile Include="Contracts\PageInterpreter\InterpreterResult.cs" />

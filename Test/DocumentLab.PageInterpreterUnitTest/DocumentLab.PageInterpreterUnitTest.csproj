@@ -82,6 +82,9 @@
     <Reference Include="Moq, Version=4.13.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Moq.4.13.0\lib\net45\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -93,11 +96,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterpreterResultConverter_ConvertToJson.cs" />
     <Compile Include="InterpreterTestBase.cs" />
     <Compile Include="Pattern_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query_Tests.cs" />
     <Compile Include="RightDownSearch_Test.cs" />
+    <Compile Include="ScriptAnalyzerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\DocumentLab.Contracts\DocumentLab.Contracts.csproj">

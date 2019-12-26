@@ -10,8 +10,6 @@
 
   public class Interpreter : IInterpreter
   {
-    private string script;
-
     public InterpreterResult Interpret(Page page, string script)
     {
       var patternInterpreterLexer = new PageInterpreterLexer(new AntlrInputStream(script));

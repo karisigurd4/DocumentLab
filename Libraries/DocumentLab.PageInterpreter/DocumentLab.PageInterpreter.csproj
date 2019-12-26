@@ -75,6 +75,9 @@
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -93,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Interpreter.cs" />
+    <Compile Include="Components\InterpreterResultConverter.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DataModel\Symbol.cs" />
     <Compile Include="Enum\SymbolType.cs" />
@@ -105,6 +109,7 @@
     <Compile Include="Interfaces\IInterpreter.cs" />
     <Compile Include="Interfaces\IPageTraverser.cs" />
     <Compile Include="Interpreter\PageInterpreter.cs" />
+    <Compile Include="Interpreter\ScriptAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

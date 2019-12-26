@@ -5,6 +5,6 @@
 
   public interface IDocumentLab
   {
-    InterpreterResult Interpret(string script, Bitmap bitmap);
+    string InterpretToJson(string script, Bitmap bitmap);
   }
 }
