@@ -66,7 +66,7 @@ public class Result
 }
 ```
 
-hen map the object with a Json converter, for instance the following
+Then map the object with a Json converter, for instance the following
 
 ```C#
 var documentLab = new DocumentLab();
