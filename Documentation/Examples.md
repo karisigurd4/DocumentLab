@@ -1,6 +1,6 @@
 # Example
 
-DocumentLab is useful in cases when we have a document available to us only in the form of a static PDF/shoto/scanned and we're only able to access the information in the file as a bitmap. This is the case with a lot of communications formats even still today since digitalization and standardization of these things only go so far when we've got countless of different systems doing the same things.
+DocumentLab is useful in cases when we have a document available to us only in the form of a static PDF/photo/scanned and we're only able to access the information in the file as a bitmap. This is the case with a lot of communications formats even still today since digitalization and standardization of these things only go so far when we've got countless of different systems doing the same things.
 
 For example,
 * Invoices
