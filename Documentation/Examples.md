@@ -9,6 +9,8 @@ For example,
 * Sales reports
 * ... So many things. What can you think of?
 
+The common thing across these kind of documents across a wide domain of origins is not "where things are placed on the page" or in "which order things appear" but actually **contextual** information. For example, receiver information on invoices across 99% of invoices can be defined within a manageable set of patterns. DocumentLab will not care if you pass in an invoice from sender A, B or C even though they may look entirely different each one of them, we only care about matching distinct patterns common across those documents.
+
 The following image is used in this example. 
 
 <img src="https://github.com/karisigurd4/DocumentLab/blob/master/DocumentLabCL/Examples/Example1.png" width="70%" />
