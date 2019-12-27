@@ -8,7 +8,7 @@ One of the goals of the project was to be able to query textual data from images
 
 # Documentation
 * [Examples](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md)
-* [Overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md)
+* [Techical overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md)
   * Image processing & OCR  
   * Text classification
   * Page analysis
