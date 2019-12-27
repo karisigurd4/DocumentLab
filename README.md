@@ -8,7 +8,10 @@ One of the goals of the project was to be able to query textual data from images
 
 # Documentation
 * [Example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md)
-  * [Interface usage in C#](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#interface-usage-in-c#)
+  * [Image](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#image)
+  * [Script](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#script)
+  * [Output](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#output)
+  * [Using the library](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library)
 * [Techical overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md)
   * [Image processing & OCR](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#image-processing-&-ocr)
   * [Text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#text-classification)
