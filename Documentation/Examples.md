@@ -29,7 +29,7 @@ We can solve that by defining the following script, note that // is used for com
 
 ```
 // Start by finding the text "Label1" and then moving right until we capture an email
-// We're expecting the pattern of this information to include the amount in the middle but we don't care about capturing that one
+// We're expecting the pattern to include the amount in the middle but we don't care about capturing that one
 Label1: 
 Text(Label1) Right Amount Right [Email];
 
