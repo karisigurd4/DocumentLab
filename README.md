@@ -1,7 +1,6 @@
-# DocumentLab
-
 [![NuGet version (DocumentLab-x64)](https://img.shields.io/nuget/v/DocumentLab-x64.svg?style=flat-square)](https://www.nuget.org/packages/DocumentLab-x64/1.1.0) ![License)](https://img.shields.io/github/license/karisigurd4/DocumentLab) ![Platform](https://img.shields.io/badge/platform-win--64-green)
 
+# DocumentLab
 
 This is a solution for optical character recognition and information retrieval from documents with textual information. The entire process is implemented so that you only need to specify in terms of *queries* what data you would like to retrieve. You send in a bitmap of a document and a *query script* and the rest is taken care of for you.
 
