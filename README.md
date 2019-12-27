@@ -9,10 +9,10 @@ One of the goals of the project was to be able to query textual data from images
 # Documentation
 * [Examples](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md)
 * [Techical overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md)
-  * Image processing & OCR  
-  * Text classification
-  * Page analysis
-  * Interpreter
-    * Page traversal 
-    * Patterns 
-    * Query language
+  * [Image processing & OCR](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#image-processing-&-ocr)
+  * [Text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#text-classification)
+  * [Page analysis](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#page-analysis)
+  * [Interpreter](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#interpreter)
+    * [Page traversal](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#page-traversal)
+    * [Patterns](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#patterns)
+    * [Query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#query-language)
