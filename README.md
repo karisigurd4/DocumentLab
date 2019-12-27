@@ -1,6 +1,8 @@
+
 [![NuGet version (DocumentLab-x64)](https://img.shields.io/nuget/v/DocumentLab-x64.svg?style=flat-square)](https://www.nuget.org/packages/DocumentLab-x64/1.1.0) ![License)](https://img.shields.io/github/license/karisigurd4/DocumentLab) ![Platform](https://img.shields.io/badge/platform-win--64-green)
 
 # DocumentLab
+Have you ever been told to "just OCR it"?
 
 This is a solution for optical character recognition and information retrieval from documents with textual information. The entire process is implemented so that you only need to specify in terms of *queries* what data you would like to retrieve. You send in a bitmap of a document and a *query script* and the rest is taken care of for you.
 
@@ -9,10 +11,10 @@ One of the goals of the project was to be able to query textual data from images
 ## Overview
 
 The basic idea is, you have the following image of an invoice,
-![Imgur](https://i.imgur.com/t6KHwN7.png)
+<img src="https://i.imgur.com/t6KHwN7.png" width="80%" />
 
 The solution performs OCR on the invoice, text analysis and then places that information in a grid that reflects the original image such as the following,
-![Imgur](https://imgur.com/xRDr8t3.png)
+<img src="https://imgur.com/xRDr8t3.png" width="80%" />
 
 Let's say we're out to find out the receiver name, normally the structure of how they're presented on an invoice follows a pattern of name -> address -> city -> postal code. We can define a query such as the following,
 ```
