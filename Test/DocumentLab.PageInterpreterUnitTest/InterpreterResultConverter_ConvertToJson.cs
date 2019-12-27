@@ -4,7 +4,6 @@
   using DocumentLab.PageInterpreter;
   using Microsoft.VisualStudio.TestTools.UnitTesting;
   using Newtonsoft.Json;
-  using System;
   using System.Collections.Generic;
 
   [TestClass]
@@ -51,7 +50,7 @@
     }
 
     [TestMethod]
-    public void Can_Convert__Single_Multi_Capture()
+    public void Can_Convert_Single_Multi_Capture()
     {
       var fakeResult = new InterpreterResult();
 

@@ -35,7 +35,9 @@
 
       if (args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]))
       {
-        File.WriteAllText(args[2], jsonOut);
+        var jsonOutputPath = args[2];
+
+        File.WriteAllText(jsonOutputPath, jsonOut);
       }
 
       Console.WriteLine(jsonOut);

@@ -46,7 +46,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -116,6 +116,7 @@
     <None Include="nuget.nuspec" />
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
+    <None Include="PublishNuget.ps1" />
     <None Include="tessdata\swe.traineddata">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
