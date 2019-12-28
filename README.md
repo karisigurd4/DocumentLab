@@ -17,8 +17,6 @@ Queries are patterns of information in documents that you want to match. If Docu
   * Query: ```AllAmounts: Any [Amount];```
   * When we use *any*, results are returned in a json array
 
-You send in a bitmap of a document and a *query script* and the rest is taken care of for you. The results are returned in structured json format.
-
 # Download 
 
 * Win64-CLI (1.1.1) - [Download](https://github.com/karisigurd4/DocumentLab/raw/master/bin/DocumentLabCL-Win64.zip)
