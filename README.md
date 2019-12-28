@@ -10,7 +10,7 @@ This is a solution for data extraction from documents. You pass in an bitmap of 
   * Query: ```InvoiceDate: Text(Invoice date) Down [Date];```
 * Want to capture invoice receiver info in one query?
   * Query: ```Receiver: 'Name': [Text] Down 'Address': [StreetAddress] Down 'City': [Town] Down 'PostalCode': [PostalCode];```
-  * Json output will name properties according to the query predicate naming paramters
+  * Json output will name properties according to the query predicate naming parameters
 * You want to capture all amounts in a document?
   * Query: ```AllAmounts: Any [Amount];```
   * When we use *any*, results are returned in a json array
