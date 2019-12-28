@@ -11,6 +11,22 @@ Let's say we're out to find out the receiver name, normally the structure of how
 ReceiverName: PostalCode Up City Up StreetAddress Up [Text];
 ```
 
+# Caching and optimization 
+
+Upon instantiation and first use DocumentLab might take a few seconds more to respond. This is because it needs to allocate resources related to Tesseract. Upon further uses on the same instance, DocumentLab will respond faster. 
+
+DocumentLab provides configuration options for allocation and parallelization of the Tesseract OCR resources in Ocr Configuration.json
+* Tesseract OCR is performed in parallel
+* We have a "pool" of tesseract engines
+  * OCR jobs are batched and assigned to engines in the pool
+  * Each engine can only be used by one thread at a time
+  * Each engine tracks how many threads are waiting for it
+  * When a new OCR request comes in, we assign it to the engine in the pool with the fewest awaiters
+* Configuration options include
+  * Pool size
+  * Thread limit
+  * Batch size
+
 # Components
 
 The library consists of several components that play a part in the process. The following figure represents a high-level view of how they interact and the direction of data throughout them,
