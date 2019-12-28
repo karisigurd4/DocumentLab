@@ -17,6 +17,12 @@ This is a solution for data extraction from documents. You pass in an bitmap of 
 
 You send in a bitmap of a document and a *query script* and the rest is taken care of for you. The results are returned in raw json format.
 
+# Download 
+
+* Win64-CLI (1.1.1) - [Download](https://github.com/karisigurd4/DocumentLab/blob/master/bin/DocumentLabCL-Win64.zip)
+  * Easy to use tool for evaluation or testing scripts
+  * *Arguments: DocumentLabCL.exe "path\Script.txt" "path\Image.png" (optional) "path\Output.json"*
+
 # Documentation
 * [Example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md)
   * [Image](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#image)
