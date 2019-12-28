@@ -1,4 +1,4 @@
-# Overview
+# Technical overview
 
 The basic idea is, you have the following image of an invoice,
 <img src="https://i.imgur.com/t6KHwN7.png" width="80%" />
@@ -6,61 +6,16 @@ The basic idea is, you have the following image of an invoice,
 The solution performs OCR on the invoice, text analysis and then places that information in a grid that reflects the original image such as the following,
 <img src="https://imgur.com/xRDr8t3.png" width="80%" />
 
-Let's say we're out to find out the receiver name, normally the structure of how they're presented on an invoice follows a pattern of name -> address -> city -> postal code. We can define a query such as the following,
+Let's say we're out to find out the receiver name, normally the structure of how they're presented on an invoice follows a pattern of name -> address -> city -> postal code. If we look at just the original invoice, intuitively, it would make sense for us to define a query such as the following,
 ```
 ReceiverName: PostalCode Up City Up StreetAddress Up [Text];
 ```
 
-And then we have an interpreter which can traverse the grid and verify if any actual pattern in the grid matches the pattern we define in our query. The [Text] item in the query indicates this is the one we want to capture, i.e., the receiver name.
+# Components
 
-...or if we want to capture all receiver information in one go,
-```
-Receiver:
-'Name': [Text] Down 'Address': [StreetAddress] Down 'City': [Town] Down 'PostalCode': [PostalCode];
-```
-
-Then we get the following output,
-```
-"Receiver": {
-  "Name": "John Adams",
-  "Address": "SomeStreet 13",
-  "City": "ImagineCity",
-  "PostalCode": "553322"
-}
-```
-
-Or if we want to be able to interpret two distinct types of invoices, one which follows the previous pattern and another which might have a pattern like name -> receiver address -> co address -> city -> postal code. Then we can add a new pattern below the first one like, 
-```
-Receiver:
-'Name': [Text] Down 'Address': [StreetAddress] Down 'City': [Town] Down 'PostalCode': [PostalCode];
-'Name': [Text] Down 'Address': [StreetAddress] Down Address Down 'City': [Town] Down 'PostalCode': [PostalCode];
-```
-
-The priority of which patterns to use if they match anything in the grid is from top to bottom. So if the first one doesn't match, we'd still get a match on the second one for the different type of invoice. Allowing a lot of flexibility for differing document types within one query definition.
-
-We can extend our queries by adding,
-```
-TotalAmount: Text(TotalAmount) [Amount];
-Dates: Any [Date];
-```
-
-Which would result in,
-```
-...
-"TotalAmount": "500.00",
-"Dates": [
-  "2019-12-30",
-  "2020-01-10"
-]
-```
-
-... Just to provide some example
-
-The library consists of distinct components that play a part in the process. The following figure represents a high-level view of how they interact and the direction of data throughout them,
+The library consists of several components that play a part in the process. The following figure represents a high-level view of how they interact and the direction of data throughout them,
 
 ![Imgur](https://i.imgur.com/UiJhaVi.png)
-
-The following sections will explain the parts each component plays more extensively.
 
 ## Image processing & OCR
 Before we perform any actual OCR the bitmap is run through filters and analyzed in order to identify sections in the bitmap which contain cohesive information. The bitmap is split and cropped into several smaller bitmaps of those sections. This allows us to OCR sections in parallel and it appears that the OCR performance is not linear with respect ro image size. This increases performance quite a bit. 
