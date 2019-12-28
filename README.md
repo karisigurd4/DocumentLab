@@ -15,7 +15,7 @@ This is a solution for data extraction from documents. You pass in an bitmap of 
   * Query: ```AllAmounts: Any [Amount];```
   * When we use *any*, results are returned in a json array
 
-You send in a bitmap of a document and a *query script* and the rest is taken care of for you. The results are returned in raw json format.
+You send in a bitmap of a document and a *query script* and the rest is taken care of for you. The results are returned in structured json format.
 
 # Download 
 
