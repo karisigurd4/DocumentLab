@@ -20,9 +20,10 @@ You send in a bitmap of a document and a *query script* and the rest is taken ca
 # Download 
 
 * Win64-CLI (1.1.1) - [Download](https://github.com/karisigurd4/DocumentLab/raw/master/bin/DocumentLabCL-Win64.zip)
-  * Easy to use tool for evaluation or testing scripts
   * *Arguments: DocumentLabCL.exe "path\Script.txt" "path\Image.png" (optional) "path\Output.json"*
-
+  * Easy to use tool for evaluation or testing scripts
+  * See *Examples* folder
+  
 # Documentation
 * [Example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md)
   * [Image](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#image)
