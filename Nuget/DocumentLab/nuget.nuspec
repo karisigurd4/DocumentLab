@@ -2,13 +2,15 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata minClientVersion="4.7.0.0">
     <id>DocumentLab-x64</id>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <title>DocumentLab-x64</title>
     <authors>Kári Sigurðsson</authors>
     <owners>Kári Sigurðsson</owners>
     <copyright>Kári Sigurðsson</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Advanced optical character recognition</description>
+    <projectUrl>https://github.com/karisigurd4/DocumentLab/blob/master/README.md</projectUrl>
+    <license type="expression">GPL3</license>
+    <description>OCR using Tesseract, ImageMagick and EmguCV and an advanced query language. See the GitHub page for language documentation.</description>
     <dependencies>
       <dependency id="Castle.Core" version="4.3.1" />
       <dependency id="Castle.Windsor" version="4.1.0" />
