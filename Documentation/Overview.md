@@ -76,7 +76,7 @@ The TextAnalyzer component in this solution is able to identify the following ty
 * Date
 * Email
 * InvoiceNumber
-* Letter
+* Letters
 * Number
 * PageNumber
 * Percentage
