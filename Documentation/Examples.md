@@ -53,7 +53,7 @@ The following predicates are valid from the text analysis classifications,
 * Date
 * Email
 * InvoiceNumber
-* Letter
+* Letters
 * Number
 * PageNumber
 * Percentage
