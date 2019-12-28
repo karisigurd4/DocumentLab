@@ -31,6 +31,7 @@ Queries are patterns of information in documents that you want to match. If Docu
   * [Output](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#output)
   * [Using the library](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library)
 * [Techical overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md)
+  * [Caching and optimization](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#coaching-and-optimization)
   * [Components](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#components)
     * [Image processing & OCR](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#image-processing-&-ocr)
     * [Text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#text-classification)
