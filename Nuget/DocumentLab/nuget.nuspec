@@ -9,7 +9,7 @@
     <copyright>Kári Sigurðsson</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://github.com/karisigurd4/DocumentLab/blob/master/README.md</projectUrl>
-    <license type="expression">GPL3</license>
+    <license type="expression">GPL-3.0-or-later</license>
     <description>OCR using Tesseract, ImageMagick and EmguCV and an advanced query language. See the GitHub page for language documentation.</description>
     <dependencies>
       <dependency id="Castle.Core" version="4.3.1" />
