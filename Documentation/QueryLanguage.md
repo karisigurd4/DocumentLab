@@ -38,11 +38,13 @@ CustomerNumber: Text(Customer nu) Right [Text]
 ```
 
 When we have invoices from two different senders, the label they use for *Customer Number* might be entirely different, but we want to extract the customer number from both senders without needing to know beforehand which document type we're dealing with, then we can extend the list of text we can match for this pattern with the logical or || operator, let's assume the other sender uses *Cust No* as a label.
+
+We can simplify *Cust No* to *Cust N* för the same durability reason above, 
 ```
-CustomerNumber: Text(Customer nu || Cust no) Right [Text]
+CustomerNumber: Text(Customer nu || Cust n) Right [Text]
 ```
 
-Now we'll be able to match the customer number labels from both document types from the same query. A text match can include as many || operators as necessary to handle the varieties of labels documents might have for the same inforamtion.
+Now we'll be able to match the customer number labels from both document types from the same query. A text match can include as many || operators as necessary to handle the varieties of labels documents might have for the same information.
 
 ## Right-Down search
 
