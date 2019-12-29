@@ -10,6 +10,7 @@ Queries are patterns of information in documents that you want to match. If Docu
   * Match text labels with implicit *starts with* and Levensthein distance 2 comparison
 * Your document has a label "Invoice date" and a date below it
   * Query: ```InvoiceDate: Text(Invoice date) Down [Date];```
+  * You can capture a variety of *text types*. Even if the document contains additional text at the capture you'll only get back a standardized ISO date. 
 * Want to capture invoice receiver info in one query?
   * Query: ```Receiver: 'Name': [Text] Down 'Address': [StreetAddress] Down 'City': [Town] Down 'PostalCode': [PostalCode];```
   * Json output will name properties according to the query predicate naming parameters
