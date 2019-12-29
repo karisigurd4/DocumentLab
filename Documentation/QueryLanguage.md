@@ -1,6 +1,11 @@
 # Query language
 
+DocumentLab takes an image of a document and builds a grid datastructure using the ocr'd text and text classifications. This datastructure can be interacted with via the query language provided in order to extract desired information.
+
+A query is essentially a container for patterns. We declare a query by a name label followed by a colon. 
+
 ## Building patterns
+
 
 ### Priority
 Each query in a script can include many patterns. DocumentLab will try the patterns for each query in sequential order until one yields a successful match.
