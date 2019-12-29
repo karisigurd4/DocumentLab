@@ -39,7 +39,7 @@ CustomerNumber: Text(Customer nu) Right [Text]
 
 When we have invoices from two different senders, the label they use for *Customer Number* might be entirely different, but we want to extract the customer number from both senders without needing to know beforehand which document type we're dealing with, then we can extend the list of text we can match for this pattern with the logical or || operator, let's assume the other sender uses *Cust No* as a label.
 
-We can simplify *Cust No* to *Cust N* för the same durability reason above, 
+We can simplify *Cust No* to *Cust N* for the same durability reason above, 
 ```
 CustomerNumber: Text(Customer nu || Cust n) Right [Text]
 ```
