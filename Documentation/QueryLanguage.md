@@ -3,8 +3,6 @@
 ## Building patterns
 
 ### Priority
-For one query script to be able to extract information from a variety of documents of the same type but with different structures a single pattern might not be sufficient.
-
 Each query in a script can include many patterns. DocumentLab will try the patterns for each query in sequential order until one yields a successful match.
 
 Let's say we have the following query to extract customer numbers from invoices,
