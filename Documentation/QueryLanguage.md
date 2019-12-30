@@ -5,7 +5,7 @@ DocumentLab takes an image of a document and builds a grid datastructure using t
 A query is essentially a container for patterns. We declare a query by a name label followed by a colon. 
 
 ## Building patterns
-Building DocumentLab patterns is intended to be as intuitive as reading over the information in a document. It is analogous to how we interpret the information from an invoice. When we want to find an invoice number or a customer number in an invoice, how do we do it? We start by finding a label correlative to the information we want to find and then we find the value in some direction next to it, same intuitive process occurs when we want to find the receiver information, it follows a pattern of information and direction to follow that we're familiar with. The patterns we define in DocumentLab follow the same logic.
+Building DocumentLab patterns is intended to be as intuitive as reading over the information in a document. It provides a method analogous to how we interpret the information from a document using human intuition. When we want to find an invoice number or a customer number in an invoice, how do we do it? We start by finding a label correlative to the information we want to find and then we find the value in some direction next to it, same intuitive process occurs when we want to find the receiver information, it follows a pattern of information and direction to follow that we're familiar with. The patterns we define in DocumentLab follow the same logic.
 
 We tell DocumentLab to match patterns by indicating what data is inclusive in the pattern, it may look like,
 ```
