@@ -25,6 +25,32 @@ In *Data\Configuration\OCR Configuration.json* we have a number of configuration
 
 ## Language configuration
 
+To set the language used by Tesseract OCR, you can adjust the parameter named **Language** in *Data\Configuration\OCR Configuration.json*
+
+* It requires a corresponding *.traineddata* file under the *tessdata* directory
+* The **Language** parameter should correspond to the file name without the post-fix file type
+* See [Tesseract-OCR traineddata downloads page](https://github.com/tesseract-ocr/tessdata) for prepared trained language files
+
+DocumentLab comes packaged with country specific configuration files by default, the following files under *Data\Context* are specifically for documents originating from Swedish/Nordic countries, 
+
+* PostalCode.txt
+* StreetAddress.txt
+* Town.txt
+
+These files contain information separated by newline. These files are used during the [text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#text-classification) process. 
+
+By using these kind of files we can let DocumentLab know what a StreetAddress is as opposed to just *Some piece of text*. This is especially useful to expand the context we can specify when we write patterns for our queries. It is way more specific to be able to say capture the [StreetAddress] instead of capture the [Text] which might result in more faulty results.
+
+The default provided files specified above can be deleted from the context folder if they're not going to be used without issue.
+
+### Adding contextual information files
+
+If you need DocumentLab to understand custom contextual inforamtion you can achieve that by providing your own newline separated text files in the *context* folder. These files are loaded dynamically upon DocumentLab startup and you should be able to use them directly without further configuration. 
+
+*Note:* There is a configuration parameter specifically intended for configuring street address information files in *Data\Configuration\FromFileConfiguration.json*. There aren't further configuration options available for dynamically loaded contextual files at the moment. 
+
 ## Image analysis optimization
+
+
 
 ## Text analysis optimization
