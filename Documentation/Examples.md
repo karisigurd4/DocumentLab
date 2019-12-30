@@ -119,7 +119,7 @@ string script = @"
   Label2: 
   Text Right [WebAddress];
 
-  // Specify a pattern with named captures, result will be a json object 
+  // Specify a pattern with named captures, result will be a json object  
   LastColumn: 
   'EmailAddress': [Email] Down 'WebAddress': [WebAddress] Down 'Number': [Number] Down 'Text': [Text];
 
