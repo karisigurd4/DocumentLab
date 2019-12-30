@@ -19,6 +19,14 @@ Depending on the situation, if we want to capture more information from the same
 SomePattern: Date Down Number Down [Amount] Down [Text];
 ```
 
+Sometimes it is desirable to offload analysis of information to the host program which calls DocumentLab, for example when we have an invoice and we're out to find the total due amount. Then searching for a label -> value approach might be insufficiently reliable enough to always find a correct match, or perhaps we'd like to provide a user with a drop-down of all amounts in an invoice so that manual input can be made easier, in that case we can use the *Any* operator in a pattern,
+
+```
+AllAmounts: Any [Amount];
+```
+
+The output json result will contain an array named *'AllAmounts'* that contains every amount identified in the document. This is similarly useful for the *Date* text type when we want to find for example the *due* and *issued* dates of an invoice.
+
 ### Priority
 Each query in a script can include many patterns. DocumentLab will try the patterns for each query in sequential order until one yields a successful match.
 
