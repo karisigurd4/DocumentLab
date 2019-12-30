@@ -31,11 +31,11 @@ Queries are patterns of information in documents that you want to match. If Docu
   * [Script](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#script)
   * [Output](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#output)
   * [Using the library](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library)
-* Query language
-  * Building patterns
-    * Priority
-  * Text matching
-  * Right-Down search
+* [Query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md)
+  * [Building patterns](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns)
+    * [Priority](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#priority)
+  * [Text matching](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#text-matching)
+  * [Right-Down search](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#right-down-search)
   * Extracting table data
   * Query a subset of the page
 * [Techical overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md)
