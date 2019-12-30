@@ -4,7 +4,7 @@ DocumentLab provides a number of configuration parameters, some more interesting
 
 ## Host system resource optimization
 
-The actual OCR process in DocumentLab is optimized for parallel processing, the following diagram represents the conceptual implementation of the load-balancing and parallelization. It's not necessarily a 1-1 representation of the implementation but it suffices to show the steps taken to distribute the load appropriately,
+The OCR step in DocumentLab is optimized for parallel processing, the following diagram represents the conceptual implementation of the load-balancing and parallelization. It's not necessarily a 1-1 representation of the implementation but it suffices to show the steps taken to distribute the load appropriately,
 
 ![TesseractPoolDiagram](https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/TesseractPoolDiagram.png)
 
