@@ -38,6 +38,11 @@ Queries are patterns of information in documents that you want to match. If Docu
   * [Right-Down search](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#right-down-search)
   * Extracting table data (soon)
   * Query a subset of the page (soon)
+* Configuration
+  * Host system resource optimization 
+  * Language configuration
+  * Image analysis optimization
+  * Text analysis optimization
 * [Techical overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md)
   * [Caching and optimization](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#coaching-and-optimization)
   * [Components](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#components)
