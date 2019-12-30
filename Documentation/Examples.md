@@ -109,7 +109,7 @@ We can then map the output json result to a C# object with a Json converter, for
 string imagePath = "Examples\Example1.png";
 
 string script = @"
-  // Start by finding the text "Label1" and then moving right until we capture an email
+  // Start by finding the text "Label1" and then moving right until we capture an email 
   // We're expecting the pattern to include the amount in the middle but we don't care about capturing that one
   Label1: 
   Text(Label1) Right Amount Right [Email];
