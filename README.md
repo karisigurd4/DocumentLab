@@ -40,7 +40,8 @@ Queries are patterns of information in documents that you want to match. If Docu
   * Query a subset of the page (soon)
 * [Configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md)
   * [Host system resource optimization](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#host-system-resource-optimization) 
-  * Language configuration
+  * [Language configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#language-configuration)
+    * [Adding contextual information files](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#adding-contextual-information-files)
   * Image analysis optimization
   * Text analysis optimization
 * [Techical overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md)
