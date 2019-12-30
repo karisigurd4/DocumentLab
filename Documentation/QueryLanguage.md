@@ -66,7 +66,7 @@ Now we'll be able to match the customer number labels from both document types f
 ## Right-Down search
 Right-Down search is specifically intended for the *find a label and then a value below or to the right of the label*
 
-In the priority example above, we explored the possibility to extend queries with more pattersn in order to solve the situation when a customer number may be on the right of a label in some cases and below a label in other cases. DocumentLab provides another operation specifically for this situation referred to as Right-Down search. 
+In the [priority](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#priority) example above, we explored the possibility to extend queries with more patterns in order to solve the situation when a customer number may be on the right of a label in some cases and below a label in other cases. DocumentLab provides another operation specifically for this situation referred to as Right-Down search. 
 
 A Right-Down search pattern can be expressed with the following syntax
 ```
