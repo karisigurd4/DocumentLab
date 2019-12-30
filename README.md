@@ -30,7 +30,7 @@ Queries are patterns of information in documents that you want to match. If Docu
   * [Image](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#image)
   * [Script](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#script)
   * [Output](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#output)
-  * [Using the library](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library)
+  * [Using the library (C# example)](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library)
 * [Query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md)
   * [Building patterns](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns)
     * [Priority](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#priority)
