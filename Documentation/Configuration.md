@@ -45,7 +45,7 @@ The default provided files specified above can be deleted from the context folde
 
 ### Adding contextual information files
 
-If you need DocumentLab to understand custom contextual inforamtion you can achieve that by providing your own newline separated text files in the *context* folder. These files are loaded dynamically upon DocumentLab startup and you should be able to use them directly without further configuration. 
+If you need DocumentLab to understand custom contextual information you can achieve that by providing your own newline separated text files in the *context* folder. These files are loaded dynamically upon DocumentLab startup and you should be able to use them directly without further configuration. 
 
 *Note:* There is a configuration parameter specifically intended for configuring street address information files in *Data\Configuration\FromFileConfiguration.json*. There aren't further configuration options available for dynamically loaded contextual files at the moment. 
 
