@@ -47,7 +47,6 @@ Depending on your image source, you may want to upsample low dpi images to a ran
   * [Language configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#language-configuration)
     * [Adding contextual information files](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#adding-contextual-information-files)
   * Image analysis optimization
-  * Text analysis optimization
 * [Techical overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md)
   * [Caching and optimization](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#coaching-and-optimization)
   * [Components](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#components)
