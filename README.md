@@ -26,7 +26,9 @@ Queries are patterns of information in documents that you want to match. If Docu
   * See *Examples* folder
   
 # Documentation
-The case with any OCR process is that the quality of the output depends entirely on the quality of source image you pass into it. If the original image quality is very low then you can expect very low quality OCR results.
+The case with any OCR process is that the quality of the output depends entirely on the quality of source image you pass into it. If the original image quality is very low then you can expect very low quality OCR results. 
+
+Depending on your image source, you may want to upsample low dpi images to a range between 220 - 300. This often also becomes a question of quality vs. time in terms of execution time and should be adjusted to your requirements.
 
 * [Example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md)
   * [Image](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#image)
