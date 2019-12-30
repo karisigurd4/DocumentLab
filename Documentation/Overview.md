@@ -11,6 +11,8 @@ Let's say we're out to find out the receiver name, normally the structure of how
 ReceiverName: PostalCode Up City Up StreetAddress Up [Text];
 ```
 
+DocumentLab implements a process making this a possibility. This section provides more of a technical overview of the components that participate in the process. 
+
 # Caching and optimization 
 
 Upon instantiation and first use DocumentLab might take a few seconds more to respond. This is because it needs to allocate resources related to Tesseract. Upon further uses on the same instance, DocumentLab will respond faster. 
