@@ -5,7 +5,19 @@ DocumentLab takes an image of a document and builds a grid datastructure using t
 A query is essentially a container for patterns. We declare a query by a name label followed by a colon. 
 
 ## Building patterns
+Building DocumentLab patterns is intended to be as intuitive as reading over the information in a document. It is analogous to how we interpret the information from an invoice. When we want to find an invoice number or a customer number in an invoice, how do we do it? We start by finding a label correlative to the information we want to find and then we find the value in some direction next to it, same intuitive process occurs when we want to find the receiver information, it follows a pattern of information and direction to follow that we're familiar with. The patterns we define in DocumentLab follow the same logic.
 
+We tell DocumentLab to match patterns by indicating what data is inclusive in the pattern, it may look like,
+```
+SomePattern: Date Down Number Down Amount Down [Text];
+```
+
+In the pattern above, we're telling DocumentLab that there's a section of information in a document where we expect to find a date followed by a number below followed by an amount below followed by a piece of text that we want to capture using the square bracket notation around the text type.
+
+Depending on the situation, if we want to capture more information from the same pattern, we can put square brackets around any text type to include it in the json output, 
+```
+SomePattern: Date Down Number Down [Amount] Down [Text];
+```
 
 ### Priority
 Each query in a script can include many patterns. DocumentLab will try the patterns for each query in sequential order until one yields a successful match.
