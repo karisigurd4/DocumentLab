@@ -50,9 +50,3 @@ If you need DocumentLab to understand custom contextual information you can achi
 When DocumentLab starts, it loads the contents of these files into memory. It uses a binary search algorithm that allows a certain degree of fuzzy-matching. Search time is O(log n) so the files can contain quite a lot of information before performance becomes an issue.
 
 *Note:* There is a configuration parameter specifically intended for configuring street address information files in *Data\Configuration\FromFileConfiguration.json*. There aren't further configuration options available for dynamically loaded contextual files at the moment. 
-
-## Image analysis optimization
-
-
-
-## Text analysis optimization
