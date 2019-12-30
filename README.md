@@ -36,8 +36,8 @@ Queries are patterns of information in documents that you want to match. If Docu
     * [Priority](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#priority)
   * [Text matching](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#text-matching)
   * [Right-Down search](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#right-down-search)
-  * Extracting table data
-  * Query a subset of the page
+  * Extracting table data (soon)
+  * Query a subset of the page (soon)
 * [Techical overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md)
   * [Caching and optimization](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#coaching-and-optimization)
   * [Components](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#components)
