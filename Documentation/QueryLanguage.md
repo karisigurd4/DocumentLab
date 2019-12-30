@@ -35,7 +35,7 @@ Let's say we have the following query to extract customer numbers from invoices,
 CustomerNumber: Text(Customer number) Right [Text];
 ```
 
-Then we have an invoice from another sender which has different placement of elements, the customer number might be below a *Customer Number* label, then we can extend the query with another pattern,
+Then we have an invoice from another sender which has different placement of elements, the customer number might be below a *Customer Number* label instead of to the right of it, then we can extend the query with another pattern,
 ```
 CustomerNumber: 
 Text(Customer number) Right [Text];
