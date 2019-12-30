@@ -39,7 +39,7 @@ Queries are patterns of information in documents that you want to match. If Docu
   * Extracting table data (soon)
   * Query a subset of the page (soon)
 * Configuration
-  * Host system resource optimization 
+  * [Host system resource optimization](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#host-system-resource-optimization) 
   * Language configuration
   * Image analysis optimization
   * Text analysis optimization
