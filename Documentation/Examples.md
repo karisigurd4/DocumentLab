@@ -128,7 +128,7 @@ string script = @"
   Any [Date];
 ";
 
-// Instantiate a DocumentLab instance awailable from Nuget
+// Instantiate DocumentLab 
 var documentLab = new DocumentLab();
 
 // Pass in our script as a string and the document image as a bitmap, we can use System.Drawing to handle file loading
