@@ -26,6 +26,8 @@ Queries are patterns of information in documents that you want to match. If Docu
   * See *Examples* folder
   
 # Documentation
+The case with any OCR process is that the quality of the output depends entirely on the quality of source image you pass into it. If the original image quality is very low then you can expect very low quality OCR results.
+
 * [Example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md)
   * [Image](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#image)
   * [Script](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#script)
