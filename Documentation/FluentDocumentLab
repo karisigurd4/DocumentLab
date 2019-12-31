@@ -1,6 +1,6 @@
 # Fluent C# interface to DocumentLab
 
-(Soon in v1.2) 
+N. (Soon in v1.2) 
 
 An alternative to writing scripts via the query language. The library contains a fluent interface that makes it easier to get up and running quickly. 
 
@@ -24,4 +24,4 @@ using (var dl = new FluentDocumentLab(documentImage))
 
   var dates = dl.GetAny<DateTime>(TextType.Date);
 }
-```
+``` 
