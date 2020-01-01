@@ -105,26 +105,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DocumentLab.cs" />
-    <Compile Include="DocumentLabBase.cs" />
+    <Compile Include="Components\Document.cs" />
+    <Compile Include="Components\DocumentLab.cs" />
+    <Compile Include="Components\DocumentLabBase.cs" />
+    <Compile Include="Infrastructure\DocumentLabInstaller.cs" />
+    <Compile Include="Interfaces\IDocument.cs" />
     <Compile Include="Interfaces\IDocumentLab.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="BuildNuget.ps1" />
+    <None Include="Scripts\BuildNuget.ps1" />
     <None Include="nuget.nuspec" />
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
-    <None Include="PublishNuget.ps1" />
     <None Include="tessdata\swe.traineddata">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Install.ps1">
+    <None Include="Scripts\Install.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DocumentLab.FluentQuery\DocumentLab.FluentQuery.csproj">
+      <Project>{55f25b67-d183-46f7-8489-fc096b82e86b}</Project>
+      <Name>DocumentLab.FluentQuery</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Libraries\DocumentLab.Contracts\DocumentLab.Contracts.csproj">
       <Project>{57bdf394-9bdd-49e8-ae1a-3436f73d1451}</Project>
       <Name>DocumentLab.Contracts</Name>

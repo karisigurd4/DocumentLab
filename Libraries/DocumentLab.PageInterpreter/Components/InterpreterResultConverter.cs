@@ -2,8 +2,8 @@
 {
   using Antlr4.Runtime;
   using DocumentLab.Contracts.Contracts.PageInterpreter;
-    using DocumentLab.PageInterpreter.Components;
-    using DocumentLab.PageInterpreter.Grammar;
+  using DocumentLab.PageInterpreter.Components;
+  using DocumentLab.PageInterpreter.Grammar;
   using DocumentLab.PageInterpreter.Interpreter;
   using Newtonsoft.Json;
   using System.Collections.Generic;

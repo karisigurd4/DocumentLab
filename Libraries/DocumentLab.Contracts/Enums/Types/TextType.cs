@@ -1,20 +1,17 @@
-﻿namespace DocumentLab.Contracts.Enums.Types
+﻿namespace DocumentLab
 {
   public enum TextType
   {
     AmountOrNumber,
-    InvoiceNumber,
-    Number,
+    Amount,
     Date,
     Email,
-    WebAddress,
-    PageNumber,
-    Text,
+    InvoiceNumber,
     Letters,
-    Amount,
-    OrgNumber,
-    PhoneNumber,
-    Empty,
-    Percentage
+    Number,
+    PageNumber,
+    Percentage,
+    Text,
+    WebAddress
   }
 }

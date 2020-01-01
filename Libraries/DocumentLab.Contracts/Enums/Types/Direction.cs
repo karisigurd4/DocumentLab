@@ -1,4 +1,4 @@
-﻿namespace DocumentLab.Contracts.Enums.Types
+﻿namespace DocumentLab
 {
   public enum Direction
   {

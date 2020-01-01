@@ -117,8 +117,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interpret_FromFile.cs" />
+    <Compile Include="InterpretToJson_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FluentQuery_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -129,6 +130,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DocumentLab.FluentQuery\DocumentLab.FluentQuery.csproj">
+      <Project>{55F25B67-D183-46F7-8489-FC096B82E86B}</Project>
+      <Name>DocumentLab.FluentQuery</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Libraries\DocumentLab.Contracts\DocumentLab.Contracts.csproj">
       <Project>{57bdf394-9bdd-49e8-ae1a-3436f73d1451}</Project>
       <Name>DocumentLab.Contracts</Name>
@@ -165,6 +170,11 @@
       <Project>{2e423f58-1944-49b8-b84f-f8c982424577}</Project>
       <Name>DocumentLab</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Example1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

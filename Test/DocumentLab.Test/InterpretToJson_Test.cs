@@ -5,7 +5,7 @@
   using PdfiumViewer;
 
   [TestClass]
-  public class Interpret_FromFile
+  public class InterpretToJson_Test
   {
     [TestMethod]
     public void Can_Interpret_FromFile()
