@@ -1,9 +1,8 @@
 ﻿namespace DocumentLab
 {
-  using Contracts.Enums.Types;
   using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using PageInterpreter;
+  using Newtonsoft.Json.Linq;
+  using PageInterpreter;
   using System.Collections.Generic;
   using System.Linq;
 
@@ -83,12 +82,50 @@
     }
 
     /// <summary>
+    /// At the end of a query, calling this method performs a capture operation on the document using the specified text type as a match predicate. The value returned is the value that corresponds to the pattern on the document.
+    /// </summary>
+    /// <param name="captureTextType">The text type predicate the capture must match for a result to be considered valid</param>
+    /// <returns>Value extracted from document.</returns>
+    public static string CaptureSingle(this FluentQuery response, TextType captureTextType)
+    {
+      response.QueryType = queryTypeProgression[response.QueryType];
+
+      if (response.QueryType != QueryType.SingleCapture)
+      {
+        throw new FluentQueryException("The specified pattern has another capture already. CaptureSingle executes the current query but can only return a single value.");
+      }
+
+      response.AppendToScript($"[{captureTextType.ToString()}]");
+
+      return ExecuteSingleCapture(response);
+    }
+
+    /// <summary>
+    /// At the end of a query, calling this method performs a capture operation on the document using the specified text type as a match predicate. The value returned is the value that corresponds to the pattern on the document.
+    /// </summary>
+    /// <param name="captureTextType">The text type predicate the capture must match for a result to be considered valid</param>
+    /// <returns>Value extracted from document.</returns>
+    public static string CaptureSingle(this FluentQuery response, string captureTextType)
+    {
+      response.QueryType = queryTypeProgression[response.QueryType];
+
+      if (response.QueryType != QueryType.SingleCapture)
+      {
+        throw new FluentQueryException("The specified pattern has another capture already. CaptureSingle executes the current query but can only return a single value.");
+      }
+
+      response.AppendToScript($"[{captureTextType}]");
+
+      return ExecuteSingleCapture(response);
+    }
+
+    /// <summary>
     /// Captures the value of the text matched in the document and includes it in the extracted output.
     /// </summary>
     /// <param name="captureTextType">The text type we want to capture in the document. In a pattern the text type specified in a pattern must yield a positive match in order for the capture to be valid.</param>
     /// <param name="propertyName">*Optional* Specify a name for the property associated with the capture. This is only applicable for multi-capture patterns.</param>
     /// <returns>Returns a DocumentLab FluentQuery with a script extension that performs the capture.</returns>
-    public static FluentQuery Capture(this FluentQuery response, TextType captureTextType, string propertyName = "")
+    public static FluentQuery MultiCapture(this FluentQuery response, TextType captureTextType, string propertyName = "")
     {
       response.QueryType = queryTypeProgression[response.QueryType];
 
@@ -106,7 +143,7 @@
     /// <param name="captureTextType">The text type we want to capture in the document. In a pattern the text type specified in a pattern must yield a positive match in order for the capture to be valid.</param>
     /// <param name="propertyName">*Optional* Specify a name for the property associated with the capture. This is only applicable for multi-capture patterns.</param>
     /// <returns>Returns a DocumentLab FluentQuery with a script extension that performs the capture.</returns>
-    public static FluentQuery Capture(this FluentQuery response, string captureTextType, string propertyName = "")
+    public static FluentQuery MultiCapture(this FluentQuery response, string captureTextType, string propertyName = "")
     {
       response.QueryType = queryTypeProgression[response.QueryType];
 

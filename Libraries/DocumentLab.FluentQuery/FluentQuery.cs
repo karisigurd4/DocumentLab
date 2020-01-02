@@ -6,8 +6,15 @@
   public class FluentQuery
   {
     public string Script { get; set; }
-    public Page AnalyzedPage { get; set; }
-    public IInterpreter Interpreter { get; set; }
-    public QueryType QueryType { get; set; } = QueryType.None;
+    
+    public FluentQuery(Page analyzedPage, IInterpreter interpreter)
+    {
+      this.AnalyzedPage = analyzedPage;
+      this.Interpreter = interpreter;
+    }
+
+    internal Page AnalyzedPage { get; set; }
+    internal IInterpreter Interpreter { get; set; }
+    internal QueryType QueryType { get; set; } = QueryType.None;
   }
 }

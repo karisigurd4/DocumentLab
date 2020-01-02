@@ -65,6 +65,10 @@
       <Project>{55f25b67-d183-46f7-8489-fc096b82e86b}</Project>
       <Name>DocumentLab.FluentQuery</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\DocumentLab.PageInterpreter\DocumentLab.PageInterpreter.csproj">
+      <Project>{4A714576-905E-43D2-8347-95190490FE60}</Project>
+      <Name>DocumentLab.PageInterpreter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

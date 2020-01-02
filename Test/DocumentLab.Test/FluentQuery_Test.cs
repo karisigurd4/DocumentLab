@@ -19,8 +19,7 @@
           .Down()
           .Match("Number")
           .Down()
-          .Capture("Text")
-          .ExecuteSingleCapture();
+          .CaptureSingle("Text");
 
         Assert.AreEqual("Example", result);
       }
@@ -33,13 +32,13 @@
       {
         var result = document
           .Query()
-          .Capture("Email", "Email")
+          .MultiCapture("Email", "Email")
           .Down()
-          .Capture("WebAddress", "WebAddress")
+          .MultiCapture("WebAddress", "WebAddress")
           .Down()
-          .Capture("Number", "Number")
+          .MultiCapture("Number", "Number")
           .Down()
-          .Capture("Text", "Text")
+          .MultiCapture("Text", "Text")
           .ExecuteMultiCapture();
 
         Assert.IsTrue(result.ContainsKey("Email"));

@@ -1,6 +1,7 @@
 ﻿namespace DocumentLab.FluentQueryTest
 {
-  using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using DocumentLab.PageInterpreter.Components;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
   [TestClass]
   public class PatternTest
@@ -10,7 +11,10 @@
     {
       var expected = " Text(MatchThis) Down Date Right Town Up Text Left [Number]";
 
-      var query = new FluentQuery()
+      var query = new FluentQuery(new Contracts.Page(), new Interpreter())
+      { 
+        Script = ""
+      }
         .Match("Text", "MatchThis")
         .Down()
         .Match("Date")
@@ -19,7 +23,7 @@
         .Up()
         .Match("Text")
         .Left()
-        .Capture("Number");
+        .MultiCapture("Number");
 
       Assert.AreEqual(expected, query.Script);
     }
