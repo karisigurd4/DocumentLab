@@ -1,5 +1,11 @@
 # Configuration 
 
+**Note**: DocumentLab is only built for x64. 
+
+1. Right click your C# project -> Properties -> Build -> Platform target -> **set to x64**
+2. Click the solution platform dropdown (Any CPU) -> Configuration Manager -> Active solution platform -> New -> Platform -> x64 -> Click ok
+3. Make sure the selected solution platform is x64 and not Any CPU
+
 DocumentLab provides a number of configuration parameters, some more interesting than others. This section explains the most interesting parameters that are configurable.
 
 ## Host system resource optimization

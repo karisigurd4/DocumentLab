@@ -1,27 +1,50 @@
 # Fluent C# interface to DocumentLab
 
-N. (Soon in v1.2) 
+If scripts aren't your thing and you'd prefer to use a C# interface to DocumentLab when extracting data from document images you can use the fluent query extensions. 
 
-An alternative to writing scripts via the query language. The library contains a fluent interface that makes it easier to get up and running quickly. 
+Data is always returned contained in a string object. It is up to the caller to do any necessary type conversions.
 
+**Header**
 ```C#
-using (var dl = new FluentDocumentLab(documentImage))
+using DocumentLab;
+using System.Drawing;
+```
+
+**Implementation**
+```C#
+using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
 {
-  var customerNumber = dl.GetValueForLabel<string>("Customer number", Direction.Right);
+  // We know our document has the customer number to the right of the label, we can be very specific
+  string customerNumber = dl.GetValueForLabel("Customer number", Direction.Right);
 
-  var invoiceNumber = dl.FindValueForLabel<string>("Invoice number");
+  // We can ask DocumentLab to find the closest to the label. The text type of the value to match is by default "Text".
+  string invoiceNumber = dl.FindValueForLabel("Invoice number");
 
-  var dueDate = dl.FindValueForLabel<DateTime>("Due date");
+  // Here we ask DocumentLab to specifically find a date value for the specified label
+  string dueDate = dl.FindValueForLabel("Due date", TextType.Date);
 
-  var receiverName = dl
-    .Capture(TextType.Text)
-    .Down()
-    .Match("StreetAddress")
-    .Down()
+  // We can build patterns using predicates, directions and capture operations that return the value matched in the document
+  string receiverName = dl
+    .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contexgtual data files aren't statically defined'
+    .Up()
     .Match("Town")
-    .Down()
-    .Match("PostCode");
+    .Up()
+    .Match("StreetAddress")
+    .Up()
+    .CaptureSingle(TextType.Text)
 
-  var dates = dl.GetAny<DateTime>(TextType.Date);
+  // We can build patterns that yield multiple results, the results need to be named and the response is a Dictionary<string, string>
+  Dictionary<string, string> receiverInformation = dl
+    .MultiCapture("PostCode")
+    .Up()
+    .MultiCapture("Town")
+    .Up()
+    .MultiCapture("StreetAddress")
+    .Up()
+    .MultiCapture("TextType.Text")
+    .ExecuteMultiCapture(); // This method executes the query built up so far and returns the dictionary response.
+
+  // We can ask for all dates in a document by using the GetAny method
+  string[] dates = dl.GetAny(TextType.Date);
 }
 ``` 

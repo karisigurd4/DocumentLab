@@ -44,6 +44,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.FluentQuery", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.FluentQueryTest", "Test\DocumentLab.FluentQueryTest\DocumentLab.FluentQueryTest.csproj", "{8527FFCA-3077-4659-9F4D-22A730C67678}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{FFEEB9F7-26E7-428F-89FD-D19B1DE79C8F}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Configuration.md = Documentation\Configuration.md
+		Documentation\Examples.md = Documentation\Examples.md
+		Documentation\FluentDocumentLab.md = Documentation\FluentDocumentLab.md
+		Documentation\Overview.md = Documentation\Overview.md
+		Documentation\QueryLanguage.md = Documentation\QueryLanguage.md
+		README.md = README.md
+		Documentation\TesseractPoolDiagram.png = Documentation\TesseractPoolDiagram.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

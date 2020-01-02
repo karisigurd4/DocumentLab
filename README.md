@@ -4,7 +4,25 @@
 # DocumentLab
 This is a solution for data extraction from documents. You pass in an bitmap of a document and a set of queries and you get back your extracted data in structured json. 
 
-Queries are patterns of information in documents that you want to match. If DocumentLab can find a match, you can capture any data from a pattern. The queries look like the following,
+Queries are patterns of information in documents that you want to match. If DocumentLab can find a match, you can capture any data from a pattern. You can write scripts in the query language or use the C# api.
+
+**C# API**
+```C#
+using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
+{
+  // Here we ask DocumentLab to specifically find a date value for the specified label
+  string dueDate = dl.FindValueForLabel("Due date", TextType.Date);
+
+    // We can build patterns using predicates, directions and capture operations that return the value matched in the document
+  string receiverName = dl
+    .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contexgtual data files aren't statically defined'
+    .Up()
+    .Match("Town")
+    ...
+    .CaptureSingle(TextType.Text)
+```
+
+**Script example**
 * Your document has a label "Customer number:" and a value to the right of it
   * Query: ```CustomerNumber: Text(Customer number) Right [Text];```
   * Match text labels with implicit *starts with* and Levensthein distance 2 comparison
@@ -35,6 +53,7 @@ Depending on your image source, you may want to upsample low dpi images to a ran
   * [Script](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#script)
   * [Output](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#output)
   * [Using the library (C# example)](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library)
+* [C# Fluent API]((https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#FluentDocumentLab)
 * [Query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md)
   * [Building patterns](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns)
     * [Priority](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#priority)
