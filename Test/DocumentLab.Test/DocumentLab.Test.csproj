@@ -5,12 +5,6 @@
   <Import Project="..\..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props" Condition="Exists('..\..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props')" />
   <Import Project="..\..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.props')" />
   <Import Project="..\..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
-  <Import Project="..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
-  <Import Project="..\packages\EmguCV.3.1.0.1\build\EmguCV.props" Condition="Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.props')" />
-  <Import Project="..\packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.v8-xfa.props" Condition="Exists('..\packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.v8-xfa.props')" />
-  <Import Project="..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props" Condition="Exists('..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props')" />
-  <Import Project="..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -130,9 +124,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DocumentLab.FluentQuery\DocumentLab.FluentQuery.csproj">
-      <Project>{55F25B67-D183-46F7-8489-FC096B82E86B}</Project>
-      <Name>DocumentLab.FluentQuery</Name>
+    <ProjectReference Include="..\..\Applications\DocumentLab\DocumentLab.csproj">
+      <Project>{2e423f58-1944-49b8-b84f-f8c982424577}</Project>
+      <Name>DocumentLab</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Libraries\DocumentLab.Contracts\DocumentLab.Contracts.csproj">
       <Project>{57bdf394-9bdd-49e8-ae1a-3436f73d1451}</Project>
@@ -142,6 +136,10 @@
       <Project>{a82eb56d-ea9c-4e0b-b411-e8e8bb16fab9}</Project>
       <Name>DocumentLab.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\DocumentLab.FluentQuery\DocumentLab.FluentQuery.csproj">
+      <Project>{55f25b67-d183-46f7-8489-fc096b82e86b}</Project>
+      <Name>DocumentLab.FluentQuery</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Libraries\DocumentLab.ImageProcessing\DocumentLab.ImageProcessor.csproj">
       <Project>{c5f9819f-5a25-40e5-bff0-865b40bc3623}</Project>
       <Name>DocumentLab.ImageProcessor</Name>
@@ -149,10 +147,6 @@
     <ProjectReference Include="..\..\Libraries\DocumentLab.Ocr\DocumentLab.Ocr.csproj">
       <Project>{c86347f7-eabc-4541-916d-414f8f8b48d2}</Project>
       <Name>DocumentLab.Ocr</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DocumentLab.PageAnalyzerUnitTest\DocumentLab.PageAnalyzerUnitTest.csproj">
-      <Project>{815813d8-e5c5-40aa-89a3-9e286fa5a619}</Project>
-      <Name>DocumentLab.PageAnalyzerUnitTest</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Libraries\DocumentLab.PageAnalyzer\DocumentLab.PageAnalyzer.csproj">
       <Project>{431f6728-67e7-4a0b-819d-6efd8872a108}</Project>
@@ -165,10 +159,6 @@
     <ProjectReference Include="..\..\Libraries\DocumentLab.TextAnalyzer\DocumentLab.TextAnalyzer.csproj">
       <Project>{347d62f9-14eb-408b-bbf9-240850f27721}</Project>
       <Name>DocumentLab.TextAnalyzer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Nuget\DocumentLab\DocumentLab.csproj">
-      <Project>{2e423f58-1944-49b8-b84f-f8c982424577}</Project>
-      <Name>DocumentLab</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -191,10 +181,6 @@
     <Error Condition="!Exists('..\..\packages\EmguCV.3.1.0.1\build\EmguCV.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EmguCV.3.1.0.1\build\EmguCV.props'))" />
     <Error Condition="!Exists('..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets'))" />
   </Target>
-  <Import Project="..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.targets')" />
-  <Import Project="..\packages\EmguCV.3.1.0.1\build\EmguCV.targets" Condition="Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" />
-  <Import Project="..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets" Condition="Exists('..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets')" />
-  <Import Project="..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.targets')" />
   <Import Project="..\..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets" Condition="Exists('..\..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets')" />
   <Import Project="..\..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\..\packages\MSTest.TestAdapter.2.0.0\build\net45\MSTest.TestAdapter.targets')" />
   <Import Project="..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets" Condition="Exists('..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" />

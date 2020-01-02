@@ -127,7 +127,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DocumentLab.FluentQuery\DocumentLab.FluentQuery.csproj">
+    <ProjectReference Include="..\..\Libraries\DocumentLab.FluentQuery\DocumentLab.FluentQuery.csproj">
       <Project>{55f25b67-d183-46f7-8489-fc096b82e86b}</Project>
       <Name>DocumentLab.FluentQuery</Name>
     </ProjectReference>

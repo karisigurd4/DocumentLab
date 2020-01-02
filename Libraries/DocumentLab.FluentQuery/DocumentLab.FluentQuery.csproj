@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7B54AA91-48C3-439B-A07E-3BC51785AD1E}</ProjectGuid>
+    <ProjectGuid>{55F25B67-D183-46F7-8489-FC096B82E86B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DocumentLab.FluentQueryWriter</RootNamespace>
-    <AssemblyName>DocumentLab.FluentQueryWriter</AssemblyName>
+    <RootNamespace>DocumentLab.FluentQuery</RootNamespace>
+    <AssemblyName>DocumentLab.FluentQuery</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,8 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,11 +45,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="FluentQueryConstants.cs" />
+    <Compile Include="Enums\QueryType.cs" />
+    <Compile Include="Exceptions\FluentQueryException.cs" />
+    <Compile Include="Extensions\FluentQueryExtensions.cs" />
+    <Compile Include="FluentQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Extensions\" />
+    <ProjectReference Include="..\DocumentLab.Contracts\DocumentLab.Contracts.csproj">
+      <Project>{57bdf394-9bdd-49e8-ae1a-3436f73d1451}</Project>
+      <Name>DocumentLab.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocumentLab.PageInterpreter\DocumentLab.PageInterpreter.csproj">
+      <Project>{4a714576-905e-43d2-8347-95190490fe60}</Project>
+      <Name>DocumentLab.PageInterpreter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,5 @@
 ﻿namespace DocumentLab.Test
 {
-  using Components;
   using Microsoft.VisualStudio.TestTools.UnitTesting;
   using System.Drawing;
 

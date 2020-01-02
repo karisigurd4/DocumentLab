@@ -7,7 +7,6 @@
   using Interfaces;
   using System;
   using DocumentLab.Contracts.Extensions;
-  using DocumentLab.Contracts.Enums.Types;
   using System.Globalization;
 
   public class AnalyzeDatesStrategy : IAnalyzeTextStrategy
