@@ -47,6 +47,6 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
     .ExecuteMultiCapture(); // This method executes the query built up so far and returns the dictionary response.
 
   // We can ask for all dates in a document by using the GetAny method
-  string[] dates = dl.GetAny(TextType.Date);
+  string[] dates = dl.Query().GetAny(TextType.Date);
 }
 ``` 
