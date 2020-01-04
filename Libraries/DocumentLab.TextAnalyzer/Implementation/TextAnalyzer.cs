@@ -1,12 +1,9 @@
 ﻿namespace DocumentLab.TextAnalyzer.Implementation
 {
   using Contracts;
-  using DocumentLab.Contracts.Extensions;
   using Interfaces;
-  using System;
   using System.Collections.Generic;
   using System.Linq;
-  using System.Text.RegularExpressions;
 
   public class TextAnalyzer : ITextAnalyzer
   {
