@@ -26,25 +26,25 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
   string receiverName = dl
     .Query()
-    .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contexgtual data files aren't statically defined
-    .Up()
-    .Match("Town")
-    .Up()
-    .Match("StreetAddress")
-    .Up()
-    .Capture(TextType.Text)
-
-  // We can build patterns that yield multiple results, the results need to be named and the response is a Dictionary<string, string>
-  Dictionary<string, string> receiverInformation = dl
-    .Query()
-    .Capture(q => q
-      .Capture("PostCode")
+    .Capture("PostCode")
       .Up()
       .Capture("Town")
       .Up()
       .Capture("StreetAddress")
       .Up()
-      .Capture("TextType.Text")
+      .Capture("TextType.Text");
+
+  // We can build patterns that yield multiple results, the results need to be named and the response is a Dictionary<string, string>
+  Dictionary<string, string> receiverInformation = dl
+    .Query()
+    .Capture(q => q
+      .Match("PostCode", "PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contexgtual data files aren't statically defined
+      .Up()
+      .Match("Town", "Town")
+      .Up()
+      .Match("StreetAddress", "StreetAddress")
+      .Up()
+      .Capture(TextType.Text, "ReceiverName")
     );
 
   // We can ask for all dates in a document by using the GetAny method
