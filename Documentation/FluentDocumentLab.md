@@ -14,6 +14,7 @@ using System.Drawing;
 ```C#
 using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
 {
+<<<<<<< HEAD
   // We know our documents have the customer number to the right of the labels we know of, we can be very specific about the direction
   string customerNumber = dl.GetValueForLabel(Direction.Right, "Customer number", "Cust no");
 
@@ -22,6 +23,16 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
 
   // Here we ask DocumentLab to specifically find a date value for the specified label
   string dueDate = dl.FindValueForLabel(TextType.Date, "Due date");
+=======
+  // We know our document has the customer number to the right of the label, we can be very specific
+  string customerNumber = dl.Query().GetValueForLabel("Customer number", Direction.Right);
+
+  // We can ask DocumentLab to find the closest to the label. The text type of the value to match is by default "Text".
+  string invoiceNumber = dl.Query().FindValueForLabel("Invoice number");
+
+  // Here we ask DocumentLab to specifically find a date value for the specified label
+  string dueDate = dl.Query().FindValueForLabel("Due date", TextType.Date);
+>>>>>>> ec1384931040867eb9fab0db48ce010905f0ae50
 
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
   string receiverName = dl
@@ -35,6 +46,7 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
 
   // We can build patterns that yield multiple results, the results need to be named and the response is a Dictionary<string, string>
   Dictionary<string, string> receiverInformation = dl
+<<<<<<< HEAD
     .Capture(q => q
       .Capture("PostCode")
       .Up()
@@ -44,8 +56,18 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
       .Up()
       .Capture("TextType.Text")
     );
+=======
+    .Query()
+    .MultiCapture("PostCode")
+    .Up()
+    .MultiCapture("Town")
+    .Up()
+    .MultiCapture("StreetAddress")
+    .Up()
+    .MultiCapture("TextType.Text")
+    .ExecuteMultiCapture(); // This method executes the query built up so far and returns the dictionary response.
+>>>>>>> ec1384931040867eb9fab0db48ce010905f0ae50
 
   // We can ask for all dates in a document by using the GetAny method
-  string[] dates = dl.GetAny(TextType.Date);
 }
 ``` 

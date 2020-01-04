@@ -15,7 +15,6 @@ The common thing across these kind of documents across a wide domain of origins 
 
 The following image is used in this example. 
 
-<img src="https://github.com/karisigurd4/DocumentLab/blob/master/DocumentLabCL/Examples/Example1.png" width="70%" />
 
 ## Script
 

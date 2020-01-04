@@ -10,12 +10,18 @@ Queries are patterns of information in documents that you want to match. If Docu
 ```C#
 using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
 {
+<<<<<<< HEAD
   // Here we ask DocumentLab to specifically find a date value for the specified labels
   string dueDate = dl.FindValueForLabel(TextType.Date, "Due date", "Payment date");
+=======
+  // Here we ask DocumentLab to specifically find a date value for the specified label
+  string dueDate = dl.Query().FindValueForLabel("Due date", TextType.Date);
+>>>>>>> ec1384931040867eb9fab0db48ce010905f0ae50
 
     // We can build patterns using predicates, directions and capture operations that return the value matched in the document
   string receiverName = dl
-    .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contexgtual data files aren't statically defined'
+    .Query()
+    .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contextual data files aren't statically defined
     .Up()
     .Match("Town")
     ...
@@ -53,7 +59,7 @@ Depending on your image source, you may want to upsample low dpi images to a ran
   * [Script](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#script)
   * [Output](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#output)
   * [Using the library (C# example)](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library)
-* [C# Fluent API]((https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#FluentDocumentLab)
+* [C# Fluent API](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) 
 * [Query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md)
   * [Building patterns](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns)
     * [Priority](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#priority)

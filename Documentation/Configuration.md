@@ -37,6 +37,12 @@ To set the language used by Tesseract OCR, you can adjust the parameter named **
 * The **Language** parameter should correspond to the file name without the post-fix file type
 * See [Tesseract-OCR traineddata downloads page](https://github.com/tesseract-ocr/tessdata) for prepared trained language files
 
+**Amounts and dates**
+
+How we write amounts and dates varies between countries. The analysis of which are defined with regular expressions in **Data/Configuration/TextAnalysis.json**. Comma and decimal point separated numbers are classified as amounts. Dates follow the ISO 8601 standard. You'll need to define regular expressions for your own needs if your documents have different representations. 
+
+**Contextual data files**
+
 DocumentLab comes packaged with country specific configuration files by default, the following files under *Data\Context* are specifically for documents originating from Swedish/Nordic countries, 
 
 * PostalCode.txt
