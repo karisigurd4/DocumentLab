@@ -13,13 +13,7 @@
       {
         var result = document
           .Query()
-          .Match("Email")
-          .Down()
-          .Match("WebAddress")
-          .Down()
-          .Match("Number")
-          .Down()
-          .CaptureSingle("Text");
+          .Match("Email").Down().Match("WebAddress").Down().Match("Number").Down().Capture("Text");
 
         Assert.AreEqual("Example", result);
       }
@@ -32,14 +26,15 @@
       {
         var result = document
           .Query()
-          .MultiCapture("Email", "Email")
-          .Down()
-          .MultiCapture("WebAddress", "WebAddress")
-          .Down()
-          .MultiCapture("Number", "Number")
-          .Down()
-          .MultiCapture("Text", "Text")
-          .ExecuteMultiCapture();
+          .Capture(q => q
+            .Capture("Email", "Email")
+            .Down()
+            .Capture("WebAddress", "WebAddress")
+            .Down()
+            .Capture("Number", "Number")
+            .Down()
+            .Capture("Text", "Text")
+          );
 
         Assert.IsTrue(result.ContainsKey("Email"));
         Assert.IsTrue(result.ContainsKey("WebAddress"));
@@ -75,7 +70,7 @@
       {
         var result = document
           .Query()
-          .GetValueAtLabel("Label 1", Direction.Right, TextType.Amount);
+          .GetValueAtLabel(Direction.Right, TextType.Amount, "Label 1");
 
         Assert.AreEqual("500.50", result);
       }
@@ -88,7 +83,7 @@
       {
         var result = document
           .Query()
-          .FindValueForLabel("Label 1", TextType.AmountOrNumber);
+          .FindValueForLabel(TextType.AmountOrNumber, 6, "Label 1");
 
         Assert.AreEqual("500.50", result);
       }
