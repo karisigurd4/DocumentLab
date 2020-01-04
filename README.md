@@ -22,8 +22,11 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
     .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contextual data files aren't statically defined
     .Up()
     .Match("Town")
-    ...
-    .Capture(TextType.Text)
+    .Up()
+    .Match("City")
+    .Up()
+    .Capture(TextType.Text);
+} 
 ```
 
 **Script example**
