@@ -38,11 +38,11 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   Dictionary<string, string> receiverInformation = dl
     .Query()
     .Capture(q => q
-      .Match("PostCode", "PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contexgtual data files aren't statically defined
+      .Capture("PostCode", "PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contexgtual data files aren't statically defined
       .Up()
-      .Match("Town", "Town")
+      .Capture("Town", "Town")
       .Up()
-      .Match("StreetAddress", "StreetAddress")
+      .Capture("StreetAddress", "StreetAddress")
       .Up()
       .Capture(TextType.Text, "ReceiverName")
     );
