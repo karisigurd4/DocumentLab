@@ -10,13 +10,12 @@ Queries are patterns of information in documents that you want to match. If Docu
 ```C#
 using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
 {
-<<<<<<< HEAD
+
   // Here we ask DocumentLab to specifically find a date value for the specified labels
   string dueDate = dl.FindValueForLabel(TextType.Date, "Due date", "Payment date");
-=======
-  // Here we ask DocumentLab to specifically find a date value for the specified label
+
+// Here we ask DocumentLab to specifically find a date value for the specified label
   string dueDate = dl.Query().FindValueForLabel("Due date", TextType.Date);
->>>>>>> ec1384931040867eb9fab0db48ce010905f0ae50
 
     // We can build patterns using predicates, directions and capture operations that return the value matched in the document
   string receiverName = dl
