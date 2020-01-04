@@ -6,7 +6,7 @@ This is a solution for data extraction from documents. You pass in an bitmap of 
 
 Queries are patterns of information in documents that you want to match. If DocumentLab can find a match, you can capture any data from a pattern. You can write scripts in the query language or use the C# api.
 
-**C# API Example**
+**C# Fluent Query API Example**
 ```C#
 using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
 {
