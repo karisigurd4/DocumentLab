@@ -27,12 +27,12 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   string receiverName = dl
     .Query()
     .Match("PostCode")
-      .Up()
-      .Match("Town")
-      .Up()
-      .Match("StreetAddress")
-      .Up()
-      .Capture(TextType.Text);
+    .Up()
+    .Match("Town")
+    .Up()
+    .Match("StreetAddress")
+    .Up()
+    .Capture(TextType.Text);
 
   // We can build patterns that yield multiple results, the results need to be named and the response is a Dictionary<string, string>
   Dictionary<string, string> receiverInformation = dl
