@@ -2,7 +2,7 @@
 [![NuGet version (DocumentLab-x64)](https://img.shields.io/nuget/v/DocumentLab-x64.svg?style=flat-square)](https://www.nuget.org/packages/DocumentLab-x64/1.1.0) ![License)](https://img.shields.io/github/license/karisigurd4/DocumentLab) ![Platform](https://img.shields.io/badge/platform-win--64-green)
 
 # DocumentLab
-This is a solution for data extraction from documents. You pass in an bitmap of a document and a set of queries and you get back your extracted data in structured json. 
+This is a solution for data extraction from images with text. You pass in an bitmap of a document and a set of queries and you get back your extracted data in structured json. 
 
 Queries are patterns of information in documents that you want to match. If DocumentLab can find a match, you can capture any data from a pattern. You can write scripts in the query language or use the C# api.
 
