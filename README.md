@@ -53,6 +53,7 @@ The case with any OCR process is that the quality of the output depends entirely
 
 Depending on your image source, you may want to upsample low dpi images to a range between 220 - 300. This often also becomes a question of quality vs. time in terms of execution time and should be adjusted to your requirements.
 
+* [Release notes](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/RealeaseNotes.md)
 * [Example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md)
   * [Image](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#image)
   * [Script](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#script)
@@ -80,5 +81,3 @@ Depending on your image source, you may want to upsample low dpi images to a ran
       * [Page traversal](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#page-traversal)
       * [Patterns](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#patterns)
       * [Query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#query-language)
-      
-[Release notes](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/RealeaseNotes.md)
