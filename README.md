@@ -14,10 +14,10 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   // Here we ask DocumentLab to specifically find a date value for the specified labels
   string dueDate = dl.FindValueForLabel(TextType.Date, "Due date", "Payment date");
 
-// Here we ask DocumentLab to specifically find a date value for the specified label
+  // Here we ask DocumentLab to specifically find a date value for the specified label
   string dueDate = dl.Query().FindValueForLabel("Due date", TextType.Date);
 
-    // We can build patterns using predicates, directions and capture operations that return the value matched in the document
+  // We can build patterns using predicates, directions and capture operations that return the value matched in the document
   string receiverName = dl
     .Query()
     .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contextual data files aren't statically defined
