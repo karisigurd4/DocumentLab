@@ -26,11 +26,11 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
   string receiverName = dl
     .Query()
-    .Capture("PostCode")
+    .Match("PostCode")
       .Up()
-      .Capture("Town")
+      .Match("Town")
       .Up()
-      .Capture("StreetAddress")
+      .Match("StreetAddress")
       .Up()
       .Capture("TextType.Text");
 
