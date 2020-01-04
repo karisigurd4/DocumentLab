@@ -15,7 +15,7 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   string dueDate = dl.FindValueForLabel(TextType.Date, "Due date", "Payment date");
 
   // Here we ask DocumentLab to specifically find a date value for the specified label
-  string dueDate = dl.Query().FindValueForLabel("Due date", TextType.Date);
+  string customerNumber = dl.Query().FindValueForLabel("Customer number");
 
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
   string receiverName = dl
