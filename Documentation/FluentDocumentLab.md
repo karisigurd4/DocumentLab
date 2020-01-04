@@ -36,6 +36,7 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
 
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
   string receiverName = dl
+    .Query()
     .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contexgtual data files aren't statically defined'
     .Up()
     .Match("Town")
@@ -69,5 +70,6 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
 >>>>>>> ec1384931040867eb9fab0db48ce010905f0ae50
 
   // We can ask for all dates in a document by using the GetAny method
+  string[] dates = dl.Query().GetAny(TextType.Date);
 }
 ``` 
