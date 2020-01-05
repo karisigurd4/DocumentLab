@@ -24,9 +24,7 @@
     }
 
     /// <summary>
-    /// Initializes a query to perform on the document. The fluent query api allows you to build up DocumentLab patterns via its method interface.
-    /// 
-    /// In order to execute the pattern on the document the .Execute() method must be called.
+    /// Initializes a query to perform on the document. 
     /// </summary>
     /// <returns>A new DocumentLab FluentQuery object with an implicit query name</returns>
     public FluentQuery Query()
