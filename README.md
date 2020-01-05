@@ -20,7 +20,7 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   // Patterns allow us to recognize and capture data by contextual information, i.e., how we'd read for example receiver infromation from an invoice
   string receiverName = dl
     .Query()
-    .Match("PostCode") // Dynamically loaded files can be referenced by string
+    .Match("PostCode") // Text classification using contextual data files can be referenced by string
     .Up()
     .Match("Town")
     .Up()
