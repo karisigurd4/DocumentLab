@@ -17,16 +17,16 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   string customerNumber = dl.Query().GetValueForLabel(Direction.Right,"Customer number");
 
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
-  // Patterns allow us to recognize and capture data without labels
+  // Patterns allow us to recognize and capture data by contextual information, i.e., how we'd read for example receiver infromation from an invoice
   string receiverName = dl
     .Query()
-    .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contextual data files aren't statically defined
+    .Match("PostCode") // Dynamically loaded files can be referenced by string
     .Up()
     .Match("Town")
     .Up()
     .Match("City")
     .Up()
-    .Capture(TextType.Text);
+    .Capture(TextType.Text); // All text type operations can also use the statically defined text type enum
 } 
 ```
 
