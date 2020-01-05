@@ -18,33 +18,33 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   string customerNumber = dl.Query().GetValueForLabel(Direction.Right, "Customer number", "Cust no");
 
   // We can ask DocumentLab to find the closest to the labels. The text type of the value to match is by default "Text".
-  string invoiceNumber = dl.Query()FindValueForLabel("Invoice number");
+  string invoiceNumber = dl.Query(). FindValueForLabel("Invoice number");
 
   // Here we ask DocumentLab to specifically find a date value for the specified label
-  string dueDate = dl.Query()FindValueForLabel(TextType.Date, "Due date");
+  string dueDate = dl.Query(). FindValueForLabel(TextType.Date, "Due date");
 
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
   string receiverName = dl
     .Query()
-    .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contexgtual data files aren't statically defined
+    .Match("PostCode")
     .Up()
     .Match("Town")
     .Up()
     .Match("StreetAddress")
     .Up()
-    .Capture(TextType.Text)
+    .Capture(TextType.Text);
 
   // We can build patterns that yield multiple results, the results need to be named and the response is a Dictionary<string, string>
   Dictionary<string, string> receiverInformation = dl
     .Query()
     .Capture(q => q
-      .Capture("PostCode")
+      .Capture("PostCode", "PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contexgtual data files aren't statically defined
       .Up()
-      .Capture("Town")
+      .Capture("Town", "Town")
       .Up()
-      .Capture("StreetAddress")
+      .Capture("StreetAddress", "StreetAddress")
       .Up()
-      .Capture("TextType.Text")
+      .Capture(TextType.Text, "ReceiverName")
     );
 
   // We can ask for all dates in a document by using the GetAny method

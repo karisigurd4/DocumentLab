@@ -2,29 +2,32 @@
 [![NuGet version (DocumentLab-x64)](https://img.shields.io/nuget/v/DocumentLab-x64.svg?style=flat-square)](https://www.nuget.org/packages/DocumentLab-x64/1.1.0) ![License)](https://img.shields.io/github/license/karisigurd4/DocumentLab) ![Platform](https://img.shields.io/badge/platform-win--64-green)
 
 # DocumentLab
-This is a solution for data extraction from documents. You pass in an bitmap of a document and a set of queries and you get back your extracted data in structured json. 
+This is a solution for data extraction from images with text. You pass in an bitmap of a document and a set of queries and you get back your extracted data in structured json. 
 
 Queries are patterns of information in documents that you want to match. If DocumentLab can find a match, you can capture any data from a pattern. You can write scripts in the query language or use the C# api.
 
-**C# API**
+**C# Fluent Query Example**
 ```C#
 using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
 {
+  // Here we ask DocumentLab to specifically find a date value for the specified possible labels
+  string dueDate = dl.Query().FindValueForLabel(TextType.Date, "Due date", "Payment date");
 
-  // Here we ask DocumentLab to specifically find a date value for the specified labels
-  string dueDate = dl.FindValueForLabel(TextType.Date, "Due date", "Payment date");
+  // Here we ask DocumentLab to specifically find a date value for the specified label
+  string customerNumber = dl.Query().FindValueForLabel("Customer number");
 
-// Here we ask DocumentLab to specifically find a date value for the specified label
-  string dueDate = dl.Query().FindValueForLabel("Due date", TextType.Date);
-
-    // We can build patterns using predicates, directions and capture operations that return the value matched in the document
+  // We can build patterns using predicates, directions and capture operations that return the value matched in the document
+  // Patterns allow us to recognize and capture data without labels
   string receiverName = dl
     .Query()
     .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contextual data files aren't statically defined
     .Up()
     .Match("Town")
-    ...
-    .Capture(TextType.Text)
+    .Up()
+    .Match("City")
+    .Up()
+    .Capture(TextType.Text);
+} 
 ```
 
 **Script example**
