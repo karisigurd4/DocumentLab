@@ -13,8 +13,8 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   // Here we ask DocumentLab to specifically find a date value for the specified possible labels
   string dueDate = dl.Query().FindValueForLabel(TextType.Date, "Due date", "Payment date");
 
-  // Here we ask DocumentLab to specifically find a date value for the specified label
-  string customerNumber = dl.Query().FindValueForLabel("Customer number");
+  // Here we ask DocumentLab to specifically find a date value for the specified label in a specific direction 
+  string customerNumber = dl.Query().GetValueForLabel(Direction.Right,"Customer number");
 
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
   // Patterns allow us to recognize and capture data without labels
