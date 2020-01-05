@@ -17,6 +17,7 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   string customerNumber = dl.Query().FindValueForLabel("Customer number");
 
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
+  // Patterns allow us to recognize and capture data without labels
   string receiverName = dl
     .Query()
     .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contextual data files aren't statically defined
