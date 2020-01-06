@@ -50,6 +50,7 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   * *Arguments: DocumentLabCL.exe "path\Script.txt" "path\Image.png" (optional) "path\Output.json"*
   * Easy to use tool for evaluation or testing scripts
   * See *Examples* folder
+* NuGet - [Link](https://www.nuget.org/packages/DocumentLab-x64/)
   
 # Documentation
 The case with any OCR process is that the quality of the output depends entirely on the quality of source image you pass into it. If the original image quality is very low then you can expect very low quality OCR results. 
