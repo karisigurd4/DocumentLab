@@ -18,10 +18,10 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   string customerNumber = dl.Query().GetValueForLabel(Direction.Right, "Customer number", "Cust no");
 
   // We can ask DocumentLab to find the closest to the labels. The text type of the value to match is by default "Text".
-  string invoiceNumber = dl.Query(). FindValueForLabel("Invoice number");
+  string invoiceNumber = dl.Query().FindValueForLabel("Invoice number");
 
   // Here we ask DocumentLab to specifically find a date value for the specified label
-  string dueDate = dl.Query(). FindValueForLabel(TextType.Date, "Due date");
+  string dueDate = dl.Query().FindValueForLabel(TextType.Date, "Due date");
 
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
   string receiverName = dl

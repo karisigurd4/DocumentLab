@@ -13,20 +13,20 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   // Here we ask DocumentLab to specifically find a date value for the specified possible labels
   string dueDate = dl.Query().FindValueForLabel(TextType.Date, "Due date", "Payment date");
 
-  // Here we ask DocumentLab to specifically find a date value for the specified label
-  string customerNumber = dl.Query().FindValueForLabel("Customer number");
+  // Here we ask DocumentLab to specifically find a date value for the specified label in a specific direction 
+  string customerNumber = dl.Query().GetValueForLabel(Direction.Right,"Customer number");
 
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
-  // Patterns allow us to recognize and capture data without labels
+  // Patterns allow us to recognize and capture data by contextual information, i.e., how we'd read for example receiver infromation from an invoice
   string receiverName = dl
     .Query()
-    .Match("PostCode") // All methods with text type parameters offer the TextType enum as well as a string variant of the method, this is because dynamically loaded contextual data files aren't statically defined
+    .Match("PostCode") // Text classification using contextual data files can be referenced by string
     .Up()
     .Match("Town")
     .Up()
     .Match("City")
     .Up()
-    .Capture(TextType.Text);
+    .Capture(TextType.Text); // All text type operations can also use the statically defined text type enum
 } 
 ```
 
@@ -50,6 +50,7 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   * *Arguments: DocumentLabCL.exe "path\Script.txt" "path\Image.png" (optional) "path\Output.json"*
   * Easy to use tool for evaluation or testing scripts
   * See *Examples* folder
+* NuGet - [Link](https://www.nuget.org/packages/DocumentLab-x64/)
   
 # Documentation
 The case with any OCR process is that the quality of the output depends entirely on the quality of source image you pass into it. If the original image quality is very low then you can expect very low quality OCR results. 
