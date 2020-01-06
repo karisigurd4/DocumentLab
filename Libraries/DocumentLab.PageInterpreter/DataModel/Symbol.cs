@@ -1,7 +1,6 @@
 ﻿namespace DocumentLab.PageInterpreter.DataModel
 {
-  using DocumentLab.PageInterpreter.Enum;
-  using System;
+  using Enum;
 
   public class Symbol
   {

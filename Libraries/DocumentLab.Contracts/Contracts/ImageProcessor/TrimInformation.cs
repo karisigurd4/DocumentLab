@@ -1,6 +1,5 @@
-﻿namespace DocumentLab.Contracts.Contracts.ImageProcessor
+﻿namespace DocumentLab.Contracts.ImageProcessor
 {
-  using System;
   using System.Drawing;
 
   public class TrimInformation

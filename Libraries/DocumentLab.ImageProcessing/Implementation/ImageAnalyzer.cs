@@ -1,14 +1,14 @@
 ﻿namespace DocumentLab.ImageProcessor.Implementation
 {
+  using Extensions;
+  using Contracts.Enums.Operations;
   using Interfaces;
-  using System.Collections.Generic;
   using Emgu.CV;
   using Emgu.CV.CvEnum;
   using Emgu.CV.Util;
   using System.Drawing;
-  using DocumentLab.ImageProcessor.Extensions;
-  using DocumentLab.Contracts.Enums.Operations;
   using System.Drawing.Imaging;
+  using System.Collections.Generic;
 
   public class ImageAnalyzer : IImageAnalyzer
   {

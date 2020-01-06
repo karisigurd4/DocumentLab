@@ -1,8 +1,8 @@
 ﻿namespace DocumentLab.TextAnalyzer.Strategies.AnalyzeTextStrategies
 {
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Enums.Types;
-  using DocumentLab.TextAnalyzer.Interfaces;
+  using Contracts;
+  using Contracts.Ocr;
+  using TextAnalyzer.Interfaces;
   using System.Collections.Generic;
   using System.Linq;
 

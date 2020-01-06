@@ -1,11 +1,11 @@
 ﻿namespace DocumentLab.PageInterpreterUnitTest
 {
-    using Antlr4.Runtime;
-    using DocumentLab.Contracts.Contracts.PageInterpreter;
-    using DocumentLab.PageInterpreter.Components;
-    using DocumentLab.PageInterpreter.Grammar;
-    using DocumentLab.PageInterpreter.Interpreter;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+  using Antlr4.Runtime;
+  using Contracts.PageInterpreter;
+  using PageInterpreter.Components;
+  using PageInterpreter.Grammar;
+  using PageInterpreter.Interpreter;
+  using Microsoft.VisualStudio.TestTools.UnitTesting;
   using System.Collections.Generic;
 
   [TestClass]

@@ -1,6 +1,5 @@
 ﻿namespace DocumentLab.Contracts
 {
-  using DocumentLab.Contracts.Enums.Types;
   using System;
   using System.Drawing;
 

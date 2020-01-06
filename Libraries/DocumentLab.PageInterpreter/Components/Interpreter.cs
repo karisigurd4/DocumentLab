@@ -1,12 +1,11 @@
 ﻿namespace DocumentLab.PageInterpreter.Components
 {
+  using Contracts;
+  using Contracts.PageInterpreter;
+  using Grammar;
+  using Interfaces;
+  using PageInterpreter.Interpreter;
   using Antlr4.Runtime;
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
-  using DocumentLab.PageInterpreter.Grammar;
-  using DocumentLab.PageInterpreter.Interfaces;
-  using DocumentLab.PageInterpreter.Interpreter;
-  using System;
 
   public class Interpreter : IInterpreter
   {

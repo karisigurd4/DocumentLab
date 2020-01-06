@@ -1,13 +1,14 @@
 ﻿namespace DocumentLab.PageAnalyzer.Implementation
 {
-  using System.Linq;
-  using System.Collections.Generic;
   using Contracts;
+  using Contracts.Ocr;
+  using Contracts.PageInterpreter;
   using Interfaces;
+  using TextAnalyzer.Interfaces;
   using Core.Extensions;
   using System;
-  using DocumentLab.TextAnalyzer.Interfaces;
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
+  using System.Linq;
+  using System.Collections.Generic;
 
   public class PageAnalyzer : IPageAnalyzer
   {

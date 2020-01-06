@@ -1,8 +1,7 @@
 ﻿namespace DocumentLab.Contracts.Utils
 {
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
+  using DocumentLab.Contracts.PageInterpreter;
   using System.Collections.Generic;
-  using System.Drawing;
 
   public class TestPageCreator
   {

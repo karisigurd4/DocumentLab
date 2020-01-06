@@ -1,9 +1,9 @@
 ﻿namespace DocumentLab.ImageProcessor.Strategies.ProcessImageStrategies
 {
-  using DocumentLab.ImageProcessor.Interfaces;
+  using Interfaces;
   using ImageMagick;
-  using System.Collections.Generic;
   using System.Linq;
+  using System.Collections.Generic;
 
   public class HighlightTextAreasStrategy : IProcessImageStrategy
   {

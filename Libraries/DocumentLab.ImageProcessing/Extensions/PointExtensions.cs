@@ -1,7 +1,7 @@
 ﻿namespace DocumentLab.ImageProcessor.Extensions
 {
-  using System.Drawing;
   using System.Linq;
+  using System.Drawing;
 
   public static class PointExtensions
   {

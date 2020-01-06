@@ -1,8 +1,7 @@
 ﻿namespace DocumentLab.ImageProcessor.Interfaces
 {
-  using DocumentLab.Contracts.Contracts.ImageProcessor;
-  using System.Collections.Generic;
   using System.Drawing;
+  using System.Collections.Generic;
 
   public interface IImageAnalyzer
   {

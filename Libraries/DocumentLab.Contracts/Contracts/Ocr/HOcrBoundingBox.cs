@@ -1,4 +1,4 @@
-﻿namespace DocumentLab.Contracts.Contracts.Ocr
+﻿namespace DocumentLab.Contracts.Ocr
 {
   public class HOcrBoundingBox
   {

@@ -1,7 +1,7 @@
-﻿namespace DocumentLab.Contracts.Contracts.ImageProcessor
+﻿namespace DocumentLab.Contracts.ImageProcessor
 {
-  using System.Collections.Generic;
   using System.Drawing;
+  using System.Collections.Generic;
 
   public class ImageWithCoordinates
   {

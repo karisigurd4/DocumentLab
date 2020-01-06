@@ -1,14 +1,14 @@
 ﻿namespace DocumentLab.TextAnalyzer.Strategies.AnalyzeTextStrategies
 {
+  using Contracts;
+  using Contracts.Ocr;
+  using Core.Storage;
+  using TextAnalyzer.Utilities;
+  using TextAnalyzer.Interfaces;
   using System;
-  using System.Collections.Generic;
-  using DocumentLab.TextAnalyzer.Interfaces;
   using System.Linq;
+  using System.Collections.Generic;
   using System.Text.RegularExpressions;
-  using DocumentLab.TextAnalyzer.Utilities;
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Enums.Types;
-  using DocumentLab.Core.Storage;
 
   public class AnalyzeWebAddressesStrategy : IAnalyzeTextStrategy
   {

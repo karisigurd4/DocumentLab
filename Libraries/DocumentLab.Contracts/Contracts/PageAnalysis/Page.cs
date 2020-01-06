@@ -1,9 +1,9 @@
 ﻿namespace DocumentLab.Contracts
 {
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
   using System;
-  using System.Collections.Generic;
   using System.Linq;
+  using System.Collections.Generic;
+  using PageInterpreter;
 
   public class Page : ICloneable
   {

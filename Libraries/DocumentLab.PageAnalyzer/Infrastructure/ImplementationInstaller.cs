@@ -1,10 +1,10 @@
 ﻿namespace DocumentLab.PageAnalyzer.Infrastructure
 {
+  using Interfaces;
+  using Implementation;
   using Castle.MicroKernel.Registration;
   using Castle.MicroKernel.SubSystems.Configuration;
   using Castle.Windsor;
-  using Interfaces;
-  using Implementation;
 
   public class ImplementationInstaller : IWindsorInstaller
   {

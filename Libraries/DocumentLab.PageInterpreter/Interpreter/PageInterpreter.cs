@@ -1,18 +1,17 @@
 ﻿namespace DocumentLab.PageInterpreter.Interpreter
 {
+  using Contracts;
+  using Contracts.PageInterpreter;
+  using Core.Utils;
+  using DataModel;
+  using Enum;
+  using Grammar;
+  using Components;
+  using Interfaces;
   using Antlr4.Runtime.Misc;
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
-  using DocumentLab.Contracts.Enums.Types;
-  using DocumentLab.Core.Utils;
-  using DocumentLab.PageInterpreter.DataModel;
-  using DocumentLab.PageInterpreter.Enum;
-  using DocumentLab.PageInterpreter.Grammar;
-  using DocumentLab.PageInterpreter.Components;
-  using DocumentLab.PageInterpreter.Interfaces;
   using System;
-  using System.Collections.Generic;
   using System.Linq;
+  using System.Collections.Generic;
 
   public class PageInterpreter : PageInterpreterBaseVisitor<Symbol>
   {

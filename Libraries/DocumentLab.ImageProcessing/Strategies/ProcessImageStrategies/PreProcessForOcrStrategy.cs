@@ -1,10 +1,9 @@
 ﻿namespace DocumentLab.ImageProcessor.Strategies.PreProcessStrategies
 {
-  using System.Drawing;
-  using DocumentLab.ImageProcessor.Interfaces;
+  using Interfaces;
   using ImageMagick;
-  using System.Collections.Generic;
   using System.Linq;
+  using System.Collections.Generic;
 
   public class PreProcessForOcrStrategy : IProcessImageStrategy
   {

@@ -1,14 +1,14 @@
 ﻿namespace DocumentLab.Ocr.Implementation
 {
+  using Contracts.Ocr;
+  using Contracts.Decorators.Ocr;
+  using Contracts.Enums.Operations;
   using Interfaces;
+  using Core.Extensions;
+  using ImageProcessor.Interfaces;
+  using ImageProcessor.Extensions;
   using System.Drawing;
   using System.Linq;
-  using Core.Extensions;
-  using DocumentLab.ImageProcessor.Interfaces;
-  using DocumentLab.ImageProcessor.Extensions;
-  using DocumentLab.Contracts.Enums.Operations;
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Decorators.Ocr;
   using System.Diagnostics;
 
   public class Ocr : IOcr

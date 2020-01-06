@@ -1,8 +1,7 @@
 ﻿namespace DocumentLab.PageAnalyzer.Interfaces
 {
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
-  using System;
+  using Contracts;
+  using Contracts.PageInterpreter;
 
   public interface IPageTrimmer
   {

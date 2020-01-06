@@ -1,15 +1,15 @@
 ﻿namespace DocumentLab.Ocr.Implementation
 {
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Decorators.Ocr;
-  using DocumentLab.ImageProcessor.Extensions;
-  using DocumentLab.Ocr.Utils;
+  using Contracts.Ocr;
+  using Contracts.Decorators.Ocr;
+  using Utils;
+  using Tesseract;
+  using ImageProcessor.Extensions;
   using System;
   using System.Collections.Generic;
   using System.IO;
   using System.Linq;
   using System.Threading;
-  using Tesseract;
 
   public class TesseractEngineWrapper : IDisposable
   {

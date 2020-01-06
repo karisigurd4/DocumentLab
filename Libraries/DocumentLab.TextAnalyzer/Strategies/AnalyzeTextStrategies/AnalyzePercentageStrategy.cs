@@ -1,12 +1,12 @@
 ﻿namespace DocumentLab.TextAnalyzer.Strategies.AnalyzeTextStrategies
 {
-  using DocumentLab.TextAnalyzer.Interfaces;
-  using DocumentLab.Contracts;
+  using Contracts;
+  using Contracts.Ocr;
+  using Contracts.Extensions;
+  using TextAnalyzer.Interfaces;
   using System.Collections.Generic;
   using System.Linq;
   using System.Text.RegularExpressions;
-  using DocumentLab.Contracts.Enums.Types;
-  using DocumentLab.Contracts.Extensions;
 
   public class AnalyzePercentageStrategy : IAnalyzeTextStrategy
   {

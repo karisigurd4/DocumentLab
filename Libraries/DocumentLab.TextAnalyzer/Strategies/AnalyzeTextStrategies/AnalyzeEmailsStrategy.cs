@@ -1,12 +1,12 @@
 ﻿namespace DocumentLab.TextAnalyzer.Strategies.AnalyzeTextStrategies
 {
-  using System.Collections.Generic;
-  using Interfaces;
-  using System.Linq;
   using Contracts;
+  using Contracts.Ocr;
+  using Interfaces;
+  using Core.Storage;
+  using System.Linq;
+  using System.Collections.Generic;
   using System.Text.RegularExpressions;
-  using Contracts.Enums.Types;
-  using DocumentLab.Core.Storage;
 
   public class AnalyzeEmailsStrategy : IAnalyzeTextStrategy
   {

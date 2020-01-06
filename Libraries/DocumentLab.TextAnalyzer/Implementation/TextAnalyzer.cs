@@ -1,6 +1,7 @@
 ﻿namespace DocumentLab.TextAnalyzer.Implementation
 {
   using Contracts;
+  using Contracts.Ocr;
   using Interfaces;
   using System.Collections.Generic;
   using System.Linq;

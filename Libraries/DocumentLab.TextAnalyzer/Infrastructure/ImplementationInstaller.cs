@@ -1,10 +1,10 @@
 ﻿namespace DocumentLab.TextAnalyzer.Infrastructure
 {
+  using TextAnalyzer.Interfaces;
+  using TextAnalyzer.Implementation;
+  using Castle.Windsor;
   using Castle.MicroKernel.Registration;
   using Castle.MicroKernel.SubSystems.Configuration;
-  using Castle.Windsor;
-  using DocumentLab.TextAnalyzer.Interfaces;
-  using DocumentLab.TextAnalyzer.Implementation;
   using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 
   public class ImplementationInstaller : IWindsorInstaller

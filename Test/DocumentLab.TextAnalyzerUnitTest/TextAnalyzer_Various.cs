@@ -1,6 +1,7 @@
 ﻿namespace DocumentLab.TextAnalyzerUnitTest
 {
   using System.Linq;
+  using Contracts.Ocr;
   using Castle.Windsor;
   using Castle.Windsor.Installer;
   using DocumentLab.TextAnalyzer.Interfaces;
@@ -24,7 +25,7 @@
 
       var fakeString = "l50, OO";
 
-      var result = analyzer.AnalyzeOcrResult(new Contracts.OcrResult() { Result = new string[] { fakeString } });
+      var result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
 
       Assert.IsNotNull(result);
       Assert.IsTrue(result.Any(x => x.TextType == "Text"));
@@ -40,14 +41,14 @@
 
       var fakeString = "dfgdfgldfg retertertert";
 
-      var result = analyzer.AnalyzeOcrResult(new Contracts.OcrResult() { Result = new string[] { fakeString } });
+      var result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
 
       Assert.IsNotNull(result);
       Assert.IsTrue(result.Any(x => x.TextType == "Text" && x.Text == "dfgdfgldfg retertertert"));
 
       fakeString = "2314897l asdasdlqwe qetqetqet, 234234234-234234234";
 
-      result = analyzer.AnalyzeOcrResult(new Contracts.OcrResult() { Result = new string[] { fakeString } });
+      result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
 
       Assert.IsNotNull(result);
       Assert.IsTrue(result.Any(x => x.TextType == "Text" && x.Text == "2314897l asdasdlqwe qetqetqet, 234234234-234234234"));
@@ -60,21 +61,21 @@
 
       var fakeString = "1.402";
 
-      var result = analyzer.AnalyzeOcrResult(new Contracts.OcrResult() { Result = new string[] { fakeString } });
+      var result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
 
       Assert.IsNotNull(result);
       Assert.IsTrue(result.Any(x => x.TextType == "Amount" && x.Text == "1.402"));
 
       fakeString = "1,402";
 
-      result = analyzer.AnalyzeOcrResult(new Contracts.OcrResult() { Result = new string[] { fakeString } });
+      result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
 
       Assert.IsNotNull(result);
       Assert.IsTrue(result.Any(x => x.TextType == "Amount" && x.Text == "1.402"));
 
       fakeString = "1. 402";
 
-      result = analyzer.AnalyzeOcrResult(new Contracts.OcrResult() { Result = new string[] { fakeString } });
+      result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
 
       Assert.IsNotNull(result);
       Assert.IsTrue(result.Any(x => x.TextType == "Amount" && x.Text == "1.402"));
@@ -87,14 +88,14 @@
 
       var fakeString = "1 dfg";
 
-      var result = analyzer.AnalyzeOcrResult(new Contracts.OcrResult() { Result = new string[] { fakeString } });
+      var result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
 
       Assert.IsNotNull(result);
       Assert.IsTrue(result.Any(x => x.TextType == "Letters" && x.Text == "dfg"));
 
       fakeString = "1";
 
-      result = analyzer.AnalyzeOcrResult(new Contracts.OcrResult() { Result = new string[] { fakeString } });
+      result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
 
       Assert.IsTrue(!result.Any(x => x.TextType == "Letters"));
     }
@@ -106,7 +107,7 @@
 
       var fakeString = "Box 550";
 
-      var result = analyzer.AnalyzeOcrResult(new Contracts.OcrResult() { Result = new string[] { fakeString } });
+      var result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
 
       Assert.IsNotNull(result);
       Assert.IsTrue(result.Any(x => x.TextType == "Text" && x.Text == "Box 550"));
@@ -116,7 +117,7 @@
 
       fakeString = "Box";
 
-      result = analyzer.AnalyzeOcrResult(new Contracts.OcrResult() { Result = new string[] { fakeString } });
+      result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
 
       Assert.IsNotNull(result);
       Assert.IsTrue(result.Any(x => x.TextType == "Text" && x.Text == "Box"));
@@ -124,7 +125,7 @@
 
       fakeString = "Box l";
 
-      result = analyzer.AnalyzeOcrResult(new Contracts.OcrResult() { Result = new string[] { fakeString } });
+      result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
 
       Assert.IsNotNull(result);
       Assert.IsTrue(result.Any(x => x.TextType == "Text" && x.Text == "Box l"));

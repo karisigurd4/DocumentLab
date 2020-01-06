@@ -1,8 +1,7 @@
 ﻿namespace DocumentLab.PageInterpreter.Interfaces
 {
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
-  using DocumentLab.Contracts.Enums.Types;
+  using Contracts;
+  using Contracts.PageInterpreter;
   using System;
   using System.Collections.Generic;
 

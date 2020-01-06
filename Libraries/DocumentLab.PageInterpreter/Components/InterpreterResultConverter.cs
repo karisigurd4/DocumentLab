@@ -1,13 +1,13 @@
 ﻿namespace DocumentLab.PageInterpreter
 {
+  using Contracts.PageInterpreter;
+  using Grammar;
+  using Components;
+  using Interpreter;
   using Antlr4.Runtime;
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
-  using DocumentLab.PageInterpreter.Components;
-  using DocumentLab.PageInterpreter.Grammar;
-  using DocumentLab.PageInterpreter.Interpreter;
   using Newtonsoft.Json;
-  using System.Collections.Generic;
   using System.Linq;
+  using System.Collections.Generic;
 
   public static class InterpreterResultConverter
   {
@@ -68,6 +68,5 @@
       visitor.Visit(patternInterpreterParser.compileUnit());
       return visitor.ResultCountByQuery;
     }
-
   }
 }

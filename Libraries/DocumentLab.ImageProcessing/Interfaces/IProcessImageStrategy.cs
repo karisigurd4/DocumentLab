@@ -1,7 +1,7 @@
 ﻿namespace DocumentLab.ImageProcessor.Interfaces
 {
-  using System.Collections.Generic;
   using System.Drawing;
+  using System.Collections.Generic;
 
   public interface IProcessImageStrategy
   {

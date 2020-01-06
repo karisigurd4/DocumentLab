@@ -1,9 +1,9 @@
 ﻿namespace DocumentLab.PageInterpreter.Interpreter
 {
+  using Contracts.PageInterpreter;
+  using Exceptions;
+  using Grammar;
   using Antlr4.Runtime.Misc;
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
-  using DocumentLab.PageInterpreter.Exceptions;
-  using DocumentLab.PageInterpreter.Grammar;
   using System.Collections.Generic;
 
   public class ScriptAnalyzer : PageInterpreterBaseVisitor<object>

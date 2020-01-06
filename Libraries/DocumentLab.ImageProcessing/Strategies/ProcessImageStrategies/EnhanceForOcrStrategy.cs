@@ -2,9 +2,8 @@
 {
   using Interfaces;
   using ImageMagick;
-  using System.Collections.Generic;
-  using System.Diagnostics;
   using System.Linq;
+  using System.Collections.Generic;
 
   public class EnhanceForOcrStrategy : IProcessImageStrategy
   {

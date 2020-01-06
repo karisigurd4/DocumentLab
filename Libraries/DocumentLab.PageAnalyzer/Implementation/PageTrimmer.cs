@@ -1,8 +1,8 @@
 ﻿namespace DocumentLab.PageAnalyzer.Implementation
 {
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
-  using DocumentLab.PageAnalyzer.Interfaces;
+  using Contracts;
+  using Contracts.PageInterpreter;
+  using Interfaces;
   using System;
   using System.Linq;
   using System.Collections.Generic;

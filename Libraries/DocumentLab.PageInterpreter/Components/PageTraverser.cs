@@ -1,12 +1,11 @@
 ﻿namespace DocumentLab.PageInterpreter.Components
 {
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
-  using DocumentLab.Contracts.Enums.Types;
+  using Contracts;
+  using Contracts.PageInterpreter;
   using DocumentLab.PageInterpreter.Interfaces;
   using System;
-  using System.Collections.Generic;
   using System.Linq;
+  using System.Collections.Generic;
 
   public class PageTraverser : IPageTraverser, ICloneable
   {

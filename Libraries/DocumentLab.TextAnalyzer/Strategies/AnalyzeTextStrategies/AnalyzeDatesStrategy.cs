@@ -1,13 +1,14 @@
 ﻿namespace DocumentLab.TextAnalyzer.Strategies.AnalyzeTextStrategies
 {
-  using System.Linq;
-  using System.Collections.Generic;
-  using System.Text.RegularExpressions;
   using Contracts;
+  using Contracts.Ocr;
+  using Contracts.Extensions;
   using Interfaces;
   using System;
-  using DocumentLab.Contracts.Extensions;
+  using System.Linq;
   using System.Globalization;
+  using System.Collections.Generic;
+  using System.Text.RegularExpressions;
 
   public class AnalyzeDatesStrategy : IAnalyzeTextStrategy
   {

@@ -1,9 +1,9 @@
 ﻿namespace DocumentLab.ImageProcessor.Interfaces
 {
-  using DocumentLab.Contracts.Contracts.ImageProcessor;
-  using DocumentLab.Contracts.Enums.Operations;
-  using System.Collections.Generic;
+  using Contracts.ImageProcessor;
+  using Contracts.Enums.Operations;
   using System.Drawing;
+  using System.Collections.Generic;
 
   public interface IImageProcessor
   {

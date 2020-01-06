@@ -1,7 +1,7 @@
 ﻿namespace DocumentLab.PageAnalyzerUnitTest
 {
   using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
+  using DocumentLab.Contracts.PageInterpreter;
   using DocumentLab.Contracts.Utils;
   using DocumentLab.PageAnalyzer.Implementation;
   using DocumentLab.PageAnalyzer.Interfaces;

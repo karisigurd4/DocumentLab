@@ -1,15 +1,15 @@
 ﻿namespace DocumentLab.ImageProcessor.Implementation
 {
-  using System.Drawing;
+  using Contracts.ImageProcessor;
+  using Core.Interfaces;
+  using Contracts.Enums.Operations;
+  using Extensions;
   using Interfaces;
-  using DocumentLab.Core.Interfaces;
-  using DocumentLab.Contracts.Enums.Operations;
-  using DocumentLab.ImageProcessor.Extensions;
-  using System.Collections.Generic;
-  using DocumentLab.Contracts.Contracts.ImageProcessor;
-  using System.Drawing.Imaging;
   using ImageMagick;
   using System;
+  using System.Drawing;
+  using System.Collections.Generic;
+  using System.Drawing.Imaging;
 
   public class ImageProcessor : IImageProcessor
   {

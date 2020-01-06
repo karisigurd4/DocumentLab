@@ -1,7 +1,6 @@
 ﻿namespace DocumentLab.PageAnalyzer
 {
-  using DocumentLab.Core.Storage;
-  using System;
+  using Core.Storage;
   using System.Collections.Generic;
 
   public static class Constants

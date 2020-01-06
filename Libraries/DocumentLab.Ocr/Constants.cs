@@ -1,11 +1,10 @@
-﻿using DocumentLab.Core.Storage;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Drawing.Imaging;
-
-namespace DocumentLab.Ocr
+﻿namespace DocumentLab.Ocr
 {
+  using Core.Storage;
+  using System;
+  using System.Drawing.Imaging;
+  using System.Collections.Generic;
+
   public static class Constants
   {
     // External paths

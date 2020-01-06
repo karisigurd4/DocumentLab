@@ -1,6 +1,6 @@
 ﻿namespace DocumentLab.Ocr.Interfaces
 {
-  using DocumentLab.Contracts;
+  using Contracts.Ocr;
   using System.Drawing;
 
   public interface IOcr

@@ -1,12 +1,10 @@
 ﻿namespace DocumentLab.TextAnalyzer.Extensions
 {
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Enums.Types;
-  using DocumentLab.Contracts.Extensions;
-  using DocumentLab.Core.Extensions;
-  using DocumentLab.Core.Storage;
-  using DocumentLab.Core.Utils;
-  using System;
+  using Contracts;
+  using Contracts.Ocr;
+  using Contracts.Extensions;
+  using Core.Extensions;
+  using Core.Utils;
   using System.Collections.Generic;
   using System.Linq;
 

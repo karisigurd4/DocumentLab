@@ -1,10 +1,10 @@
 ﻿namespace DocumentLab.ImageProcessor.Infrastructure
 {
+  using Interfaces;
+  using Implementation;
+  using Castle.Windsor;
   using Castle.MicroKernel.Registration;
   using Castle.MicroKernel.SubSystems.Configuration;
-  using Castle.Windsor;
-  using DocumentLab.ImageProcessor.Interfaces;
-  using DocumentLab.ImageProcessor.Implementation;
 
   public class ImplementationInstaller : IWindsorInstaller
   {

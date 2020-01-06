@@ -1,6 +1,7 @@
 ﻿namespace DocumentLab.PageAnalyzer.Interfaces
 {
-  using DocumentLab.Contracts;
+  using Contracts;
+  using Contracts.Ocr;
   using System.Collections.Generic;
 
   public interface IPageAnalyzer

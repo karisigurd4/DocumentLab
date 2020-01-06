@@ -1,6 +1,6 @@
 ﻿namespace DocumentLab.TextAnalyzer.Extensions
 {
-  using DocumentLab.Contracts;
+  using Contracts;
   using System;
   using System.Collections.Generic;
   using System.Globalization;

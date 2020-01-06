@@ -1,7 +1,5 @@
-﻿namespace DocumentLab.Contracts
+﻿namespace DocumentLab.Contracts.Ocr
 {
-  using System;
-  using System.Collections.Generic;
   using System.Drawing;
 
   public class OcrResult 

@@ -1,6 +1,6 @@
 ﻿namespace DocumentLab.Contracts.Extensions
 {
-  using DocumentLab.Contracts;
+  using DocumentLab.Contracts.Ocr;
   using DocumentLab.Core.Extensions;
   using System.Collections.Generic;
   using System.Linq;

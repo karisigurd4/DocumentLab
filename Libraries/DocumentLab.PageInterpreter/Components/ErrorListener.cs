@@ -1,8 +1,8 @@
 ﻿namespace DocumentLab.PageInterpreter.Components
 {
+  using Exceptions;
   using Antlr4.Runtime;
   using Antlr4.Runtime.Misc;
-  using DocumentLab.PageInterpreter.Exceptions;
   using System;
 
   public class ErrorListener : BaseErrorListener

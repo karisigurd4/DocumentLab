@@ -1,11 +1,11 @@
 ﻿namespace DocumentLab
 {
+  using PageInterpreter;
   using Newtonsoft.Json;
   using Newtonsoft.Json.Linq;
-  using PageInterpreter;
   using System;
-  using System.Collections.Generic;
   using System.Linq;
+  using System.Collections.Generic;
 
   public static class FluentQueryExtensions
   {

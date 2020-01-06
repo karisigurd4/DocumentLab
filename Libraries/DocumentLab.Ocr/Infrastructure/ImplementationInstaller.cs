@@ -1,12 +1,10 @@
 ﻿namespace DocumentLab.Ocr.Infrastructure
 {
+  using Interfaces;
+  using Implementation;
   using Castle.MicroKernel.Registration;
   using Castle.MicroKernel.SubSystems.Configuration;
   using Castle.Windsor;
-  using DocumentLab.Ocr.Interfaces;
-  using DocumentLab.Ocr.Implementation;
-  using Castle.Core;
-  using Castle.Windsor.Installer;
 
   public class ImplementationInstaller : IWindsorInstaller
   {

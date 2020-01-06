@@ -1,7 +1,6 @@
 ﻿namespace DocumentLab.Contracts
 {
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
-  using DocumentLab.Contracts.Enums.Types;
+  using PageInterpreter;
   using System;
 
   public class PageUnit : ICloneable

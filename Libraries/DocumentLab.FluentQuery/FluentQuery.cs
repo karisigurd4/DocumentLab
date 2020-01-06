@@ -1,6 +1,6 @@
 ﻿namespace DocumentLab
 {
-  using DocumentLab.Contracts;
+  using Contracts;
   using PageInterpreter.Interfaces;
 
   public class FluentQuery

@@ -1,11 +1,11 @@
 ﻿namespace DocumentLab.TextAnalyzer.Strategies.AnalyzeTextStrategies
 {
-  using System.Collections.Generic;
-  using DocumentLab.Contracts;
-  using DocumentLab.TextAnalyzer.Interfaces;
+  using Contracts;
+  using Contracts.Ocr;
+  using TextAnalyzer.Interfaces;
   using System.Linq;
+  using System.Collections.Generic;
   using System.Text.RegularExpressions;
-  using DocumentLab.Contracts.Enums.Types;
 
   public class AnalyzeTextStrategy : IAnalyzeTextStrategy
   {

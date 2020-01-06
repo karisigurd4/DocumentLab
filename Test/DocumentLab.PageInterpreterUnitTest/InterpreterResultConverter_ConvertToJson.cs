@@ -1,6 +1,6 @@
 ﻿namespace DocumentLab.PageInterpreterUnitTest
 {
-  using DocumentLab.Contracts.Contracts.PageInterpreter;
+  using DocumentLab.Contracts.PageInterpreter;
   using DocumentLab.PageInterpreter;
   using Microsoft.VisualStudio.TestTools.UnitTesting;
   using Newtonsoft.Json;

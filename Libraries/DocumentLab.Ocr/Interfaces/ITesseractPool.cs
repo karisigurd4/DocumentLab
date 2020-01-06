@@ -1,7 +1,7 @@
 ﻿namespace DocumentLab.Ocr.Interfaces
 {
-  using DocumentLab.Contracts;
-  using DocumentLab.Contracts.Decorators.Ocr;
+  using Contracts.Ocr;
+  using Contracts.Decorators.Ocr;
   using System.Collections.Generic;
 
   public interface ITesseractPool

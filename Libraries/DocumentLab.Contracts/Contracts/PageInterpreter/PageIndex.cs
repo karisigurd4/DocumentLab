@@ -1,4 +1,4 @@
-﻿namespace DocumentLab.Contracts.Contracts.PageInterpreter
+﻿namespace DocumentLab.Contracts.PageInterpreter
 {
   using System;
 

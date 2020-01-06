@@ -1,11 +1,11 @@
 ﻿namespace DocumentLab.Ocr.Implementation
 {
-  using Interfaces;
-  using System.Collections.Generic;
-  using System.Linq;
-  using Contracts;
+  using Contracts.Ocr;
   using Contracts.Decorators.Ocr;
+  using Interfaces;
   using Core.Extensions;
+  using System.Linq;
+  using System.Collections.Generic;
 
   public class TesseractPool : ITesseractPool
   {

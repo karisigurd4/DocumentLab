@@ -1,7 +1,7 @@
 ﻿namespace DocumentLab.Ocr.Utils
 {
-  using DocumentLab.Contracts.Contracts.Ocr;
-  using DocumentLab.Core.Extensions;
+  using Contracts.Ocr;
+  using Core.Extensions;
   using System.Collections.Generic;
   using System.Drawing;
   using System.Linq;
