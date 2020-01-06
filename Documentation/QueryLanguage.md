@@ -2,7 +2,7 @@
 
 DocumentLab takes an image of a document and builds a grid datastructure using the ocr'd text and text classifications. This datastructure can be interacted with via the query language provided in order to extract desired information. A query is essentially a container for patterns. We declare a query by a name label followed by a colon. 
 
-Interacting with DocumentLab is also possible via a C# interface, take a look at [the fluent query documentation page](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) for information.
+Interacting with DocumentLab is also possible via a C# interface, take a look at [the fluent query documentation page](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) for information. DocumentLab scripts have the advantage of being decoupled from compiled C# code and can vary and be maintained independently. 
 
 ## Building patterns
 Building DocumentLab patterns is intended to be as intuitive as reading over the information in a document. It provides a method analogous to how we interpret the information from a document using human intuition. When we want to find an invoice number or a customer number in an invoice, how do we do it? We start by finding a label correlative to the information we want to find and then we find the value in some direction next to it, same intuitive process occurs when we want to find the receiver information, it follows a pattern of information and direction to follow that we're familiar with even when there's no label next to it. The patterns we define in DocumentLab follow the same logic.
