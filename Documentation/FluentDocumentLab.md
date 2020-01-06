@@ -1,9 +1,8 @@
 # Fluent C# interface to DocumentLab
 
-If scripts aren't your thing and you'd prefer to use a C# interface to DocumentLab when extracting data from document images you can use the fluent query extensions. 
+If [scripts](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) aren't your thing and you'd prefer to use a C# interface to DocumentLab when extracting data from document images you can use the fluent query extensions. Data is always returned contained in a string object or in a dictionary in the case of a multi capture. It is up to the caller to do any necessary type conversions.
 
-Data is always returned contained in a string object or in a dictionary in the case of a multi capture. It is up to the caller to do any necessary type conversions.
-
+#### Code example 
 **Header**
 ```C#
 using DocumentLab;
