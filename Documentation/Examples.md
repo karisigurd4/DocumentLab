@@ -108,9 +108,11 @@ public class Result
 We can then map the output json result to a C# object with a Json converter, for instance the following using Newtonsoft,
 
 ```C#
+
 string imagePath = "Examples\Example1.png";
 
 string script = @"
+
   // Start by finding the text "Label1" and then moving right until we capture an email 
   // We're expecting the pattern to include the amount in the middle but we don't care about capturing that one
   Label1: 
@@ -128,6 +130,7 @@ string script = @"
   // Capture any date in the document
   Dates: 
   Any [Date];
+
 ";
 
 // Instantiate DocumentLab 
@@ -160,6 +163,7 @@ Console.WriteLine(interpreterJsonResult);
 var asObject = JsonConvert.DeserializeObject<Result>(interpretedJsonResult)
 
 // ... We've now got an object to work with!
+
 ```
 
 The base example without comments or example console out part has only three statements in it that actually perform any operation, that is, instantiation of DocumentLab, calling the InterpretToJson and the DeserializeObject method calls. 
