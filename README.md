@@ -17,7 +17,7 @@ using (var dl = new Document((Bitmap)Image.FromFile("pathToSomeImage.png")))
   string customerNumber = dl.Query().GetValueForLabel(Direction.Right, "Customer number");
 
   // We can build patterns using predicates, directions and capture operations that return the value matched in the document
-  // Patterns allow us to recognize and capture data by contextual information, i.e., how we'd read for example receiver infromation from an invoice
+  // Patterns allow us to recognize and capture data by contextual information, i.e., how we'd read for example receiver information from an invoice
   string receiverName = dl
     .Query()
     .Match("PostCode") // Text classification using contextual data files can be referenced by string
