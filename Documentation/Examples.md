@@ -28,6 +28,7 @@ Let's assume the data we want to extract from the image above is the following,
 We can solve that by defining the following script, note that // is used for comments 
 
 ```
+
 // Start by finding the text "Label1" and then moving right until we capture an email
 // We're expecting the pattern to include the amount in the middle but we don't care about capturing that one
 Label1: 
@@ -45,6 +46,7 @@ LastColumn:
 // Capture any date in the document
 Dates: 
 Any [Date];
+
 ```
 
 The following predicates are valid from the text analysis classifications,
