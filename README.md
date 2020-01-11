@@ -9,7 +9,7 @@ This is a solution for data extraction from images with text. You pass in an bit
 * Defining documents by queries/patterns allows DocumentLab to understand a document intelligently
   * It can extract data from documents with layouts it has never seen before 
 
-Queries are patterns of information in documents that you want to match. If DocumentLab can find a match, you can capture any data from a pattern. You can write scripts in the query language or use the C# api.
+Queries are patterns of information in documents that you want to capture data from. You can write scripts in the query language or use the C# api.
 
 **C# Fluent Query Example**
 ```C#
