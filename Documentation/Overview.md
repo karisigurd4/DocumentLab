@@ -56,20 +56,7 @@ The TextAnalyzer component in this solution is able to identify the following ty
 * Text 
 * WebAddress
 
-These standard text types are defined by regular expressions in *Data\Configuration\TextAnalysis.json* that can be edited and refined without recompilation. 
-
-Moreover, the TextAnalyzer also contains implementation and configuration options for defining custom text types by providing a list of items separated by newline. For example, the provided file StreetAddress.txt under *Data\Context\** contains a list of street addresses in Sweden. The TextAnalyzer will automatically load the contents of this file into memory and any text matching an item in the file will get classified as a *StreetAddress*.
-
-For example, if we pass the string "Storgatan 15" through the TextAnalyzer, it will return a set of results such as the following,
-```
-[
-  { Text: "Storgatan 15", TextType: "StreetAddress" },
-  { Text: "15", TextType: "AmountOrNumber" },
-  { Text: "15", TextType: "Number" },
-  { Text: "Storgatan 15", TextType: "Text" },
-]
-```
-Note that no additional configuration is necessarily required for adding these context files to the solution. They are loaded and introduced into the process automatically. Some additional configuration is possible in *Data\Configuration\FromFileConfiguration.json*.
+The text analysis and classification happens when the grid datastructure representing the page is built. Each cell containing a piece of text will have its text divided into the available classifications. When a piece of text contains a number the classification result will include an entry with just the number and an associated TextType property with a value of number. This is useful later on when we define patterns and extracting data. We can tell DocumentLab for instance to follow a pattern and then extract the number at the end of it, regardless of whether the original ocr result contained more text in that specific location. 
 
 ### Page analysis
 Once the OCR and text classification step of the process is finished, we've got a set of analyzed text and their coordinate positions. The process that comes next is referred to as *Page Analysis* whereupon we take this information and build up a grid datastructure whose cells try to reflect the position of text extracted from the document as accurately as possible. Each cell in the grid is an N-dimensional array where N is the number of text classifications that were found for each text. The grid is essentially a three-dimensional array where the X and Y reflect position and the Z axis the possible matching text classifications.
