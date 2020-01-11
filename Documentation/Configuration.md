@@ -29,7 +29,7 @@ In *Data\Configuration\OCR Configuration.json* we have a number of configuration
   * The reason for processing more than one image in a job sequentially is that it can offload the context switching/thread management overhead a bit
   * The deafault setting is to chunk together two images, playing with this parameter may yield different results on different hardware
 
-# Language configuration
+# Language configuration and text analysis
 
 To set the language used by DocumentLab, you can adjust the parameter named **Language** in *Data\Configuration\GlobalConfiguration.json*
 
