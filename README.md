@@ -6,7 +6,8 @@
 This is a solution for data extraction from images with text. You pass in an bitmap of a document and a set of queries and you get back your extracted data in structured json. 
 
 * Unlike other many other OCR solutions, DocumentLab does not rely on pre-determined *mapping* of sections 
-* It can extract data from documents with layouts it has never seen before 
+* Defining documents by queries/patterns allows DocumentLab to understand a document in a much more intelligent way
+  * It can extract data from documents with layouts it has never seen before 
 
 Queries are patterns of information in documents that you want to match. If DocumentLab can find a match, you can capture any data from a pattern. You can write scripts in the query language or use the C# api.
 
