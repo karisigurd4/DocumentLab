@@ -1,8 +1,12 @@
+<img src="https://github.com/karisigurd4/DocumentLab/blob/master/Applications/DocumentLabCL/Examples/Example1.png" />
 
 [![NuGet version (DocumentLab-x64)](https://img.shields.io/nuget/v/DocumentLab-x64.svg?style=flat-square)](https://www.nuget.org/packages/DocumentLab-x64/1.1.0) ![License)](https://img.shields.io/github/license/karisigurd4/DocumentLab) ![Platform](https://img.shields.io/badge/platform-win--64-green)
 
 # DocumentLab
 This is a solution for data extraction from images with text. You pass in an bitmap of a document and a set of queries and you get back your extracted data in structured json. 
+
+* Unlike other many other OCR solutions, DocumentLab does not rely on pre-determined *mapping* of sections 
+* It can extract data from documents with layouts it has never seen before 
 
 Queries are patterns of information in documents that you want to match. If DocumentLab can find a match, you can capture any data from a pattern. You can write scripts in the query language or use the C# api.
 
@@ -73,7 +77,10 @@ Depending on your image source, you may want to upsample low dpi images to a ran
   * Query a subset of the page (soon)
 * [Configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md)
   * [Host system resource optimization](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#host-system-resource-optimization) 
-  * [Language configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#language-configuration)
+    * [Language configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#language-configuration)
+    * [Amounts and dates](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#amounts-and-dates)
+    * [Defining custom text types](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#defining-custom-text-types)
+  * [Contextual data files](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#contextual-data-files)
     * [Adding contextual information files](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#adding-contextual-information-files)
 * [Techical overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md)
   * [Caching and optimization](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#coaching-and-optimization)

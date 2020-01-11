@@ -15,9 +15,6 @@
         .Select(x => Regex.Matches(x, Constants.TextAnalysisConfiguration.TextRegex, RegexOptions.IgnoreCase))
         .SelectMany(x => x.Cast<Match>());
 
-      matchedText = matchedText
-        .Where(x => !x.Value.All(y => char.IsDigit(y)));
-
       return matchedText.Select(x => new AnalyzedText()
       {
         Text = x.Value,

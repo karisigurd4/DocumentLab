@@ -29,19 +29,52 @@ In *Data\Configuration\OCR Configuration.json* we have a number of configuration
   * The reason for processing more than one image in a job sequentially is that it can offload the context switching/thread management overhead a bit
   * The deafault setting is to chunk together two images, playing with this parameter may yield different results on different hardware
 
-## Language configuration
+# Language configuration
 
-To set the language used by Tesseract OCR, you can adjust the parameter named **Language** in *Data\Configuration\OCR Configuration.json*
+To set the language used by DocumentLab, you can adjust the parameter named **Language** in *Data\Configuration\GlobalConfiguration.json*
 
 * It requires a corresponding *.traineddata* file under the *tessdata* directory
-* The **Language** parameter should correspond to the file name without the post-fix file type
-* See [Tesseract-OCR traineddata downloads page](https://github.com/tesseract-ocr/tessdata) for prepared trained language files
+  * The **Language** parameter should correspond to the file name without the post-fix file type
+  * See [Tesseract-OCR traineddata downloads page](https://github.com/tesseract-ocr/tessdata) for prepared trained language files
+* Contextual files are language dependant, if you switch to for example 'nor', the files in *context\swe\** won't be used in the text analyzer
 
-**Amounts and dates**
+## Amounts and dates
 
 How we write amounts and dates varies between countries. The analysis of which are defined with regular expressions in **Data/Configuration/TextAnalysis.json**. Comma and decimal point separated numbers are classified as amounts. Dates follow the ISO 8601 standard. You'll need to define regular expressions for your own needs if your documents have different representations. 
 
-**Contextual data files**
+## Defining custom text types
+
+Defining custom text types using regular expressions and some common operations is possible in *TextTypeDefinitions.json*.
+
+Opening that file shows an example of one such definition. The InvoiceNumber text type is defined in such a way.
+
+```json
+[
+  {
+    "Name": "InvoiceNumber",
+    "Text": {
+      "GetAs": "Text",
+      "Replace": {
+        "Find": [ "-" ],
+        "Replace": ""
+      },
+      "Regexes": [
+        "\"\"((?<!\\\\w)\\\\w+\\\\d+)\"\""
+      ]
+    }
+  }
+]
+```
+
+The custom definition analyzer expects to find at least a name and regexes properties for each definition. The text definition can be omitted for default handling.
+
+The *GetAs* field can be set to **Text** or **Continuous** and the *Replace* definition is helpful for standardizing raw text to something that you can easier match with regular expressions.
+
+* Text - Means that the ocr result under analysis will be treated as a normal string, spaces instead of newliens.
+* Continuous - Removes any space or newline character, reslut will be matched to the regex in one clump of text
+    * For instance, you might get a result like "InterestingData: 999 333 555", it would be easier to write a regex for "InterestingData:9993355" 
+
+# Contextual data files
 
 DocumentLab comes packaged with country specific configuration files by default, the following files under *Data\Context* are specifically for documents originating from Swedish/Nordic countries, 
 
@@ -55,7 +88,7 @@ By using these kind of files we can let DocumentLab know what a StreetAddress is
 
 The default provided files specified above can be deleted from the context folder if they're not going to be used without issue.
 
-### Adding contextual information files
+## Adding contextual information files
 
 If you need DocumentLab to understand custom contextual information you can achieve that by providing your own newline separated text files in the *context* folder. These files are loaded dynamically upon DocumentLab startup and you should be able to use them directly without further configuration. 
 

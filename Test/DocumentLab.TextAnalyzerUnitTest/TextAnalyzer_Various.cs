@@ -55,6 +55,15 @@
     }
 
     [TestMethod]
+    public void Can_Analyze_CustomType()
+    {
+      var analyzer = container.Resolve<ITextAnalyzer>();
+      string fakeString = "F90091";
+      var result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
+      Assert.IsTrue(result.Any(x => x.TextType == "InvoiceNumber"));
+    }
+
+    [TestMethod]
     public void Can_Analyze_Amount()
     {
       var analyzer = container.Resolve<ITextAnalyzer>();

@@ -49,6 +49,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\Configuration.md = Documentation\Configuration.md
 		Documentation\Examples.md = Documentation\Examples.md
 		Documentation\FluentDocumentLab.md = Documentation\FluentDocumentLab.md
+		..\..\..\Downloads\logo.png = ..\..\..\Downloads\logo.png
 		Documentation\Overview.md = Documentation\Overview.md
 		Documentation\QueryLanguage.md = Documentation\QueryLanguage.md
 		README.md = README.md

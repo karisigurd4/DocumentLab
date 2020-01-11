@@ -19,7 +19,7 @@
 
     // OCR
     public static string LanguageFilePath => "tessdata";
-    public static string DefaultLanguage => OcrConfiguration["Language"];
+    public static string DefaultLanguage => DocumentLab.Core.Constants.Language;
     public static int ResultChunkSize => int.Parse(OcrConfiguration["ResultChunkSize"]);
     public static int TesseractEnginePoolSize => int.Parse(OcrConfiguration["TesseractEnginePoolSize"]);
     public static int NumberOfThreads => int.Parse(OcrConfiguration["NumberOfThreads"]);

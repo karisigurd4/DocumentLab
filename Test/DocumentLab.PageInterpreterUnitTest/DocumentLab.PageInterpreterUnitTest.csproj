@@ -103,6 +103,7 @@
     <Compile Include="Query_Tests.cs" />
     <Compile Include="RightDownSearch_Test.cs" />
     <Compile Include="ScriptAnalyzerTests.cs" />
+    <Compile Include="TableAnalyzer_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\DocumentLab.Contracts\DocumentLab.Contracts.csproj">

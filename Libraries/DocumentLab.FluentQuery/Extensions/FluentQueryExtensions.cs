@@ -147,7 +147,7 @@
     {
       response.QueryType = QueryType.MultiCapture;
 
-      if (response.QueryType == QueryType.MultiCapture && string.IsNullOrWhiteSpace(propertyName))
+      if (string.IsNullOrWhiteSpace(propertyName))
       {
         throw new FluentQueryException("The specified pattern has multiple captures, a property name must be specified when capturing more than one value.");
       }
@@ -161,16 +161,26 @@
     /// <param name="captureTextType">The text type we want to capture in the document. In a pattern the text type specified in a pattern must yield a positive match in order for the capture to be valid.</param>
     /// <param name="propertyName">*Optional* Specify a name for the property associated with the capture. This is only applicable for multi-capture patterns.</param>
     /// <returns>Returns a DocumentLab FluentQuery with a script extension that performs the capture.</returns>
-    public static FluentQuery Capture(this FluentQuery response, string captureTextType, string propertyName = "")
+    public static FluentQuery Capture(this FluentQuery response, string captureTextType, string propertyName)
     {
       response.QueryType = QueryType.MultiCapture;
 
-      if (response.QueryType == QueryType.MultiCapture && string.IsNullOrWhiteSpace(propertyName))
+      if (string.IsNullOrWhiteSpace(propertyName))
       {
         throw new FluentQueryException("The specified pattern has multiple captures, a property name must be specified when capturing more than one value.");
       }
 
       return response.AppendToScript((!string.IsNullOrWhiteSpace(propertyName) ? $"'{propertyName}': " : string.Empty) + $"[{captureTextType}]");
+    }
+
+    /// <summary>
+    /// Performs a Right-Down search from the previous predcate. A predicate or capture should follow. This is implicitly already used in the FindValueForLabel and GetValueForLabel methods. Use this method if you want to create more detailed patterns using RD.
+    /// </summary>
+    /// <param name="maxSteps">The maximum distance in cells between the previous predicate and the next predicate for the pattern to be valid.</param>
+    /// <returns></returns>
+    public static FluentQuery RightDownSearch(this FluentQuery response, int maxSteps)
+    {
+      return response.AppendToScript($"RD {maxSteps}");
     }
 
     /// <summary>

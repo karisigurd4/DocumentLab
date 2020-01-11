@@ -95,6 +95,7 @@
     </None>
     <Compile Include="Configuration\FromFileConfiguration.cs" />
     <Compile Include="Configuration\TextAnalysisConfiguration.cs" />
+    <Compile Include="Configuration\TextTypeDefinition.cs" />
     <Compile Include="Constants.cs" />
     <None Include="Data\Configuration\FromFileConfiguration.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -105,7 +106,7 @@
     <Compile Include="Strategies\AnalyzeTextStrategies\AnalyzeAmountOrNumberStrategy.cs" />
     <Compile Include="Strategies\AnalyzeTextStrategies\AnalyzeAmountsStrategy.cs" />
     <Compile Include="Strategies\AnalyzeTextStrategies\AnalyzeFromDataFiles.cs" />
-    <Compile Include="Strategies\AnalyzeTextStrategies\AnalyzeInvoiceNumberStrategy.cs" />
+    <Compile Include="Strategies\AnalyzeTextStrategies\AnalyzeCustomTextTypeDefinitionsStrategy.cs" />
     <Compile Include="Strategies\AnalyzeTextStrategies\AnalyzeLettersStrategy.cs" />
     <Compile Include="Strategies\AnalyzeTextStrategies\AnalyzePercentageStrategy.cs" />
     <Compile Include="Strategies\AnalyzeTextStrategies\AnalyzeTextStrategy.cs" />
@@ -119,6 +120,9 @@
     <Compile Include="Strategies\AnalyzeTextStrategies\AnalyzeNumbersStrategy.cs" />
     <Compile Include="Strategies\AnalyzeTextStrategies\AnalyzeWebAddressesStrategy.cs" />
     <Compile Include="Utilities\HttpClientHelpers.cs" />
+    <None Include="Data\Configuration\TextTypeDefinitions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -132,20 +136,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\Context\Country.txt">
+    <None Include="Data\Context\swe\Country.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Context\Currency.txt">
+    <None Include="Data\Context\swe\Currency.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Context\PostalCode.txt" />
-    <None Include="Data\Context\StreetAddress.txt">
+    <None Include="Data\Context\swe\PostalCode.txt" />
+    <None Include="Data\Context\swe\StreetAddress.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\Static\topleveldomains.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Context\Town.txt">
+    <None Include="Data\Context\swe\Town.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

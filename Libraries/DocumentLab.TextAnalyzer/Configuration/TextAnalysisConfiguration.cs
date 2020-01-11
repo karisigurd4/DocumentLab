@@ -9,6 +9,7 @@
     public string BadOcrWebAddressRegex { get; set; }
     public string TextRegex { get; set; }
     public string AmountIgnoreRegex { get; set; }
+    public string[] TryParseDateTimeFormats { get; set; }
     public string[] StreetAddressRegexes { get; set; }
     public string[] PostalCodeRegexes { get; set; }
     public string[] KnownDateDelimiters { get; set; }

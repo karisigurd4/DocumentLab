@@ -6,7 +6,6 @@
     Amount,
     Date,
     Email,
-    InvoiceNumber,
     Letters,
     Number,
     PageNumber,

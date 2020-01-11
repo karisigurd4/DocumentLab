@@ -109,6 +109,9 @@
     <Compile Include="Utils\LeivenshteinDistance.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\Configuration\GlobalConfiguration.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

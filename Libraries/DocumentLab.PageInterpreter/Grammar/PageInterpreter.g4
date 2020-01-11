@@ -20,6 +20,10 @@ rightDownSearch
 	: RightDown Steps=Numbers
 	;
 
+table
+	: capture+
+	;
+
 capture
 	: propertyName? LBracket Match=textType RBracket
 	;

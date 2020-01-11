@@ -1,0 +1,15 @@
+﻿[
+  {
+    "Name": "InvoiceNumber",
+    "Regexes": [
+      "((?<!\\w)\\w+\\d+)"
+    ],
+    "Text": {
+      "GetAs": "Text",
+      "Replace": {
+        "Find": [ "-" ],
+        "Replace": ""
+      }
+    }
+  }
+]

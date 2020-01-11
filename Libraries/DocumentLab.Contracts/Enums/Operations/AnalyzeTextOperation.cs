@@ -3,7 +3,6 @@
   public enum AnalyzeTextOperation
   {
     AnalyzeAmountOrNumber,
-    AnalyzeInvoiceNumber,
     AnalyzeCurrency,
     AnalyzeText,
     AnalyzeNumbers,

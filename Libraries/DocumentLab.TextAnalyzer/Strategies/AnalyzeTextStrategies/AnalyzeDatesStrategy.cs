@@ -46,11 +46,16 @@
           date = date.Insert(7, "-");
       }
 
-      DateTime outDate;
-      if (!DateTime.TryParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out outDate))
+      DateTime outDate = default(DateTime);
+      foreach(var format in Constants.TextAnalysisConfiguration.TryParseDateTimeFormats)
       {
-        if (!DateTime.TryParseExact(date, "yy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out outDate))
-          return string.Empty;
+        if (DateTime.TryParseExact(date, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out outDate))
+          break;
+      }
+
+      if (outDate == default(DateTime))
+      {
+        return string.Empty;
       }
 
       return outDate.ToString(Constants.TextAnalysisConfiguration.ConvertDatesToFormat);

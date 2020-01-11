@@ -88,12 +88,7 @@
     <Compile Include="Enums\Operations\ExecuteRuleOperation.cs" />
     <Compile Include="Enums\Operations\ProcessImageOperation.cs" />
     <Compile Include="Enums\Types\Direction.cs" />
-    <Compile Include="Enums\Types\LearnerFieldType.cs" />
-    <Compile Include="Enums\Types\ResultComparisonType.cs" />
-    <Compile Include="Enums\Types\PatternMatchType.cs" />
     <Compile Include="Enums\Types\TextType.cs" />
-    <Compile Include="Enums\Types\TokenType.cs" />
-    <Compile Include="Enums\Types\TraverserMatchType.cs" />
     <Compile Include="Extensions\OcrResultExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\TestPageCreator.cs" />
