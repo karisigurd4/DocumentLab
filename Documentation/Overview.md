@@ -55,6 +55,8 @@ The TextAnalyzer component in this solution is able to identify the following ty
 * Percentage
 * Text 
 * WebAddress
+* Additional definitions from context files
+* Additional custom definitions from configuration file
 
 The text analysis and classification happens when the grid datastructure representing the page is built. Each cell containing a piece of text will have its text divided into the available classifications. When a piece of text contains a number the classification result will include an entry with just the number and an associated TextType property with a value of number. This is useful later on when we define patterns and extracting data. We can tell DocumentLab for instance to follow a pattern and then extract the number at the end of it, regardless of whether the original ocr result contained more text in that specific location. 
 
