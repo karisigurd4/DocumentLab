@@ -59,7 +59,7 @@ Opening that file shows an example of one such definition. The InvoiceNumber tex
         "Replace": ""
       },
       "Regexes": [
-        "\"\"((?<!\\\\w)\\\\w+\\\\d+)\"\""
+        "((?<!\\w)\\w+\\d+)"
       ]
     }
   }
