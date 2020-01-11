@@ -71,7 +71,7 @@ The custom definition analyzer expects to find at least a name and regexes prope
 
 The *GetAs* field can be set to **Text** or **Continuous** and the *Replace* definition is helpful for standardizing raw text to something that you can easier match with regular expressions.
 
-* Text - Means that the ocr result under analysis will be treated as a normal string, spaces instead of newliens.
+* Text - Means that the ocr result under analysis will be treated as a normal string, spaces instead of newlines.
 * Continuous - Removes any space or newline character, reslut will be matched to the regex in one clump of text
     * For instance, you might get a result like "InterestingData: 999 333 555", it would be easier to write a regex for "InterestingData:9993355" 
 
