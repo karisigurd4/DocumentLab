@@ -86,7 +86,7 @@ Depending on your image source, you may want to upsample low dpi images to a ran
 
 * [Release notes](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/RealeaseNotes.md)
 * [Simple scripting example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md)
-* [Integrating scripts in C#](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library)
+  * [Integrating scripts in C#](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library)
 * [C# Fluent API](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) 
 * [Query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md)
   * [Building patterns](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns)
