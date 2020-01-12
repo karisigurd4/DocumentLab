@@ -9,7 +9,7 @@ This is a solution for data extraction from images of documents. You send in a b
 * Unlike many other document OCR solutions, DocumentLab does not rely on pre-determined manual *mapping/localization* of sections 
   * You'll never have to specify pixel coordinates
   * DocumentLab is well versed for extracting data from documents with layouts it has never seen before
-* It provides a query language created specifically for document data extraction 
+* It provides a [query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) created specifically for document data extraction 
   * Defining documents by queries/patterns allows DocumentLab to understand documents *intelligently*
   * Patterns in DocumentLab are designed to be analogous to how we'd read information with human intuition 
 * **Production ready** for **real-world** data extraction
