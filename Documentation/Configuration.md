@@ -32,7 +32,7 @@ In *Data\Configuration\OcrConfiguration.json* we have a number of configuration 
 # Language configuration and text analysis
 
 To set the language used by DocumentLab, you can adjust the parameter named **Language** in *Data\Configuration\GlobalConfiguration.json*
-**Note:** In v. <= 1.2.0 the file containing this parameter is OcrConfiguration.json 
+**Note:** In v. <= 1.2.0 the file containing this parameter is *OcrConfiguration.json*
 
 * It requires a corresponding *.traineddata* file under the *tessdata* directory
   * The **Language** parameter should correspond to the file name without the post-fix file type
