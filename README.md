@@ -30,8 +30,7 @@ The C# is easier to get started quickly. The raw text scripting interface allows
 * [Configure C# build settings](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md) 
 * [Query language documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
   * [C# Example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library) 
-* [Fluent C# interface documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.MD) 
-
+* [Fluent C# interface documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) 
 Below are a few select examples with comments on how DocumentLab can be used. 
 
 **C# Fluent Query Example**
