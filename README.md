@@ -15,14 +15,15 @@ This is a solution for data extraction from images of documents. You send in a b
 
 **Quick intro**
 
+You can write scripts in the query language or use the C# api.
+
 * *Pattern*: A description of how information is presented in a document as well as which data to capture
   * *e.g*: ```Text(Invoice Number) Right [InvoiceNumber]```
 * *Query*: A named set of patterns prioritized first to last
   * *e.g*: ```IncoiceNumber: *pattern 1*; *pattern 2*; ... *pattern n*;```
+* *Script*: A collection of queries to execute in one go. Output properties will have the query name
 * [Query language documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
 * [Fluent C# interface documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.MD) 
-
-You can write scripts in the query language or use the C# api.
 
 **C# Fluent Query Example**
 ```C#
