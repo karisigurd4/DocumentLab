@@ -23,7 +23,7 @@ You can write scripts in the query language or use the C# api.
 The C# fluent interface is easier to get started quickly. The raw text scripting interface allows more versatility and configurability in a production context. 
 
 * *Pattern*: A description of how information is presented in a document as well as which data to capture
-  * *e.g*: ```Text(Invoice Number) Right [InvoiceNumber]```
+  * *e.g*: ```Text(Total amount) Right [Amount]```
 * *Query*: A named set of patterns prioritized first to last
   * *e.g*: ```IncoiceNumber: *pattern 1*; *pattern 2*; ... *pattern n*;```
 * *Script*: A collection of queries to execute in one go. Output properties will have the query name
