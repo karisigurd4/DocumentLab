@@ -3,7 +3,7 @@
 [![NuGet version (DocumentLab-x64)](https://img.shields.io/nuget/v/DocumentLab-x64.svg?style=flat-square)](https://www.nuget.org/packages/DocumentLab-x64/1.1.0) ![License)](https://img.shields.io/github/license/karisigurd4/DocumentLab) ![Platform](https://img.shields.io/badge/platform-win--64-green)
 
 ---
-This is a solution for data extraction from images of documents. You send in a bitmap, a set of queries and you get out extracted data in structured json. 
+This is a solution for data extraction from images of documents. You send in a bitmap, a set of queries and get extracted data in structured json. 
 
 * DocumentLab takes care of image processing/recognition, optical character recognition, [text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Language-configuration-and-text-analysis) and data analysis
 * Unlike many other document OCR solutions, DocumentLab does not rely on pre-determined manual *mapping/localization* of sections 
