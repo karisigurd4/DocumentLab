@@ -17,6 +17,8 @@ This is a solution for data extraction from images of documents. You send in a b
 
 You can write scripts in the query language or use the C# api.
 
+The C# is easier to get started quickly. The raw text scripting interface allows more versatility and configurability in a production context. 
+
 * *Pattern*: A description of how information is presented in a document as well as which data to capture
   * *e.g*: ```Text(Invoice Number) Right [InvoiceNumber]```
 * *Query*: A named set of patterns prioritized first to last
@@ -26,6 +28,8 @@ You can write scripts in the query language or use the C# api.
 * [Query language documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
   * [C# Example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library) 
 * [Fluent C# interface documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.MD) 
+
+Below are a few select examples with comments on how DocumentLab can be used. 
 
 **C# Fluent Query Example**
 ```C#
