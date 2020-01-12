@@ -2,6 +2,8 @@
 
 **Soon**
 * Extended language configuration options 
+  * Set language in global settings
+  * Contextual data split by language setting
 * Extended date interpretation configuration 
 * Added custom text type definitions, made InvoiceNumber a custom definition 
 
