@@ -2,6 +2,8 @@
 
 **Note**: DocumentLab is only built for x64. 
 
+**To configure a project to build in x64**
+
 1. Click the solution platform dropdown (Any CPU) -> Configuration Manager -> Active solution platform -> New -> Platform -> x64 -> Click ok
 2. Right click your C# project -> Properties -> Build -> Platform target -> **set to x64**
 3. Make sure the selected solution platform is x64 and not Any CPU
