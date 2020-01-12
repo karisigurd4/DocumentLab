@@ -14,7 +14,7 @@ The OCR step in DocumentLab is optimized for parallel processing, the following 
 
 ![TesseractPoolDiagram](https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/TesseractPoolDiagram.png)
 
-In *Data\Configuration\OCR Configuration.json* we have a number of configuration parameters. The intent of which allow us to optimize OCR processing, namely, Tesseract specifically to our host system hardware .
+In *Data\Configuration\OcrConfiguration.json* we have a number of configuration parameters. The intent of which allow us to optimize OCR processing, namely, Tesseract specifically to our host system hardware .
 
 * NumberOfThreads - Maximum number of parallel threads we'll allow DocumentLab to instantiate
   * This is independent of how many engines we have available, i.e., even if an engine becomes available we can't assign a new OCR job to it if we're exceeding maximum thread count
@@ -32,7 +32,7 @@ In *Data\Configuration\OCR Configuration.json* we have a number of configuration
 # Language configuration and text analysis
 
 To set the language used by DocumentLab, you can adjust the parameter named **Language** in *Data\Configuration\GlobalConfiguration.json*
-**Note:** In v. <= 1.2.0 the file containing this parameter is OCR Configuration.json 
+**Note:** In v. <= 1.2.0 the file containing this parameter is OcrConfiguration.json 
 
 * It requires a corresponding *.traineddata* file under the *tessdata* directory
   * The **Language** parameter should correspond to the file name without the post-fix file type
