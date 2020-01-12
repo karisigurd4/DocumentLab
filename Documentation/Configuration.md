@@ -27,7 +27,7 @@ In *Data\Configuration\OcrConfiguration.json* we have a number of configuration 
 * ResultChunkSize 
   * Each OCR *job* assigned to a tesseract engine includes a set of images, referred to as *chunks*. These chunks of images are processed sequentially by each TesseractEngine job
   * The reason for processing more than one image in a job sequentially is that it can offload the context switching/thread management overhead a bit
-  * The deafault setting is to chunk together two images, playing with this parameter may yield different results on different hardware
+  * The default setting is to chunk together two images, playing with this parameter may yield different results on different hardware
 
 # Language configuration and text analysis
 
