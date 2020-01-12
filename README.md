@@ -5,7 +5,7 @@
 ---
 This is a solution for data extraction from images of documents. You send in a bitmap, a set of queries and you get out extracted data in structured json. 
 
-* DocumentLab takes care of image processing/recognition, optical character recognition, text classification and data analysis
+* DocumentLab takes care of image processing/recognition, optical character recognition, [text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Language-configuration-and-text-analysis) and data analysis
 * Unlike many other document OCR solutions, DocumentLab does not rely on pre-determined manual *mapping/localization* of sections 
   * You'll never have to specify pixel coordinates
   * DocumentLab is well versed for extracting data from documents with layouts it has never seen before
