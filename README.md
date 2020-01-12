@@ -35,6 +35,8 @@ The C# fluent interface is easier to get started quickly. The raw text scripting
 * [Query language documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
   * [C# Example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library) 
 * [Fluent C# interface documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) 
+
+**Quick examples**
 Below are a few select examples with comments on how DocumentLab can be used. 
 
 **C# Fluent Query Example**
