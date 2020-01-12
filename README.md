@@ -28,6 +28,9 @@ The C# fluent interface is easier to get started quickly. The raw text scripting
 * *Query*: A named set of patterns prioritized first to last
   * *e.g*: ```IncoiceNumber: *pattern 1*; *pattern 2*; ... *pattern n*;```
 * *Script*: A collection of queries to execute in one go. Output properties will have the query name
+
+**Getting started**
+
 * [Configure C# build settings](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md) 
 * [Query language documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
   * [C# Example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library) 
