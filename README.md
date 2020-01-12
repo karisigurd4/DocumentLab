@@ -13,7 +13,16 @@ This is a solution for data extraction from images of documents. You send in a b
   * Defining documents by queries/patterns allows DocumentLab to understand documents *intelligently*
   * Patterns in DocumentLab are designed to be analogous to how we'd read information with human intuition 
 
-Queries are patterns of information in documents that you want to capture data from. You can write scripts in the query language or use the C# api.
+**Quick intro**
+
+* *Pattern*: A description of how information is presented in a document as well as which data to capture
+  * *e.g*: ```Text(Invoice Number) Right [InvoiceNumber]```
+* *Query*: A named set of patterns prioritized first to last
+  * *e.g*: ```IncoiceNumber: *pattern 1*; *pattern 2*; ... *pattern n*;```
+* [Query language documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
+* [Fluent C# interface documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.MD) 
+
+You can write scripts in the query language or use the C# api.
 
 **C# Fluent Query Example**
 ```C#
