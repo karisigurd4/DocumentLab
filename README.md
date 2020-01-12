@@ -22,6 +22,7 @@ You can write scripts in the query language or use the C# api.
 * *Query*: A named set of patterns prioritized first to last
   * *e.g*: ```IncoiceNumber: *pattern 1*; *pattern 2*; ... *pattern n*;```
 * *Script*: A collection of queries to execute in one go. Output properties will have the query name
+* [Configure C# build settings](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md) 
 * [Query language documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
 * [Fluent C# interface documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.MD) 
 
