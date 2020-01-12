@@ -11,3 +11,4 @@
 **1.0.0**
 
 * Initial commit, moved from private repsository to git
+* Added script analyzer and json serialization for interpretation results
