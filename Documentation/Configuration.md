@@ -85,7 +85,7 @@ DocumentLab comes packaged with country specific configuration files by default,
 * StreetAddress.txt
 * Town.txt
 
-These files contain information separated by newline. These files are used during the [text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md#text-classification) process. 
+These files contain information separated by newline. These files are used during the text classification process. 
 
 By using these kind of files we can let DocumentLab know what a StreetAddress is as opposed to just *Some piece of text*. This is especially useful to expand the context we can specify when we write patterns for our queries. It is way more specific to be able to say capture the [StreetAddress] instead of capture the [Text] which might result in more faulty results.
 
