@@ -37,6 +37,7 @@ The C# fluent interface is easier to get started quickly. The raw text scripting
 * [Fluent C# interface documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) 
 
 **Quick examples**
+
 Below are a few select examples with comments on how DocumentLab can be used. 
 
 **C# Fluent Query Example**
