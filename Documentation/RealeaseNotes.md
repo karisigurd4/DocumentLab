@@ -1,5 +1,10 @@
 # Release notes
 
+**Soon**
+* Extended language configuration options 
+* Extended date interpretation configuration 
+* Added custom text type definitions, made InvoiceNumber a custom definition 
+
 **1.2.0**
 
 * Added Fluent Query API to DocumentLab
