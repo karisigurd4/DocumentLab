@@ -20,7 +20,7 @@ This is a solution for data extraction from images of documents. You send in a b
 
 You can write scripts in the query language or use the C# api.
 
-The C# is easier to get started quickly. The raw text scripting interface allows more versatility and configurability in a production context. 
+The C# fluent interface is easier to get started quickly. The raw text scripting interface allows more versatility and configurability in a production context. 
 
 * *Pattern*: A description of how information is presented in a document as well as which data to capture
   * *e.g*: ```Text(Invoice Number) Right [InvoiceNumber]```
