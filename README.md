@@ -9,7 +9,7 @@ This is a solution for data extraction from images of documents. You send in a b
 * Unlike many other document OCR solutions, DocumentLab does not rely on pre-determined *mapping* of sections 
 * It provides an advanced query language created specifically to extract data from documents
   * Defining documents by queries/patterns allows DocumentLab to understand documents *intelligently*
-  * Patterns in DocumentLab are analogous to how we'd read information with human intuition
+  * Patterns in DocumentLab are designed to be analogous to how we'd read information with human intuition
   * It can extract data from documents with layouts it has never seen before 
 
 Queries are patterns of information in documents that you want to capture data from. You can write scripts in the query language or use the C# api.
