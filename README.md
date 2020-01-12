@@ -13,6 +13,7 @@ This is a solution for data extraction from images of documents. You send in a b
   * Defining documents by queries/patterns allows DocumentLab to understand documents *intelligently*
   * Patterns in DocumentLab are designed to be analogous to how we'd read information with human intuition 
 * Production ready for real-world data extraction
+  * Fits seamlessly into a scalable architecture 
   * Designed to be as fast as possible
   * [Optimizable via configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Host-system-resource-optimization) for maximum performance on a single host
 
