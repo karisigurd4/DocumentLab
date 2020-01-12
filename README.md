@@ -24,6 +24,7 @@ You can write scripts in the query language or use the C# api.
 * *Script*: A collection of queries to execute in one go. Output properties will have the query name
 * [Configure C# build settings](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md) 
 * [Query language documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
+  * [C# Example](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library) 
 * [Fluent C# interface documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.MD) 
 
 **C# Fluent Query Example**
