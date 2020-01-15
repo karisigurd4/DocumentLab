@@ -1,17 +1,17 @@
 # Release notes
 
 **Soon**
-Global
-* Extended language configuration options 
-* Set language in global settings
-TextAnalyzer
-* Contextual data split by language setting
-* Extended date interpretation configurability
-* Added custom text type definitions, made InvoiceNumber a custom definition 
-* Improved fuzzy text comparison
-Query language
-* Query page SubSet (Top, Bottom, Left, Right) 
-* Automatically analyzed table data
+* Global
+  * Extended language configuration options 
+  * Set language in global settings
+* TextAnalyzer
+  * Contextual data split by language setting
+  * Extended date interpretation configurability
+  * Added custom text type definitions, made InvoiceNumber a custom definition 
+  * Improved fuzzy text comparison
+* Query language
+  * Query page SubSet (Top, Bottom, Left, Right) 
+  * Automatically analyzed table data
 
 **1.2.0**
 
