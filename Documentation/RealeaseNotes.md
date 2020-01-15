@@ -1,7 +1,7 @@
 # Release notes
 
 **Soon**
-* Global
+* General
   * Extended language configuration options 
   * Set language in global settings
 * TextAnalyzer
