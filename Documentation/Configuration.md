@@ -57,10 +57,12 @@ Opening that file shows an example of one such definition. The InvoiceNumber tex
     "Name": "InvoiceNumber",
     "Text": {
       "GetAs": "Text",
-      "Replace": {
-        "Find": [ "-" ],
+      "Replace": [
+	{
+        "Find": [ "\\-" ],
         "Replace": ""
-      },
+     	}
+      ],
       "Regexes": [
         "((?<!\\w)\\w+\\d+)"
       ]
@@ -71,7 +73,7 @@ Opening that file shows an example of one such definition. The InvoiceNumber tex
 
 The custom definition analyzer expects to find at least a name and regexes properties for each definition. The text definition can be omitted for default handling.
 
-The *GetAs* field can be set to **Text** or **Continuous** and the *Replace* definition is helpful for standardizing raw text to something that you can easier match with regular expressions.
+The *GetAs* field can be set to **Text** or **Continuous** and the *Replace* definitions are helpful to standardizing raw text to something that you can easier match with regular expressions.
 
 * Text - Means that the ocr result under analysis will be treated as a normal string, spaces instead of newlines.
 * Continuous - Removes any space or newline character, result will be matched to the regex in one clump of text
