@@ -29,8 +29,8 @@
         {
           responseObject.Add(analyzedQuery.Key,
             interpreterResult.Results
-            .FirstOrDefault(x => x.Key == analyzedQuery.Key)
-            .Value.Result
+            ?.FirstOrDefault(x => x.Key == analyzedQuery.Key)
+            .Value?.Result ?? new Dictionary<string, string>() { }
           );
         }
         else if (analyzedQuery.Value.IsArray)
@@ -46,10 +46,10 @@
           responseObject.Add(analyzedQuery.Key,
             interpreterResult.Results
             .Where(x => x.Key == analyzedQuery.Key)
-            .FirstOrDefault()
+            ?.FirstOrDefault()
             .Value
-            .Result
-            .FirstOrDefault().Value ?? string.Empty
+            ?.Result
+            ?.FirstOrDefault().Value ?? string.Empty
           );
         }
       }

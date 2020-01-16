@@ -31,6 +31,21 @@
     }
 
     [TestMethod]
+    public void Can_Convert_Empty_Array_To_Json()
+    {
+      var fakeResult = new InterpreterResult();
+
+      var script = "Stuff: Any [Text];";
+
+      var json = fakeResult.ConvertToJson(script);
+
+      Assert.IsNotNull(json);
+
+      var result = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(json);
+
+      Assert.AreEqual(0, result["Stuff"].Length);
+    }
+    [TestMethod]
     public void Can_Convert_Single_Capture_To_Json()
     {
       var fakeResult = new InterpreterResult();
@@ -47,6 +62,22 @@
 
       Assert.AreEqual(1, result["Stuff"].Length);
       Assert.AreEqual("1", result["Stuff"]);
+    }
+
+    [TestMethod]
+    public void Can_Convert_Empty_Single_Capture_To_Json()
+    {
+      var fakeResult = new InterpreterResult();
+
+      var script = "Stuff: [Text];";
+
+      var json = fakeResult.ConvertToJson(script);
+
+      Assert.IsNotNull(json);
+
+      var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+
+      Assert.AreEqual(0, result["Stuff"].Length);
     }
 
     [TestMethod]
@@ -67,6 +98,22 @@
 
       Assert.AreEqual("1", result["Stuff"]["A"]);
       Assert.AreEqual("2", result["Stuff"]["B"]);
+    }
+
+    [TestMethod]
+    public void Can_Convert_Empty_Single_Multi_Capture()
+    {
+      var fakeResult = new InterpreterResult();
+
+      var script = "Stuff: 'A': [Text] 'B': [Text];";
+
+      var json = fakeResult.ConvertToJson(script);
+
+      Assert.IsNotNull(json);
+
+      var result = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+
+      Assert.AreEqual(0, result["Stuff"].Count);
     }
   }
 }

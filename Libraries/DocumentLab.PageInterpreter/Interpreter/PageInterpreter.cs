@@ -16,21 +16,34 @@
   public class PageInterpreter : PageInterpreterBaseVisitor<Symbol>
   {
     public InterpreterResult Result { get; private set; } = new InterpreterResult();
+    
+    private readonly Page page;
 
     private string queryLabel;
     private IPageTraverser pageTraverser;
-    private readonly Page page;
-
-    private PageUnit lastPageUnit = null;
 
     public PageInterpreter(Page page)
     {
       this.page = page;
     }
 
-    private bool ValidateTextTypeMatch(PageUnit pageUnit, string textType, string[] matchContent) => pageUnit != null && (matchContent?.Any(x => FuzzyMatch(x, pageUnit.Value)) ?? true);
+    private bool ValidateTextTypeMatch(PageUnit pageUnit, string textType, string[] matchContent) 
+      => pageUnit != null 
+        && pageUnit?.TextType == textType
+        && (matchContent?.Any(x => FuzzyMatch(x, pageUnit.Value)) 
+        ?? true);
 
-    private string[] GetTextTypeParameters(PageInterpreterParser.TextTypeContext context) => context.textTypeParameters() != null ? context.textTypeParameters().Accept(this)?.GetValue<string[]>() : null;
+    private string[] GetTextTypeParameters(PageInterpreterParser.TextTypeContext context, int index) 
+      =>  context.textTypeParameters(index) != null 
+        ? context?.textTypeParameters(index).Accept(this)?.GetValue<string[]>() ?? null
+        : null;
+
+    private bool FuzzyMatch(string first, string second)
+    {
+      first = first.Replace(" ", "");
+      second = second.Replace(" ", "");
+      return second.IndexOf(first, StringComparison.InvariantCultureIgnoreCase) >= 0 || LevenshteinDistance.Compute(first, second) < 2;
+    }
 
     public override Symbol VisitQuery([NotNull] PageInterpreterParser.QueryContext context)
     {
@@ -101,28 +114,36 @@
 
     public override Symbol VisitTextType([NotNull] PageInterpreterParser.TextTypeContext context)
     {
-      var textType = context.Text().GetText();
-      var pageUnit = pageTraverser.GetMatchingPageUnit(textType);
-
-      if (pageUnit != null)
+      for (int i = 0; i < context.Text().Length; i++)
       {
-        lastPageUnit = pageUnit;
+        var textType = context.Text(i).GetText();
+        var pageUnit = pageTraverser.GetMatchingPageUnit(textType);
+        var matchContent = GetTextTypeParameters(context, i);
+
+        if (ValidateTextTypeMatch(pageUnit, textType, matchContent))
+        {
+          return new Symbol(SymbolType.Single, textType);
+        }
       }
 
-      string[] matchContent = GetTextTypeParameters(context);
-
-      if (!ValidateTextTypeMatch(pageUnit, textType, matchContent))
-      {
-        lastPageUnit = null;
-        throw new ParseCanceledException();
-      }
-
-      return new Symbol(SymbolType.Success);
+      throw new ParseCanceledException();
     }
 
     public override Symbol VisitTextTypeParameters([NotNull] PageInterpreterParser.TextTypeParametersContext context)
     {
-      return new Symbol(SymbolType.Array, context.Parameters().GetText().Substring(1, context.Parameters().GetText().Length - 2).Replace("||", "~").Split('~'));
+      if (context.Parameters() == null)
+      {
+        return null;
+      }
+
+      return new Symbol
+      (
+        SymbolType.Array, 
+        context.Parameters().GetText()
+          .Substring(1, context.Parameters().GetText().Length - 2)
+          .Replace("||", "~")
+          .Split('~')
+      );
     }
 
     public override Symbol VisitTraverse([NotNull] PageInterpreterParser.TraverseContext context)
@@ -144,24 +165,16 @@
 
     public override Symbol VisitCapture([NotNull] PageInterpreterParser.CaptureContext context)
     {
-      var matchResult = context.textType().Accept(this);
+      var matchedTextType = context.textType().Accept(this).GetValue<string>();
       var propertyName = context.propertyName()?.Accept(this).GetValue<string>();
-      var capturedValue = pageTraverser.GetMatchingPageUnit(context.Match.GetText())?.Value;
+      var capturedValue = pageTraverser.GetMatchingPageUnit(matchedTextType)?.Value;
 
-      if(!string.IsNullOrWhiteSpace(capturedValue))
+      if (!string.IsNullOrWhiteSpace(capturedValue))
       {
         Result.AddResult(queryLabel, propertyName, capturedValue);
       }
 
       return new Symbol(SymbolType.Success);
-    }
-
-    private bool FuzzyMatch(string first, string second)
-    {
-      first = first.Replace(" ", "");
-      second = second.Replace(" ", "");
-
-      return second.IndexOf(first, StringComparison.InvariantCultureIgnoreCase) >= 0 || LevenshteinDistance.Compute(first, second) < 2;
     }
   }
 }

@@ -6,10 +6,16 @@
     ],
     "Text": {
       "GetAs": "Text",
-      "Replace": {
-        "Find": [ "-" ],
-        "Replace": ""
-      }
+      "Replace": [
+        {
+          "Find": [ "\\-" ],
+          "Replace": ""
+        },
+        {
+          "Find": [ "\\s*" ],
+          "Replace": ""
+        }
+      ]
     }
   }
 ]

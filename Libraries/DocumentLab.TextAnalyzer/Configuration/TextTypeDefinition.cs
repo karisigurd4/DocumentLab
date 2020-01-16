@@ -17,7 +17,7 @@
   public class TextDefinition
   {
     public GetTextAs GetAs { get; set; }
-    public ReplaceDefintion Replace { get; set; }
+    public ReplaceDefintion[] Replace { get; set; }
   }
 
   public class TextTypeDefinition

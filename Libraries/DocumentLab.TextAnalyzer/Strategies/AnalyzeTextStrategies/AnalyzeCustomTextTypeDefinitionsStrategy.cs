@@ -65,9 +65,12 @@
           break;
       }
 
-      if (textDefinition.Replace != null)
+      if (textDefinition.Replace != null && textDefinition.Replace.Length > 0)
       {
-        text = ParseReplaceDefinition(textDefinition.Replace, text);
+        foreach (var replaceDefinition in textDefinition.Replace)
+        {
+          text = ParseReplaceDefinition(replaceDefinition, text);
+        }
       }
 
       return text;
@@ -77,7 +80,7 @@
     {
       foreach (var find in replaceDefintion.Find)
       {
-        text = text.Replace(find, replaceDefintion.Replace);
+        text = Regex.Replace(text, find, replaceDefintion.Replace);
       }
 
       return text;

@@ -58,7 +58,7 @@
     public void Can_Analyze_CustomType()
     {
       var analyzer = container.Resolve<ITextAnalyzer>();
-      string fakeString = "F90091";
+      string fakeString = "F 9 00 91";
       var result = analyzer.AnalyzeOcrResult(new OcrResult() { Result = new string[] { fakeString } });
       Assert.IsTrue(result.Any(x => x.TextType == "InvoiceNumber"));
     }

@@ -1,10 +1,10 @@
 ﻿namespace DocumentLab.Core
 {
-    using DocumentLab.Core.Storage;
-    using System;
-    using System.Collections.Generic;
+  using System;
+  using DocumentLab.Core.Storage;
+  using System.Collections.Generic;
 
-    public static class Constants
+  public static class Constants
   {
     public static string GlobalConfigConfigurationPath = "data\\configuration\\GlobalConfiguration.json";
     public static Dictionary<string, string> GlobalConfiguration = JsonSerializer.FromFile<Dictionary<string, string>>(Constants.GlobalConfigConfigurationPath);

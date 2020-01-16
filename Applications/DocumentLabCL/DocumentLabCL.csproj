@@ -123,4 +123,8 @@
     <Error Condition="!Exists('..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets'))" />
   </Target>
   <Import Project="..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets" Condition="Exists('..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>

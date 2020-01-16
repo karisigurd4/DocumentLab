@@ -118,7 +118,31 @@
       Assert.AreEqual("2019-06-05", result.Results["0"].GetResultAt(0));
     }
 
+    [TestMethod]
+    public void Can_Match_TextType_With_Or()
+    {
+      var pageCreator = new TestPageCreator(10, 10);
 
+      pageCreator.SetValue(4, 4, "Text", "Hello");
+      pageCreator.SetValue(4, 7, "Date", "2019-06-05");
+      pageCreator.SetValue(4, 9, "Number", "5");
+
+      string firstQuery = "Date || Text(Hello) Down [Number || Date];";
+
+      var firstResult = Visit(firstQuery, pageCreator.Page);
+
+      Assert.IsTrue(firstResult.Results.Count == 1);
+      Assert.IsTrue(firstResult.Results["0"].Result.Count == 1);
+      Assert.AreEqual("2019-06-05", firstResult.Results["0"].GetResultAt(0));
+
+      string secondQuery = "Date || Text(John) || Number Down [Number || Date];";
+
+      var secondResult = Visit(secondQuery, pageCreator.Page);
+
+      Assert.IsTrue(secondResult.Results.Count == 1);
+      Assert.IsTrue(secondResult.Results["0"].Result.Count == 1);
+      Assert.AreEqual("5", secondResult.Results["0"].GetResultAt(0));
+    }
     [TestMethod]
     public void Stops_When_Cant_Match_Content()
     {

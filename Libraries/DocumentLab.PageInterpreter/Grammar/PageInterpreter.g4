@@ -13,7 +13,11 @@ query
 	;
 
 pattern
-	: Any? ( capture | traverse | textType | rightDownSearch )* SemiColon
+	: Any? subset? ( capture | traverse | textType | rightDownSearch )* SemiColon
+	;
+
+subset
+	: Subset LParen subsetPart ( Comma subsetPart )* RParen
 	;
 
 rightDownSearch
@@ -25,7 +29,14 @@ table
 	;
 
 capture
-	: propertyName? LBracket Match=textType RBracket
+	: propertyName? LBracket ( textType ) RBracket
+	;
+
+subsetPart
+	: Part=Top
+	| Part=Bottom
+	| Part=Left
+	| Part=Right
 	;
 
 traverse
@@ -40,11 +51,11 @@ propertyName
 	;
 
 textType
-	: Text textTypeParameters?
+	: Text textTypeParameters? ( Or Text textTypeParameters )*
 	;
 
 textTypeParameters
-	: Parameters
+	: Parameters?
 	;
 
 /*
@@ -54,12 +65,19 @@ textTypeParameters
 Any: 'Any';
 RightDown: 'RD';
 
+Or: '||';
 RBracket: ']';
 LBracket: '[';
+RParen: ')';
+LParen: '(';
 SemiColon: ';';
 Colon: ':';
 SingleQuote: '\'';
+Comma: ',';
 
+Subset: 'Subset';
+Top: 'Top';
+Bottom: 'Bottom';
 Up: 'Up';
 Down: 'Down';
 Left: 'Left';
