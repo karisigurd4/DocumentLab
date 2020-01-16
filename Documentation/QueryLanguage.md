@@ -69,6 +69,16 @@ We can simplify *Cust No* to *Cust N* for the same durability reason above,
 CustomerNumber: Text(Customer nu || Cust n) Right [Text]
 ```
 
+## Using the OR operator on text types and captures. 
+
+Sometimes you'll find that a pattern's predicates aren't sufficient to define across varying documents. You might want to extend those using the logical or operator. 
+
+You can do that on text type predicates as well as on captures. Following example assumes we've defined a more specific custom customer number text type. 
+
+```
+CustomerNumber: Text(Customer number) || Letters(CustNo) Right [CustomerNumber || Text]
+```
+
 Now we'll be able to match the customer number labels from both document types from the same query. A text match can include as many || operators as necessary to handle the varieties of labels documents might have for the same information.
 
 ## Right-Down search
