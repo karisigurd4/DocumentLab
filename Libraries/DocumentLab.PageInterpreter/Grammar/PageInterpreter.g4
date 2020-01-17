@@ -51,7 +51,7 @@ propertyName
 	;
 
 textType
-	: Text textTypeParameters? ( Or Text textTypeParameters )*
+	: Text textTypeParameters ( Or Text textTypeParameters )*
 	;
 
 textTypeParameters
