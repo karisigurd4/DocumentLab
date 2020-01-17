@@ -69,7 +69,7 @@ We can simplify *Cust No* to *Cust N* for the same durability reason above,
 CustomerNumber: Text(Customer nu || Cust n) Right [Text]
 ```
 
-## Using the OR operator on text types and captures. 
+## OR operator on text types and captures. 
 
 Sometimes you'll find that a pattern's predicates aren't sufficient to define across varying documents. You might want to extend those using the logical or operator. 
 
