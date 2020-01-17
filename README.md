@@ -100,6 +100,7 @@ Depending on your image source, you may want to upsample low dpi images to a ran
   * [Building patterns](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns)
     * [Priority](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#priority)
   * [Text matching](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#text-matching)
+  * [OR operator on text types and captures](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#OR-operator-on-text-types-and-captures) 
   * [Right-Down search](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#right-down-search)
   * Extracting table data (soon)
   * Query a subset of the page (soon)
