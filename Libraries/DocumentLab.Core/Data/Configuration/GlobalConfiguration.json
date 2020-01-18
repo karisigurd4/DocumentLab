@@ -1,3 +1,4 @@
 ﻿{
-  "Language": "swe"
+  "Language": "swe",
+  "LevenshteinDistance": "2"
 }

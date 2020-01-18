@@ -9,6 +9,7 @@
     public static string GlobalConfigConfigurationPath = "data\\configuration\\GlobalConfiguration.json";
     public static Dictionary<string, string> GlobalConfiguration = JsonSerializer.FromFile<Dictionary<string, string>>(Constants.GlobalConfigConfigurationPath);
     public static string Language => GlobalConfiguration["Language"];
+    public static int LevenshteinDistance => int.Parse(GlobalConfiguration["LevenshteinDistance"]);
 
     public static string ApplicationGlobalNamespace => "DocumentLab";
     public static string StrategySuffix => "Strategy";

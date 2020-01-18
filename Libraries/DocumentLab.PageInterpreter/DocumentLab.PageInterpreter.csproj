@@ -97,7 +97,9 @@
     <Compile Include="Components\Interpreter.cs" />
     <Compile Include="Components\InterpreterResultConverter.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="DataModel\SubsetParameter.cs" />
     <Compile Include="DataModel\Symbol.cs" />
+    <Compile Include="Enum\SubsetPart.cs" />
     <Compile Include="Enum\SymbolType.cs" />
     <Compile Include="Exceptions\SyntaxException.cs" />
     <Compile Include="Globals.cs" />

@@ -17,7 +17,14 @@ pattern
 	;
 
 subset
-	: Subset LParen subsetPart ( Comma subsetPart )* RParen
+	: Subset Parameters
+	;
+
+subsetPart
+	: Part=Top
+	| Part=Bottom
+	| Part=Left
+	| Part=Right
 	;
 
 rightDownSearch
@@ -30,13 +37,6 @@ table
 
 capture
 	: propertyName? LBracket ( textType ) RBracket
-	;
-
-subsetPart
-	: Part=Top
-	| Part=Bottom
-	| Part=Left
-	| Part=Right
 	;
 
 traverse
@@ -68,8 +68,6 @@ RightDown: 'RD';
 Or: '||';
 RBracket: ']';
 LBracket: '[';
-RParen: ')';
-LParen: '(';
 SemiColon: ';';
 Colon: ':';
 SingleQuote: '\'';

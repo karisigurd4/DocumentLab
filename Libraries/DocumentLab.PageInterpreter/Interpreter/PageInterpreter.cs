@@ -18,7 +18,6 @@
     public InterpreterResult Result { get; private set; } = new InterpreterResult();
     
     private readonly Page page;
-
     private string queryLabel;
     private IPageTraverser pageTraverser;
 
@@ -30,7 +29,7 @@
     private bool ValidateTextTypeMatch(PageUnit pageUnit, string textType, string[] matchContent) 
       => pageUnit != null 
         && pageUnit?.TextType == textType
-        && (matchContent?.Any(x => FuzzyMatch(x, pageUnit.Value)) 
+        && (matchContent?.Any(x => FuzzyTextComparer.FuzzyEquals(x, pageUnit.Value)) 
         ?? true);
 
     private string[] GetTextTypeParameters(PageInterpreterParser.TextTypeContext context, int index) 
@@ -38,11 +37,18 @@
         ? context?.textTypeParameters(index).Accept(this)?.GetValue<string[]>() ?? null
         : null;
 
-    private bool FuzzyMatch(string first, string second)
+    public override Symbol VisitSubset([NotNull] PageInterpreterParser.SubsetContext context)
     {
-      first = first.Replace(" ", "");
-      second = second.Replace(" ", "");
-      return second.IndexOf(first, StringComparison.InvariantCultureIgnoreCase) >= 0 || LevenshteinDistance.Compute(first, second) < 2;
+      return new Symbol(
+        SymbolType.Array, 
+        context
+          .Parameters().GetText().Substring(1, context.Parameters().GetText().Length - 2)
+          .Split(',')
+          .Select(x => new SubsetParameter() 
+          { 
+            Percentage = int.Parse(x.Split(' ')[1]),
+            SubsetPart = (SubsetPart)Enum.Parse(typeof(SubsetPart), x.Split(' ')[0])
+          }).ToDictionary(x => x.SubsetPart, x => x.Percentage));
     }
 
     public override Symbol VisitQuery([NotNull] PageInterpreterParser.QueryContext context)
@@ -54,13 +60,22 @@
       return new Symbol(SymbolType.Success);
     }
 
+    private int? calculateSubset(int length, int? percentage) 
+      => percentage.HasValue ? (int)(length * (0.01M * percentage)) : (int?)null;
+
     public override Symbol VisitPattern([NotNull] PageInterpreterParser.PatternContext context)
     {
       var onlyFirstCaptured = context.Any() == null ? true : false;
+      var subsets = context?.subset().Accept(this).GetValue<Dictionary<SubsetPart, int>>();
 
-      for (int x = 0; x < page.Contents.GetLength(0); x++)
+      int xEnd = calculateSubset(page.Contents.GetLength(0), subsets.ContainsKey(SubsetPart.Left) ? subsets?[SubsetPart.Left] : null) ?? page.Contents.GetLength(0);
+      int yEnd = calculateSubset(page.Contents.GetLength(1), subsets.ContainsKey(SubsetPart.Top) ? subsets?[SubsetPart.Top] : null) ?? page.Contents.GetLength(1);
+      int xStartDiff = calculateSubset(page.Contents.GetLength(0), subsets.ContainsKey(SubsetPart.Right) ? subsets?[SubsetPart.Right] : null) ?? page.Contents.GetLength(0);
+      int yStartDiff = calculateSubset(page.Contents.GetLength(1), subsets.ContainsKey(SubsetPart.Bottom) ? subsets?[SubsetPart.Bottom] : null) ?? page.Contents.GetLength(1);
+
+      for (int x = page.Contents.GetLength(0) - xStartDiff; x < xEnd; x++)
       {
-        for (int y = 0; y < page.Contents.GetLength(1); y++)
+        for (int y = page.Contents.GetLength(1) - yStartDiff; y < yEnd; y++)
         {
           if (page.Contents[x, y] == null || page.Contents[x, y].Count == 0)
             continue;
@@ -87,7 +102,7 @@
 
     public override Symbol VisitRightDownSearch([NotNull] PageInterpreterParser.RightDownSearchContext context)
     {
-      var maxSteps = (int)int.Parse(context.Steps.Text);
+      var maxSteps = int.Parse(context.Steps.Text);
       var results = new List<Tuple<Direction, TraversalResult>>();
       var currentPageTraverser = pageTraverser;
       var rightPageTraverser = (PageTraverser)pageTraverser.Clone();

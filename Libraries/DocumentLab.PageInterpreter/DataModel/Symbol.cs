@@ -14,7 +14,7 @@
     }
 
     public T GetValue<T>() {
-      return (T)Value;
+      return (T)this.Value;
     }
   }
 }

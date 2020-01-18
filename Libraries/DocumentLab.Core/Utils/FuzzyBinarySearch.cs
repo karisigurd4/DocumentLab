@@ -18,7 +18,6 @@
       {
         int mid = (min + max) / 2;
 
-
         if (useFuzzyMatch && text.Length > Constants.FuzzyStringLengthLimit && LevenshteinDistance.Compute(orderedList[mid], text) < 2)
         {
           return orderedList[mid];
