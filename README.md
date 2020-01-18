@@ -107,6 +107,7 @@ Depending on your image source, you may want to upsample low dpi images to a ran
 * [Configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md)
   * [Host system resource optimization](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#host-system-resource-optimization) 
   * [Language configuration and text analysis](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#language-configuration-and-text-analysis)
+    * [Standard text types](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#standard-text-types)
     * [Amounts and dates](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#amounts-and-dates)
     * [Defining custom text types](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#defining-custom-text-types)
   * [Contextual data files](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#contextual-data-files)
