@@ -66,12 +66,15 @@
     public override Symbol VisitPattern([NotNull] PageInterpreterParser.PatternContext context)
     {
       var onlyFirstCaptured = context.Any() == null ? true : false;
-      var subsets = context?.subset()?.Accept(this)?.GetValue<Dictionary<SubsetPart, int>>();
-
-      int xEnd = calculateSubset(page.Contents.GetLength(0), subsets.ContainsKey(SubsetPart.Left) ? subsets?[SubsetPart.Left] : null) ?? page.Contents.GetLength(0);
-      int yEnd = calculateSubset(page.Contents.GetLength(1), subsets.ContainsKey(SubsetPart.Top) ? subsets?[SubsetPart.Top] : null) ?? page.Contents.GetLength(1);
-      int xStartDiff = calculateSubset(page.Contents.GetLength(0), subsets.ContainsKey(SubsetPart.Right) ? subsets?[SubsetPart.Right] : null) ?? page.Contents.GetLength(0);
-      int yStartDiff = calculateSubset(page.Contents.GetLength(1), subsets.ContainsKey(SubsetPart.Bottom) ? subsets?[SubsetPart.Bottom] : null) ?? page.Contents.GetLength(1);
+      int xEnd = page.Contents.GetLength(0), yEnd = page.Contents.GetLength(1), xStartDiff = page.Contents.GetLength(0), yStartDiff = page.Contents.GetLength(1);
+      if (context.subset() != null)
+      {
+        var subsets = context?.subset()?.Accept(this)?.GetValue<Dictionary<SubsetPart, int>>();
+        xEnd = calculateSubset(page.Contents.GetLength(0), subsets.ContainsKey(SubsetPart.Left) ? subsets?[SubsetPart.Left] : null) ?? page.Contents.GetLength(0);
+        yEnd = calculateSubset(page.Contents.GetLength(1), subsets.ContainsKey(SubsetPart.Top) ? subsets?[SubsetPart.Top] : null) ?? page.Contents.GetLength(1);
+        xStartDiff = calculateSubset(page.Contents.GetLength(0), subsets.ContainsKey(SubsetPart.Right) ? subsets?[SubsetPart.Right] : null) ?? page.Contents.GetLength(0);
+        yStartDiff = calculateSubset(page.Contents.GetLength(1), subsets.ContainsKey(SubsetPart.Bottom) ? subsets?[SubsetPart.Bottom] : null) ?? page.Contents.GetLength(1);
+      }
 
       for (int x = page.Contents.GetLength(0) - xStartDiff; x < xEnd; x++)
       {
