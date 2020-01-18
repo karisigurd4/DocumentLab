@@ -66,7 +66,7 @@
     public override Symbol VisitPattern([NotNull] PageInterpreterParser.PatternContext context)
     {
       var onlyFirstCaptured = context.Any() == null ? true : false;
-      var subsets = context?.subset().Accept(this).GetValue<Dictionary<SubsetPart, int>>();
+      var subsets = context?.subset()?.Accept(this)?.GetValue<Dictionary<SubsetPart, int>>();
 
       int xEnd = calculateSubset(page.Contents.GetLength(0), subsets.ContainsKey(SubsetPart.Left) ? subsets?[SubsetPart.Left] : null) ?? page.Contents.GetLength(0);
       int yEnd = calculateSubset(page.Contents.GetLength(1), subsets.ContainsKey(SubsetPart.Top) ? subsets?[SubsetPart.Top] : null) ?? page.Contents.GetLength(1);
