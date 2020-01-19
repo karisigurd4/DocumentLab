@@ -7,7 +7,7 @@
   public class FuzzyTextComparerTest
   {
     [TestMethod]
-    public void Test_1()
+    public void Can_Match_Partial_Script()
     {
       string scriptLabel = "Customer Num";
       string realLabel = "Customer Number";
@@ -16,7 +16,7 @@
     }
 
     [TestMethod]
-    public void Test_2()
+    public void Can_Match_Partial_Label()
     {
       string scriptLabel = "Customer Num";
       string realLabel = "ustomer Number";
@@ -25,7 +25,7 @@
     }
 
     [TestMethod]
-    public void Test_3()
+    public void Rejects_Different()
     {
       string scriptLabel = "Banana";
       string realLabel = "Apple";
