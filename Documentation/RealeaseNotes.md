@@ -13,7 +13,7 @@
 * Query language
   * Added support for logical or || in text type or capture 
   * Query page SubSet (Top, Bottom, Left, Right) 
-  * Automatically analyzed table data
+  * Table analyzer component and language extension 
 * Bugfixes
   * Fixed bug where text type was not validated when using parameters 
   * Fixed bug where Json serialization of results could fail when interpretation results were empty
