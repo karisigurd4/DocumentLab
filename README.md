@@ -1,11 +1,13 @@
 <img src="https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/logo.png" width="70%" />
 
+*Optical character recognition, image processing, data analysis and intelligent data extraction*
+
 [![NuGet version (DocumentLab-x64)](https://img.shields.io/nuget/v/DocumentLab-x64.svg?style=flat-square)](https://www.nuget.org/packages/DocumentLab-x64/1.1.0) ![License)](https://img.shields.io/github/license/karisigurd4/DocumentLab) ![Platform](https://img.shields.io/badge/platform-win--64-green)
 
 ---
 This is a solution for data extraction from images of documents. You send in a bitmap, a set of queries and get extracted data in structured json. 
 
-* DocumentLab performs image analysis and processing, optical character recognition, [text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Language-configuration-and-text-analysis) and enables an [easy to use approach to data analysis and extraction](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
+* DocumentLab performs image analysis and processing, optical character recognition, [text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Language-configuration-and-text-analysis) and enables an [easy to use approach to data extraction](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
 * DocumentLab does not rely on pre-determined manual *mapping* of *where data is located in a document*
   * You'll never have to specify pixel coordinates
   * DocumentLab is well versed for extracting data from documents with layouts it has never seen before
@@ -103,10 +105,11 @@ Depending on your image source, you may want to upsample low dpi images to a ran
   * [OR operator on text types and captures](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#OR-operator-on-text-types-and-captures) 
   * [Right-Down search](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#right-down-search)
   * Extracting table data (soon)
-  * Query a subset of the page (soon)
+  * [Query a subset of the page](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#Query-a-subset-of-the-page) 
 * [Configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md)
   * [Host system resource optimization](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#host-system-resource-optimization) 
   * [Language configuration and text analysis](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#language-configuration-and-text-analysis)
+    * [Standard text types](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#standard-text-types)
     * [Amounts and dates](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#amounts-and-dates)
     * [Defining custom text types](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#defining-custom-text-types)
   * [Contextual data files](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#contextual-data-files)

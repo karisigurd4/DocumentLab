@@ -95,4 +95,16 @@ The numeric value following RD indicates the maximum number of distance in cells
 
 ## Extracting table data (soon)
 
-## Query a subset of the page (soon)
+## Query a subset of the page
+
+Querying a SubSet of a document might be necessary if the same pattern of information repeats on different locations and pattern definitions cannot distinguish between them. 
+
+For example. An invoice has the receiver commonly at the top right of the page. We can explicitly limit the part of the document we query with the following syntax. 
+
+```
+QueryName: Subset(Top 30, Right 50) Postal Code Up ... 
+```
+
+The example above limits the query to the top 30% of the page and the right 50% of the page.
+
+We can use Top, Bottom, Left and right to limit. 

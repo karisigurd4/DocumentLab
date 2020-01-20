@@ -41,6 +41,22 @@ To set the language used by DocumentLab, you can adjust the parameter named **La
   * See [Tesseract-OCR traineddata downloads page](https://github.com/tesseract-ocr/tessdata) for prepared trained language files
 * Contextual files are language dependant, if you switch to for example 'nor', the files in *context\swe\** won't be used in the text analyzer
 
+## Standard text types
+
+The following are the standard text types that are included in DocumentLab. Additional text types include those defined in contextual files and custom text type definitions.
+
+* AmountOrNumber
+* Amount
+* Date
+* Email
+* InvoiceNumber
+* Letters
+* Number
+* PageNumber
+* Percentage
+* Text
+* WebAddress
+
 ## Amounts and dates
 
 How we write amounts and dates varies between countries. The analysis of which are defined with regular expressions in **Data/Configuration/TextAnalysis.json**. Comma and decimal point separated numbers are classified as amounts. Dates follow the ISO 8601 standard. You'll need to define regular expressions for your own needs if your documents have different representations. 
