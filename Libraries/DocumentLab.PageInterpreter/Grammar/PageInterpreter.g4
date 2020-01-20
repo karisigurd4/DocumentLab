@@ -32,7 +32,7 @@ rightDownSearch
 	;
 
 table
-	: capture+
+	: Table ( propertyName LBracket ( textType ) RBracket )+ SemiColon
 	;
 
 capture
@@ -64,6 +64,7 @@ textTypeParameters
 
 Any: 'Any';
 RightDown: 'RD';
+Table: 'Table';
 
 Or: '||';
 RBracket: ']';

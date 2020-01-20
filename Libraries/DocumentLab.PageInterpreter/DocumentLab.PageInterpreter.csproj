@@ -99,6 +99,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="DataModel\SubsetParameter.cs" />
     <Compile Include="DataModel\Symbol.cs" />
+    <Compile Include="DataModel\TableColumn.cs" />
     <Compile Include="Enum\SubsetPart.cs" />
     <Compile Include="Enum\SymbolType.cs" />
     <Compile Include="Exceptions\SyntaxException.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Components\PageTraverser.cs" />
     <Compile Include="Interfaces\IInterpreter.cs" />
     <Compile Include="Interfaces\IPageTraverser.cs" />
+    <Compile Include="Interfaces\ITableAnalyzer.cs" />
     <Compile Include="Interpreter\PageInterpreter.cs" />
     <Compile Include="Interpreter\ScriptAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

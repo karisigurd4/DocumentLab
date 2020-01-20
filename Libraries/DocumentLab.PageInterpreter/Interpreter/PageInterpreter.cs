@@ -61,7 +61,9 @@
     }
 
     private int? calculateSubset(int length, int? percentage) 
-      => percentage.HasValue ? (int)(length * (0.01M * percentage)) : (int?)null;
+      => percentage.HasValue 
+        ? (int)(length * (0.01M * percentage)) 
+        : (int?)null;
 
     public override Symbol VisitPattern([NotNull] PageInterpreterParser.PatternContext context)
     {
