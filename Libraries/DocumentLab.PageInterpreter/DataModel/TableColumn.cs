@@ -2,7 +2,7 @@
 {
   public class TableColumn
   {
-    public string TextType { get; set; }
+    public string[] TextType { get; set; }
     public string[] LabelParameters { get; set; }
   }
 }
