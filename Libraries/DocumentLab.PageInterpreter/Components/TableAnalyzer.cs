@@ -13,6 +13,7 @@
   {
     public InterpreterResult AnalyzeTable(Page page, TableColumn[] tableColumns)
     {
+      // Experimentation shows that trimming the Y index more can help normalise table headers
       var tableAnalysisPage = new PageTrimmer().TrimPage(page, 0, 20, true);
       
       // This finds the row in the page that can best match the TextType and label definitions along with the indices where they match. 
