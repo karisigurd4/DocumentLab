@@ -51,6 +51,7 @@
     <Compile Include="Extensions\FluentQueryExtensions.cs" />
     <Compile Include="FluentQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Subset.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DocumentLab.Contracts\DocumentLab.Contracts.csproj">

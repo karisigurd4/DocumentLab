@@ -14,6 +14,9 @@
   * Added support for logical or || in text type or capture 
   * Query page SubSet (Top, Bottom, Left, Right) 
   * Table analyzer component and language extension 
+* FluentQuery
+  * Added support for logical or operator on text type or capture
+  * Added support for subset 
 * Bugfixes
   * Fixed bug where text type was not validated when using parameters 
   * Fixed bug where Json serialization of results could fail when interpretation results were empty

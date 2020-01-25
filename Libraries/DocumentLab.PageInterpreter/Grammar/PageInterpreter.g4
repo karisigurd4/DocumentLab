@@ -16,6 +16,10 @@ pattern
 	: Any? subset? ( capture | traverse | textType | rightDownSearch )* SemiColon
 	;
 
+table
+	: Table ( propertyName LBracket ( textType ) RBracket )+ SemiColon
+	;
+
 subset
 	: Subset Parameters
 	;
@@ -29,10 +33,6 @@ subsetPart
 
 rightDownSearch
 	: RightDown Steps=Numbers
-	;
-
-table
-	: Table ( propertyName LBracket ( textType ) RBracket )+ SemiColon
 	;
 
 capture
