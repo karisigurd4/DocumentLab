@@ -17,10 +17,10 @@
       var bestMatch = tableColumns
         .SelectMany((tableColumn, TableIndex) => tableAnalysisPage
           .GetIndexWhere(t => tableColumn.LabelParameters.Any(v => FuzzyTextComparer.FuzzyEquals(v, t.Value)))
-          .Select(Index => new
+          .Select(PageIndex => new
           {
             TableIndex,
-            Index,
+            PageIndex,
             tableColumn.TextType
           }))
         .GroupBy(x => x.Index.Coordinate.Y)
