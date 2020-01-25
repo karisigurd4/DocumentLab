@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="Components\Interpreter.cs" />
     <Compile Include="Components\InterpreterResultConverter.cs" />
+    <Compile Include="Components\TableAnalyzer.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DataModel\SubsetParameter.cs" />
     <Compile Include="DataModel\Symbol.cs" />

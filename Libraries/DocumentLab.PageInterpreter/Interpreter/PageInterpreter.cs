@@ -17,8 +17,8 @@
   {
     public InterpreterResult Result { get; private set; } = new InterpreterResult();
     
-    private readonly Page page;
     private string queryLabel;
+    private readonly Page page;
     private IPageTraverser pageTraverser;
 
     public PageInterpreter(Page page)
@@ -65,33 +65,50 @@
         ? (int)(length * (0.01M * percentage)) 
         : (int?)null;
 
+    private Dictionary<SubsetPart, int> subsetPartToPageDimension = new Dictionary<SubsetPart, int>()
+    {
+      { SubsetPart.Top, 1 }, { SubsetPart.Bottom, 1 }, 
+      { SubsetPart.Left, 0 }, {SubsetPart.Right, 0 }
+    };
+
+    private int calculateSubsetOnPage(Dictionary<SubsetPart, int> subsets, SubsetPart subset)
+      =>  subsets != null 
+          ? calculateSubset
+            (
+              page.Contents.GetLength(subsetPartToPageDimension[subset]), 
+              subsets.ContainsKey(subset) 
+                ? subsets?[subset] 
+                : null
+            ) ?? page.Contents.GetLength(subsetPartToPageDimension[subset])
+          : page.Contents.GetLength(subsetPartToPageDimension[subset]);
+
     public override Symbol VisitPattern([NotNull] PageInterpreterParser.PatternContext context)
     {
       var onlyFirstCaptured = context.Any() == null ? true : false;
-      int xEnd = page.Contents.GetLength(0), yEnd = page.Contents.GetLength(1), xStartDiff = page.Contents.GetLength(0), yStartDiff = page.Contents.GetLength(1);
-      if (context.subset() != null)
-      {
-        var subsets = context?.subset()?.Accept(this)?.GetValue<Dictionary<SubsetPart, int>>();
-        xEnd = calculateSubset(page.Contents.GetLength(0), subsets.ContainsKey(SubsetPart.Left) ? subsets?[SubsetPart.Left] : null) ?? page.Contents.GetLength(0);
-        yEnd = calculateSubset(page.Contents.GetLength(1), subsets.ContainsKey(SubsetPart.Top) ? subsets?[SubsetPart.Top] : null) ?? page.Contents.GetLength(1);
-        xStartDiff = calculateSubset(page.Contents.GetLength(0), subsets.ContainsKey(SubsetPart.Right) ? subsets?[SubsetPart.Right] : null) ?? page.Contents.GetLength(0);
-        yStartDiff = calculateSubset(page.Contents.GetLength(1), subsets.ContainsKey(SubsetPart.Bottom) ? subsets?[SubsetPart.Bottom] : null) ?? page.Contents.GetLength(1);
-      }
 
-      for (int x = page.Contents.GetLength(0) - xStartDiff; x < xEnd; x++)
+      var subsets = context?.subset()?.Accept(this)?.GetValue<Dictionary<SubsetPart, int>>();
+
+      for 
+      (
+        int x = page.Contents.GetLength(0) - calculateSubsetOnPage(subsets, SubsetPart.Right); 
+        x < calculateSubsetOnPage(subsets, SubsetPart.Left); 
+        x++
+      )
       {
-        for (int y = page.Contents.GetLength(1) - yStartDiff; y < yEnd; y++)
+        for 
+        (
+          int y = page.Contents.GetLength(1) - calculateSubsetOnPage(subsets, SubsetPart.Bottom); 
+          y < calculateSubsetOnPage(subsets, SubsetPart.Top); 
+          y++
+        )
         {
           if (page.Contents[x, y] == null || page.Contents[x, y].Count == 0)
             continue;
 
-          var pageIndex = new PageIndex(x, y);
-          pageTraverser = new PageTraverser(page, pageIndex);
-
+          pageTraverser = new PageTraverser(page, new PageIndex(x, y));
           try
           {
             base.VisitPattern(context);
-
             if (onlyFirstCaptured)
             {
               x = page.Contents.GetLength(0);

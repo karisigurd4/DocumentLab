@@ -38,8 +38,7 @@
         return new string[] { };
       }
 
-      string text = ocrResult.AsString();
-      if (textTypeDefinition.Text != null)
+      if (ocrResult.AsString() is var text && textTypeDefinition.Text != null)
       {
         text = ParseTextDefinition(textTypeDefinition.Text, ocrResult);
       }
