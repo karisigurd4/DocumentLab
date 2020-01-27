@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/logo.png" width="70%" />
 
-*Optical character recognition, image processing, data analysis and intelligent data extraction*
+*Optical character recognition, image processing and intelligent data extraction*
 
 [![NuGet version (DocumentLab-x64)](https://img.shields.io/nuget/v/DocumentLab-x64.svg?style=flat-square)](https://www.nuget.org/packages/DocumentLab-x64/1.1.0) ![License)](https://img.shields.io/github/license/karisigurd4/DocumentLab) ![Platform](https://img.shields.io/badge/platform-win--64-green)
 
