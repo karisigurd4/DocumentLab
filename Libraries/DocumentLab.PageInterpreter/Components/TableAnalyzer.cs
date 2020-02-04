@@ -143,7 +143,7 @@
           .Select(Index => new
           {
             TableIndex,
-            PageIndex,
+            Index,
             tableColumn.TextType
           }))
         .GroupBy(x => x.Index.Coordinate.Y)
