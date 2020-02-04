@@ -3,7 +3,6 @@
   using Contracts;
   using Contracts.PageInterpreter;
   using System;
-  using System.Collections.Generic;
 
   public interface IPageTraverser : ICloneable
   {
@@ -15,6 +14,6 @@
     Page GetPage();
     PageIndex GetCurrentPosition();
     PageUnit GetMatchingPageUnit(string textType);
-    IEnumerable<PageUnit> Peek(Direction direction, int steps = 1);
+    PageUnit[] Peek(Direction direction, int steps = 1);
   }
 }

@@ -6,6 +6,6 @@
 
   public interface ITableAnalyzer
   {
-    InterpreterResult AnalyzeTable(Page page, TableColumn[] tableColumns);
+    InterpreterResult AnalyzeTable(Page page, string tableName, TableColumn[] tableColumns);
   }
 }

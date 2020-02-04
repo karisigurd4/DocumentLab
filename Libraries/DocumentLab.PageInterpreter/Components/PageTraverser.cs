@@ -122,7 +122,7 @@
       }
     }
 
-    public IEnumerable<PageUnit> Peek(Direction direction, int steps = 1)
+    public PageUnit[] Peek(Direction direction, int steps = 1)
     {
       int startX = currentPosition.X, startY = currentPosition.Y;
       for (int i = 0; i < steps; i++)
@@ -136,15 +136,15 @@
       if (ErrorOccurred)
       {
         ErrorOccurred = false;
-        return peekPageUnit;
+        return peekPageUnit.ToArray();
       }
 
-      return peekPageUnit;
+      return peekPageUnit.ToArray();
     }
 
-    public IEnumerable<PageUnit> GetCurrentPageUnits()
+    public PageUnit[] GetCurrentPageUnits()
     {
-      return page?.Contents?[currentPosition.X, currentPosition.Y] ?? null;
+      return page?.Contents?[currentPosition.X, currentPosition.Y].ToArray() ?? null;
     }
 
     public PageUnit GetMatchingPageUnit(string textType)

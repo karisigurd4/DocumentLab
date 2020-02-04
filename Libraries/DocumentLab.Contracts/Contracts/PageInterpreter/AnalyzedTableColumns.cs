@@ -6,6 +6,6 @@
   {
     public PageUnit[] Rows { get; set; }
 
-    public int RuleIndex { get; set; }
+    public int ColumnIndex { get; set; }
   }
 }

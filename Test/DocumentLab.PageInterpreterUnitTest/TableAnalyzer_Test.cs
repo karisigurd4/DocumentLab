@@ -1,7 +1,9 @@
 ﻿namespace DocumentLab.PageInterpreterUnitTest
 {
   using DocumentLab.Contracts.Utils;
-  using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using DocumentLab.PageInterpreter;
+    using DocumentLab.PageInterpreter.Components;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
   [TestClass]
   public class TableAnalyzer_Test : InterpreterTestBase
@@ -37,17 +39,54 @@
       fakePage.SetValue(4, 2, "Amount", "1500.2");
       fakePage.SetValue(4, 3, "Amount", "1345.3");
 
-      var script = @"
-AnalyzedTable: 
-Table 
-'ItemNumber': [Number(ItemNo)] 
-'ItemDescription': [Text(Description)] 
-'Quantity': [Number(Quantity)] 
-'ItemPrice': [Amount(Unit price)] 
-'TotalAmount': [Amount(Amount)];
-";
+      //      var script = @"
+      //AnalyzedTable: 
+      //Table 
+      //'ItemNumber': [Number(ItemNo)] 
+      //'ItemDescription': [Text(Description)] 
+      //'Quantity': [Number(Quantity)] 
+      //'ItemPrice': [Amount(Unit price)] 
+      //'TotalAmount': [Amount(Amount)];
+      //";
 
-      var result = Visit(script, fakePage.Page);
+      //      var result = Visit(script, fakePage.Page);
+
+      var tableAnalyzer = new TableAnalyzer();
+      var analysis = tableAnalyzer.AnalyzeTable(fakePage.Page, "Test", new PageInterpreter.DataModel.TableColumn[]
+      {
+        new PageInterpreter.DataModel.TableColumn()
+        {
+          ColumnName = "ItemNumber",
+          LabelParameters = new string[] { "ItemNo" },
+          TextType = "Number"
+        },
+        new PageInterpreter.DataModel.TableColumn()
+        {
+          ColumnName = "Description",
+          LabelParameters = new string[] { "Description" },
+          TextType = "Text"
+        },
+        new PageInterpreter.DataModel.TableColumn()
+        {
+          ColumnName = "Quantity",
+          LabelParameters = new string[] { "Quantity" },
+          TextType = "Number"
+        },
+        new PageInterpreter.DataModel.TableColumn()
+        {
+          ColumnName = "UnitPrice",
+          LabelParameters = new string[] { "Unit price" },
+          TextType = "Amount"
+        },
+        new PageInterpreter.DataModel.TableColumn()
+        {
+          ColumnName = "Total",
+          LabelParameters = new string[] { "Amount" },
+          TextType = "Amount"
+        }
+      });
+
+      Assert.IsNotNull(analysis);
     }
   }
 }

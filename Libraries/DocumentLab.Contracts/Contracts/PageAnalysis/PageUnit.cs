@@ -18,8 +18,8 @@
         Coordinate = Coordinate,
         TextType = TextType,
         Value = (string)Value.Clone(),
-        BoundingBox = (PageUnitBoundingBox)BoundingBox.Clone(),
-        CountourOffset = (PageUnitBoundingBox)CountourOffset.Clone()
+        BoundingBox = (PageUnitBoundingBox)BoundingBox?.Clone(),
+        CountourOffset = (PageUnitBoundingBox)CountourOffset?.Clone()
       };
     }
   }

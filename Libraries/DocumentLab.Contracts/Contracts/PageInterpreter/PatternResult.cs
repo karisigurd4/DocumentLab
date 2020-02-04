@@ -5,7 +5,7 @@
 
   public class PatternResult
   {
-    public Dictionary<string, string> Result { get; } = new Dictionary<string, string>();
+    public Dictionary<string, string> Result { get; set; } = new Dictionary<string, string>();
 
     public string GetResultAt(int index)
     {

@@ -20,6 +20,9 @@
       if (Page.Contents[x, y] == null)
         Page.Contents[x, y] = new List<PageUnit>();
 
+      if (boundingBox == null)
+        boundingBox = new PageUnitBoundingBox();
+
       Page.Contents[x, y].Add(new PageUnit()
       {
         BoundingBox = boundingBox,

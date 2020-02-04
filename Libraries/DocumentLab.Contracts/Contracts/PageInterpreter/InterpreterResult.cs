@@ -4,7 +4,7 @@
 
   public class InterpreterResult
   {
-    public Dictionary<string, PatternResult> Results { get; } = new Dictionary<string, PatternResult>();
+    public Dictionary<string, PatternResult> Results { get; set; } = new Dictionary<string, PatternResult>();
 
     public void AddResult(string label, string customProperty, string value)
     {

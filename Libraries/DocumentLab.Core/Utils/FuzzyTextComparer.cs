@@ -1,36 +1,39 @@
 ﻿namespace DocumentLab.Core.Utils
 {
   using System;
+    using System.Linq;
 
-  public static class FuzzyTextComparer
+    public static class FuzzyTextComparer
   {
     public static bool FuzzyEquals(string script, string label)
     {
       script = script.Replace(" ", "").ToLower();
       label = label.Replace(" ", "").ToLower();
 
-      return label.IndexOf(script, StringComparison.InvariantCultureIgnoreCase) >= 0
-        || Contains(script, label)
-        || LevenshteinDistance.Compute(script, label) <= Constants.LevenshteinDistance;
+      var minimumLength = new int[] { script.Length, label.Length }.Min();
+
+      var result = label.IndexOf(script, StringComparison.InvariantCultureIgnoreCase) >= 0
+        || (minimumLength > 4 && Contains(script, label))
+        || (minimumLength > 4 && Contains(label, script))
+        || (minimumLength > 4 && LevenshteinDistance.Compute(script, label) <= Constants.LevenshteinDistance);
+
+      return result;
     }
 
     private static bool Contains(string first, string second)
     {
-      var shorter = first.Length > second.Length ? second : first;
-      var longer = first.Length < second.Length ? second : first;
-
-      for (int i = 0; i < longer.Length; i++)
+      for (int i = 0; i < first.Length; i++)
       {
-        for (int x = 0; x < shorter.Length; x++)
+        for (int x = 0; x < second.Length; x++)
         {
-          if (longer.Length < shorter.Length)
+          if (first.Length < second.Length)
           {
             return false;
           }
 
-          var longerSub = longer.Substring(0, shorter.Length);
+          first = first.Substring(0, second.Length);
 
-          if (LevenshteinDistance.Compute(shorter, longerSub) <= Constants.LevenshteinDistance)
+          if (LevenshteinDistance.Compute(first, second) <= Constants.LevenshteinDistance)
           {
             return true;
           }
