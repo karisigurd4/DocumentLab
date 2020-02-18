@@ -6,7 +6,7 @@
   public class FluentQuery
   {
     public string Script { get; set; }
-    
+
     public FluentQuery(Page analyzedPage, IInterpreter interpreter)
     {
       this.AnalyzedPage = analyzedPage;

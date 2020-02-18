@@ -69,7 +69,7 @@
       var analyzedRowCoordinates = columns
         .SelectMany(x => x.Rows.Select(y => y.Coordinate.Y))
         .GroupBy(x => x)
-        .Where(x => x.Count() > columns.Count() - MinimumNumberOfColumnsForRow)
+        .Where(x => x.Count() > MinimumNumberOfColumnsForRow)
         .Select(x => x.First())
         .ToArray();
 
@@ -96,34 +96,34 @@
       }
 
       var rowsToRemove = new List<int>();
-      bool pickLatestPrevious = true;
-      PageUnit[] previousRows = null;
-      for (int i = 1; i < continuousRows.Count; i++)
-      {
-        if (pickLatestPrevious)
-        {
-          previousRows = columns.SelectMany(x => x.Rows).Where(x => x.Coordinate.Y == continuousRows[i - 1]).OrderBy(x => x.Coordinate.X).ToArray();
-        }
+      //bool pickLatestPrevious = true;
+      //PageUnit[] previousRows = null;
+      //for (int i = 1; i < continuousRows.Count; i++)
+      //{
+      //  if (pickLatestPrevious)
+      //  {
+      //    previousRows = columns.SelectMany(x => x.Rows).Where(x => x.Coordinate.Y == continuousRows[i - 1]).OrderBy(x => x.Coordinate.X).ToArray();
+      //  }
 
-        var currentRow = columns.SelectMany(x => x.Rows).Where(x => x.Coordinate.Y == continuousRows[i]).OrderBy(x => x.Coordinate.X).ToArray();
+      //  var currentRow = columns.SelectMany(x => x.Rows).Where(x => x.Coordinate.Y == continuousRows[i]).OrderBy(x => x.Coordinate.X).ToArray();
 
-        for (int x = 0; x < previousRows.Length; x++)
-        {
-          if (currentRow.Count() > x)
-          {
-            if (Math.Abs(previousRows[x].Coordinate.X - currentRow[x].Coordinate.X) > MinimumDistanceFromLastColumn)
-            {
-              rowsToRemove.Add(continuousRows[i]);
-              pickLatestPrevious = false;
-              break;
-            }
-            else
-            {
-              pickLatestPrevious = true;
-            }
-          }
-        }
-      }
+      //  for (int x = 0; x < previousRows.Length; x++)
+      //  {
+      //    if (currentRow.Count() > x)
+      //    {
+      //      if (Math.Abs(previousRows[x].Coordinate.X - currentRow[x].Coordinate.X) > MinimumDistanceFromLastColumn)
+      //      {
+      //        rowsToRemove.Add(continuousRows[i]);
+      //        pickLatestPrevious = false;
+      //        break;
+      //      }
+      //      else
+      //      {
+      //        pickLatestPrevious = true;
+      //      }
+      //    }
+      //  }
+      //}
 
       return continuousRows.Where(x => !rowsToRemove.Contains(x)).ToArray();
     }
@@ -131,13 +131,12 @@
     private AnalyzedTableColumns[] GetAnalyzedTableColumns(Page page, TableColumn[] tableColumns)
     {
       // Experimentation shows that trimming the Y index more can help normalise table headers
-      var tableAnalysisPage = new PageTrimmer().TrimPage(page, 0, 20, true);
-      
+      var tableAnalysisPage = new PageTrimmer().TrimPage(page, 20, 20, true);
+
       // This finds the row in the page that can best match the TextType and label definitions along with the indices where they match. 
       var bestMatch = tableColumns
         .SelectMany((tableColumn, TableIndex) => tableAnalysisPage
-          .GetIndexWhere(t => 
-            t.TextType == tableColumn.TextType && 
+          .GetIndexWhere(t =>
             tableColumn.LabelParameters.Any(v => FuzzyTextComparer.FuzzyEquals(v, t.Value))
           )
           .Select(Index => new
@@ -156,11 +155,11 @@
       }
 
       var columns = bestMatch
-        .GroupBy(x => x.Index)
+        .GroupBy(x => x.TableIndex)
         .Select(x => x.First())
         .Select(x => new AnalyzedTableColumns()
         {
-          Rows = GetTableColumn(page, x.Index, x.TextType),
+          Rows = GetTableColumn(page, (PageIndex)x.Index.Clone(), x.TextType),
           ColumnIndex = x.TableIndex
         })
         .ToArray();
@@ -175,7 +174,7 @@
       var columnMatches = new List<PageUnit>();
 
       var traverser = new PageTraverser(page, index);
-      traverser.Traverse(Direction.Down);
+      traverser.Traverse(Direction.Down, 1);
 
       while (active && !traverser.ErrorOccurred)
       {
@@ -203,7 +202,7 @@
         if (matchingPageUnit != null)
           columnMatches.Add(matchingPageUnit.Where(x => x.TextType == type).First());
 
-        traverser.Traverse(Direction.Down);
+        traverser.Traverse(Direction.Down, 1);
 
         if (!string.IsNullOrWhiteSpace(match))
           stopAtNextEmpty = true;

@@ -22,6 +22,11 @@
 
     public void AddResult(string key, string value)
     {
+      if (Result.ContainsKey(key ?? Result.Count.ToString()))
+      {
+        Result[key] = value;
+      }
+
       Result.Add(key ?? Result.Count.ToString(), value);
     }
   }

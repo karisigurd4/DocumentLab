@@ -2,10 +2,10 @@
 {
   using Antlr4.Runtime;
   using Contracts.PageInterpreter;
+  using Microsoft.VisualStudio.TestTools.UnitTesting;
   using PageInterpreter.Components;
   using PageInterpreter.Grammar;
   using PageInterpreter.Interpreter;
-  using Microsoft.VisualStudio.TestTools.UnitTesting;
   using System.Collections.Generic;
 
   [TestClass]
@@ -43,6 +43,19 @@ TotalAmount: Text(Hello) Right [Amount];
       Assert.AreEqual(true, result["Receivers"].IsArray);
       Assert.AreEqual(1, result["TotalAmount"].NumberOfCaptures);
       Assert.AreEqual(false, result["TotalAmount"].IsArray);
+    }
+
+    [TestMethod]
+    public void Can_Analyze_Table_Query()
+    {
+      string script = @"
+ MyTable: Table 'First': [Text] 'Second': [Amount] 'Third': [Number];
+";
+
+      var result = Visit(script);
+
+      Assert.AreEqual(3, result["MyTable"].NumberOfCaptures);
+      Assert.AreEqual(false, result["MyTable"].IsArray);
     }
   }
 }

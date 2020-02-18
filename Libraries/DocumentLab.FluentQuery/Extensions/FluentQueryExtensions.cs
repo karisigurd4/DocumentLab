@@ -1,11 +1,11 @@
 ﻿namespace DocumentLab
 {
-  using PageInterpreter;
   using Newtonsoft.Json;
   using Newtonsoft.Json.Linq;
+  using PageInterpreter;
   using System;
-  using System.Linq;
   using System.Collections.Generic;
+  using System.Linq;
 
   public static class FluentQueryExtensions
   {
@@ -15,6 +15,32 @@
 
       return query;
     }
+
+    /// <summary>
+    /// Initiates a table query, a series of TableColumn method calls needs to follow this one. 
+    /// </summary>
+    /// <returns>A DocumentLab FluentQuery with a script extension that initates the table query</returns>
+    public static FluentQuery Table(this FluentQuery response) => response.AppendToScript("Table");
+
+    /// <summary>
+    /// Specifies a tablecolumn for the preceding table query initializer
+    /// </summary>
+    /// <param name="columnName">The name to assign for the column in the result output</param>
+    /// <param name="columnTextType">The text type considered valid in the table row's data for this column</param>
+    /// <param name="labels">Labels that can be evaluated to identify the table on the page</param>
+    /// <returns>A DocumentLab FluentQuery with a script extension that contains the table column definition</returns>
+    public static FluentQuery TableColumn(this FluentQuery response, string columnName, string columnTextType, params TextType[] labels)
+      => response.TableColumn(columnName, columnTextType, labels.Select(x => x.ToString()).ToArray());
+
+    /// <summary>
+    /// Specifies a tablecolumn for the preceding table query initializer
+    /// </summary>
+    /// <param name="columnName">The name to assign for the column in the result output</param>
+    /// <param name="columnTextType">The text type considered valid in the table row's data for this column</param>
+    /// <param name="labels">Labels that can be evaluated to identify the table on the page</param>
+    /// <returns>A DocumentLab FluentQuery with a script extension that contains the table column definition</returns>
+    public static FluentQuery TableColumn(this FluentQuery response, string columnName, string columnTextType, params string[] labels)
+      => response.AppendToScript($"'{columnName}': [{columnTextType}({string.Join("||", labels)})]");
 
     /// <summary>
     /// Following a pattern predicate or a capture, specify to move *Up* from there to look for the next element in the document for the next operation.

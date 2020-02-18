@@ -10,7 +10,7 @@
     PageUnit CurrentPageUnit { get; }
     PageUnit[] CurrentPageUnits { get; }
 
-    TraversalResult Traverse(Direction direction);
+    TraversalResult Traverse(Direction direction, int? max = null);
     Page GetPage();
     PageIndex GetCurrentPosition();
     PageUnit GetMatchingPageUnit(string textType);

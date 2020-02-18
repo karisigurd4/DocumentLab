@@ -1,22 +1,23 @@
 ﻿namespace DocumentLab.PageInterpreter.Interpreter
 {
+  using Antlr4.Runtime.Misc;
+  using Components;
   using Contracts;
   using Contracts.PageInterpreter;
   using Core.Utils;
   using DataModel;
   using Enum;
   using Grammar;
-  using Components;
   using Interfaces;
-  using Antlr4.Runtime.Misc;
   using System;
-  using System.Linq;
   using System.Collections.Generic;
+  using System.Linq;
 
   public class PageInterpreter : PageInterpreterBaseVisitor<Symbol>
   {
     public InterpreterResult Result { get; private set; } = new InterpreterResult();
-    
+    public PatternResult currentPatternResult = null;
+
     private string queryLabel;
     private readonly Page page;
     private IPageTraverser pageTraverser;
@@ -26,26 +27,26 @@
       this.page = page;
     }
 
-    private bool ValidateTextTypeMatch(PageUnit pageUnit, string textType, string[] matchContent) 
-      => pageUnit != null 
+    private bool ValidateTextTypeMatch(PageUnit pageUnit, string textType, string[] matchContent)
+      => pageUnit != null
         && pageUnit?.TextType == textType
-        && (matchContent?.Any(x => FuzzyTextComparer.FuzzyEquals(x, pageUnit.Value)) 
+        && (matchContent?.Any(x => FuzzyTextComparer.FuzzyEquals(x, pageUnit.Value))
         ?? true);
 
-    private string[] GetTextTypeParameters(PageInterpreterParser.TextTypeContext context, int index) 
-      =>  context.textTypeParameters(index) != null 
+    private string[] GetTextTypeParameters(PageInterpreterParser.TextTypeContext context, int index)
+      => context.textTypeParameters(index) != null
         ? context?.textTypeParameters(index).Accept(this)?.GetValue<string[]>() ?? null
         : null;
 
     public override Symbol VisitSubset([NotNull] PageInterpreterParser.SubsetContext context)
     {
       return new Symbol(
-        SymbolType.Array, 
+        SymbolType.Array,
         context
           .Parameters().GetText().Substring(1, context.Parameters().GetText().Length - 2)
           .Split(',')
-          .Select(x => new SubsetParameter() 
-          { 
+          .Select(x => new SubsetParameter()
+          {
             Percentage = int.Parse(x.Split(' ')[1]),
             SubsetPart = (SubsetPart)Enum.Parse(typeof(SubsetPart), x.Split(' ')[0])
           }).ToDictionary(x => x.SubsetPart, x => x.Percentage));
@@ -60,24 +61,50 @@
       return new Symbol(SymbolType.Success);
     }
 
-    private int? calculateSubset(int length, int? percentage) 
-      => percentage.HasValue 
-        ? (int)(length * (0.01M * percentage)) 
+    public override Symbol VisitTable([NotNull] PageInterpreterParser.TableContext context)
+    {
+      var tableColumns = context.tableColumn().Select(x => (TableColumn)x.Accept(this).Value).ToArray();
+      var tableAnalyzer = new TableAnalyzer();
+      var result = tableAnalyzer.AnalyzeTable(page, queryLabel, tableColumns);
+      if (result != null || result?.Results?.Count > 0)
+      {
+        Result.Results.Add(queryLabel, result.Results.First().Value);
+      }
+      return new Symbol(SymbolType.Success);
+    }
+
+    public override Symbol VisitTableColumn([NotNull] PageInterpreterParser.TableColumnContext context)
+    {
+      var propertyName = (string)context.propertyName().Accept(this).Value;
+      var textTypeParameters = GetTextTypeParameters(context.textType(), 0);
+      var textType = context.textType().Text(0).GetText();
+
+      return new Symbol(SymbolType.Single, new TableColumn()
+      {
+        ColumnName = propertyName,
+        LabelParameters = textTypeParameters,
+        TextType = textType
+      });
+    }
+
+    private int? calculateSubset(int length, int? percentage)
+      => percentage.HasValue
+        ? (int)(length * (0.01M * percentage))
         : (int?)null;
 
     private Dictionary<SubsetPart, int> subsetPartToPageDimension = new Dictionary<SubsetPart, int>()
     {
-      { SubsetPart.Top, 1 }, { SubsetPart.Bottom, 1 }, 
+      { SubsetPart.Top, 1 }, { SubsetPart.Bottom, 1 },
       { SubsetPart.Left, 0 }, {SubsetPart.Right, 0 }
     };
 
     private int calculateSubsetOnPage(Dictionary<SubsetPart, int> subsets, SubsetPart subset)
-      =>  subsets != null 
+      => subsets != null
           ? calculateSubset
             (
-              page.Contents.GetLength(subsetPartToPageDimension[subset]), 
-              subsets.ContainsKey(subset) 
-                ? subsets?[subset] 
+              page.Contents.GetLength(subsetPartToPageDimension[subset]),
+              subsets.ContainsKey(subset)
+                ? subsets?[subset]
                 : null
             ) ?? page.Contents.GetLength(subsetPartToPageDimension[subset])
           : page.Contents.GetLength(subsetPartToPageDimension[subset]);
@@ -88,17 +115,17 @@
 
       var subsets = context?.subset()?.Accept(this)?.GetValue<Dictionary<SubsetPart, int>>();
 
-      for 
+      for
       (
-        int x = page.Contents.GetLength(0) - calculateSubsetOnPage(subsets, SubsetPart.Right); 
-        x < calculateSubsetOnPage(subsets, SubsetPart.Left); 
+        int x = page.Contents.GetLength(0) - calculateSubsetOnPage(subsets, SubsetPart.Right);
+        x < calculateSubsetOnPage(subsets, SubsetPart.Left);
         x++
       )
       {
-        for 
+        for
         (
-          int y = page.Contents.GetLength(1) - calculateSubsetOnPage(subsets, SubsetPart.Bottom); 
-          y < calculateSubsetOnPage(subsets, SubsetPart.Top); 
+          int y = page.Contents.GetLength(1) - calculateSubsetOnPage(subsets, SubsetPart.Bottom);
+          y < calculateSubsetOnPage(subsets, SubsetPart.Top);
           y++
         )
         {
@@ -106,6 +133,9 @@
             continue;
 
           pageTraverser = new PageTraverser(page, new PageIndex(x, y));
+
+          currentPatternResult = new PatternResult();
+
           try
           {
             base.VisitPattern(context);
@@ -115,9 +145,14 @@
               break;
             }
           }
-          catch (ParseCanceledException) { }
+          catch (ParseCanceledException)
+          {
+            currentPatternResult = null;
+          }
         }
       }
+
+      Result.Results.Add(queryLabel, currentPatternResult);
 
       return new Symbol(SymbolType.Success);
     }
@@ -175,7 +210,7 @@
 
       return new Symbol
       (
-        SymbolType.Array, 
+        SymbolType.Array,
         context.Parameters().GetText()
           .Substring(1, context.Parameters().GetText().Length - 2)
           .Replace("||", "~")
@@ -208,7 +243,7 @@
 
       if (!string.IsNullOrWhiteSpace(capturedValue))
       {
-        Result.AddResult(queryLabel, propertyName, capturedValue);
+        currentPatternResult.AddResult(propertyName, capturedValue);
       }
 
       return new Symbol(SymbolType.Success);

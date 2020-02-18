@@ -9,7 +9,7 @@ compileUnit
 	;
 
 query
-	: ( Text Colon )? ( pattern )+ 
+	: ( Text Colon )? ( pattern | table )+ 
 	;
 
 pattern
@@ -17,7 +17,11 @@ pattern
 	;
 
 table
-	: Table ( propertyName LBracket ( textType ) RBracket )+ SemiColon
+	: Table tableColumn+ SemiColon
+	;
+
+tableColumn
+	: ( propertyName LBracket ( textType ) RBracket )
 	;
 
 subset

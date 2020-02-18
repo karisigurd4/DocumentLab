@@ -1,9 +1,9 @@
 ﻿namespace DocumentLab.PageInterpreter.Interpreter
 {
+  using Antlr4.Runtime.Misc;
   using Contracts.PageInterpreter;
   using Exceptions;
   using Grammar;
-  using Antlr4.Runtime.Misc;
   using System.Collections.Generic;
 
   public class ScriptAnalyzer : PageInterpreterBaseVisitor<object>
@@ -24,6 +24,17 @@
       currentQuery = queryLabel;
 
       base.VisitQuery(context);
+
+      return null;
+    }
+
+    public override object VisitTable([NotNull] PageInterpreterParser.TableContext context)
+    {
+      ResultCountByQuery.Add(currentQuery, new AnalyzedQuery()
+      {
+        NumberOfCaptures = context.tableColumn().Length,
+        IsArray = false
+      });
 
       return null;
     }

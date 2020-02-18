@@ -5,14 +5,13 @@
   using DocumentLab.PageInterpreter.Interfaces;
   using System;
   using System.Linq;
-  using System.Collections.Generic;
 
   public class PageTraverser : IPageTraverser, ICloneable
   {
     public bool ErrorOccurred { get; private set; }
 
     public PageUnit CurrentPageUnit => CurrentPageUnits?.Length > pageUnitIndex && pageUnitIndex >= 0 ? CurrentPageUnits?[pageUnitIndex] : null;
-    public PageUnit[] CurrentPageUnits => page.Contents[currentPosition.X, currentPosition.Y]?.ToArray(); 
+    public PageUnit[] CurrentPageUnits => page.Contents[currentPosition.X, currentPosition.Y]?.ToArray();
 
     private readonly Page page;
     private readonly Coordinate currentPosition;
@@ -31,12 +30,17 @@
       return page;
     }
 
-    public TraversalResult Traverse(Direction direction)
+    public TraversalResult Traverse(Direction direction, int? max = 0)
     {
+      if (max == null)
+      {
+        max = int.MaxValue;
+      }
+
       PageUnit current = null;
       int steps = 0;
 
-      while (current == null)
+      while (current == null && max-- > 0)
       {
         switch (direction)
         {
@@ -75,7 +79,7 @@
       if (currentPosition.Y <= 0)
       {
         ErrorOccurred = true;
-      }  
+      }
       else
       {
         currentPosition.Y -= 1;
@@ -132,19 +136,19 @@
 
       currentPosition.X = startX;
       currentPosition.Y = startY;
-      
+
       if (ErrorOccurred)
       {
         ErrorOccurred = false;
-        return peekPageUnit.ToArray();
+        return peekPageUnit?.ToArray();
       }
 
-      return peekPageUnit.ToArray();
+      return peekPageUnit?.ToArray();
     }
 
     public PageUnit[] GetCurrentPageUnits()
     {
-      return page?.Contents?[currentPosition.X, currentPosition.Y].ToArray() ?? null;
+      return page?.Contents?[currentPosition.X, currentPosition.Y]?.ToArray() ?? null;
     }
 
     public PageUnit GetMatchingPageUnit(string textType)
