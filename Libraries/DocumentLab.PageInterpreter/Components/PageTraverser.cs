@@ -129,8 +129,8 @@
     public PageUnit[] Peek(Direction direction, int steps = 1)
     {
       int startX = currentPosition.X, startY = currentPosition.Y;
-      for (int i = 0; i < steps; i++)
-        Traverse(direction);
+
+      Traverse(direction, steps);
 
       var peekPageUnit = GetCurrentPageUnits();
 

@@ -40,7 +40,7 @@ Table
 'ItemNo': [Text(ItemNumber)] 
 'Description': [Text(Description)] 
 'Quantity': [Number(Quantity)] 
-'UnitPrice': [Text(Unit price)] 
+'UnitPrice': [AmountOrNumber(Unit price)] 
 'VatPercentage': [Percentage(VAT)] 
 'Total': [AmountOrNumber(Total)];
 
