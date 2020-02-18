@@ -135,7 +135,7 @@ string script = @"
 ";
 
 // Instantiate DocumentLab 
-var documentLab = new DocumentLab();
+var documentLab = new DocumentInterpreter();
 
 // Pass in our script as a string and the document image as a bitmap, we can use System.Drawing to handle file loading
 var interpretedJsonResult = documentLab.InterpretToJson(script, (Bitmap)Image.FromFile(imagePath));
