@@ -5,6 +5,7 @@
 * General
   * Extended language configuration options 
   * Set language in global settings
+  * Fuzzy text matching improvements
 * TextAnalyzer
   * Contextual data split by language setting
   * Extended date interpretation configurability
@@ -14,10 +15,14 @@
   * Added support for logical or || in text type or capture 
   * Query page SubSet (Top, Bottom, Left, Right) 
   * Table analyzer component and language extension 
+    * Support in language
+    * Support in analyzer
 * FluentQuery
   * Added support for logical or operator on text type or capture
-  * Added support for subset 
+  * Added support for subset specifications 
+  * Added support for table definitions 
 * Bugfixes
+  * Fixes for very game breaking bugs in the interpreters
   * Fixed bug where text type was not validated when using parameters 
   * Fixed bug where Json serialization of results could fail when interpretation results were empty
 
