@@ -14,13 +14,16 @@ This is a solution for data extraction from images of documents. You send in a b
 * It provides a [query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) created specifically for document data extraction 
   * Defining documents by [queries and patterns](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns) allows DocumentLab to understand documents *intelligently*
   * Patterns in DocumentLab are designed to be analogous to how we read information with human intuition 
+  * Intelligent table data extraction via an extremely simple interface
   * A [C# interface](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) to the query language is also supported
 * **Production ready** for scalable **real-world** data extraction
   * Fits seamlessly into a scalable architecture 
   * Speed and efficiency are among the primary design goals
   * [Optimizable via configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Host-system-resource-optimization) for maximum performance on a single host
 
-**Quick intro**
+
+
+**Getting started**
 
 You can write scripts in the query language or use the C# api.
 
@@ -31,8 +34,6 @@ The C# fluent interface is easier to get started quickly. The raw text scripting
 * *Query*: A named set of patterns prioritized first to last
   * *e.g*: ```IncoiceNumber: *pattern 1*; *pattern 2*; ... *pattern n*;```
 * *Script*: A collection of queries to execute in one go. Output properties will have the query name
-
-**Getting started**
 
 * [Configure C# build settings](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md) 
 * [Query language documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
