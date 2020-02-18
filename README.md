@@ -19,7 +19,6 @@ This is a solution for data extraction from images of documents. You send in a b
   * Speed and efficiency are among the primary design goals
   * [Optimizable via configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Host-system-resource-optimization) for maximum performance on a single host
 
----
 <img src="https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/Example.png" />
 
 **Getting started**
