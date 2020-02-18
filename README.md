@@ -19,20 +19,20 @@ This is a solution for data extraction from images of documents. You send in a b
   * Speed and efficiency are among the primary design goals
   * [Optimizable via configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Host-system-resource-optimization) for maximum performance on a single host
 
-
-
 **Getting started**
 
-You can write scripts in the query language or use the C# api.
+You can write scripts in the query language or use the C# API. The C# fluent interface is easier to get started quickly. The raw text scripting interface allows more versatility and configurability in a production context. 
 
-The C# fluent interface is easier to get started quickly. The raw text scripting interface allows more versatility and configurability in a production context. 
-
+**Definitions**
 * *Pattern*: A description of how information is presented in a document as well as which data to capture
   * *e.g*: ```Text(Total amount) Right [Amount]```
+* *Table*: A description of which table column labels to match in a document and which text types are represented in each column
+  * *e.g*: ```Table 'ItemNo': [Number(Item number)] 'Description': [Text(Description)] 'Price': [Amount(...```
 * *Query*: A named set of patterns prioritized first to last
   * *e.g*: ```IncoiceNumber: *pattern 1*; *pattern 2*; ... *pattern n*;```
 * *Script*: A collection of queries to execute in one go. Output properties will have the query name
 
+**From here...**
 * [Configure C# build settings](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md) 
 * [Query language documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
   * [C# Example: Executing scripts](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Examples.md#using-the-library) 
