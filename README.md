@@ -104,7 +104,7 @@ Depending on your image source, you may want to upsample low dpi images to a ran
   * [Text matching](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#text-matching)
   * [OR operator on text types and captures](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#OR-operator-on-text-types-and-captures) 
   * [Right-Down search](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#right-down-search)
-  * Extracting table data (soon)
+  * [Extracting table data](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#table-data-extraction)
   * [Query a subset of the page](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#Query-a-subset-of-the-page) 
 * [Configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md)
   * [Host system resource optimization](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#host-system-resource-optimization) 

@@ -93,7 +93,21 @@ CustomerNumber: RD 6 Text(Customer nu || Cust n) [Text];
 
 The numeric value following RD indicates the maximum number of distance in cells in the DocumentLab page grid the following predicate can be in order to consider the pattern matched or not. This helps when there is actually information to the right or below the label but it's too far away to be considered relevant.
 
-## Extracting table data (soon)
+## Extracting table data extraction 
+
+You can teach DocumentLab to recognize and extract information from tables. All you need to specify is the structure of a table in terms of it's possible column header labels and which text type the information contained in the table should be in.
+
+For example, the following query defines a table that contains invoice items,
+```
+Items:
+Table 
+'ItemNo': [Text(ItemNumber)] 
+'Description': [Text(Description)] 
+'Quantity': [Number(Quantity)] 
+'UnitPrice': [Text(Unit price)] 
+'VatPercentage': [Percentage(VAT)] 
+'Total': [AmountOrNumber(Total)];
+```
 
 ## Query a subset of the page
 
