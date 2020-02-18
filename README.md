@@ -12,9 +12,7 @@ This is a solution for data extraction from images of documents. You send in a b
   * You'll never have to specify pixel coordinates
   * DocumentLab is well versed for extracting data from documents with layouts it has never seen before
 * It provides a [query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) created specifically for document data extraction 
-  * Defining documents by [queries and patterns](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns) allows DocumentLab to understand documents *intelligently*
-  * Patterns in DocumentLab are designed to be analogous to how we read information with human intuition 
-  * Intelligent table data extraction via an extremely simple interface
+  * Defining documents by [queries, patterns and tables](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns) allows DocumentLab to understand documents *intelligently*
   * A [C# interface](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) to the query language is also supported
 * **Production ready** for scalable **real-world** data extraction
   * Fits seamlessly into a scalable architecture 
