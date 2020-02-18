@@ -19,9 +19,9 @@ This is a solution for data extraction from images of documents. You send in a b
   * Speed and efficiency are among the primary design goals
   * [Optimizable via configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Host-system-resource-optimization) for maximum performance on a single host
 
----
 <img src="https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/Example.png" />
 
+---
 **Getting started**
 
 You can write scripts in the query language or use the C# API. The C# fluent interface is easier to get started quickly. The raw text scripting interface allows more versatility and configurability in a production context. 
