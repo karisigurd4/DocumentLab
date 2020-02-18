@@ -8,9 +8,9 @@
 ---
 This is a solution for data extraction from images of documents. You send in a bitmap, a set of queries and get extracted data in structured json. 
 
-* DocumentLab performs image analysis and processing, optical character recognition, [text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Language-configuration-and-text-analysis) and enables an [easy to use approach to data extraction](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
+* DocumentLab takes care of image analysis and processing, optical character recognition, [text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Language-configuration-and-text-analysis) 
+  * Provides an [easy to use approach to data extraction](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) 
 * DocumentLab does not rely on pre-determined manual *mapping* of *where data is located in a document*
-  * You'll never have to specify pixel coordinates
   * DocumentLab is well versed for extracting data from documents with layouts it has never seen before
 * It provides a [query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) created specifically for document data extraction 
   * Defining documents by [queries, patterns and tables](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns) allows DocumentLab to understand documents *intelligently*
