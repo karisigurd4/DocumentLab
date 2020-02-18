@@ -24,6 +24,20 @@ This is a solution for data extraction from images of documents. You send in a b
 ---
 **Getting started**
 
+Quickly
+```C#
+// To use the scripting interface
+var documentLab = new DocumentInterpreter();
+var interpretedJsonResult = documentLab.InterpretToJson(script, (Bitmap)Image.FromFile(imagePath));
+```
+
+```C#
+// To use the FluentQuery API
+using (var document = new Document((Bitmap)Image.FromFile(imagePath))) 
+{
+ ...
+```
+
 You can write scripts in the query language or use the C# API. The C# fluent interface is easier to get started quickly. The raw text scripting interface allows more versatility and configurability in a production context. 
 
 **Definitions**
