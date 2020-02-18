@@ -6,7 +6,6 @@
   * Extended language configuration options 
   * Set language in global settings
   * Fuzzy text matching improvements
-  * Fixes for very game breaking bugs in the interpreters
 * TextAnalyzer
   * Contextual data split by language setting
   * Extended date interpretation configurability
@@ -23,6 +22,7 @@
   * Added support for subset specifications 
   * Added support for table definitions 
 * Bugfixes
+  * Fixes for very game breaking bugs in the interpreters
   * Fixed bug where text type was not validated when using parameters 
   * Fixed bug where Json serialization of results could fail when interpretation results were empty
 
