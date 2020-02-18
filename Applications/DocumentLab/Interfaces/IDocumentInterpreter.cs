@@ -2,7 +2,7 @@
 {
   using System.Drawing;
 
-  public interface IDocumentLab
+  public interface IDocumentInterpreter
   {
     string InterpretToJson(string script, Bitmap bitmap);
   }

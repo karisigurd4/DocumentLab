@@ -1,5 +1,6 @@
 ﻿namespace DocumentLab.Test
 {
+  using DocumenLab;
   using Microsoft.VisualStudio.TestTools.UnitTesting;
   using System.Drawing;
 
@@ -48,7 +49,7 @@ TotalAmount:
 Text(Total amount) Right [Amount];
 ";
 
-      var documentLab = new DocumentLab();
+      var documentLab = new DocumentInterpreter();
 
       //var page = documentLab.GetAnalyzedPage((Bitmap)Image.FromFile("Data\\fakeinvoice.png"));
       //string csv = string.Empty;

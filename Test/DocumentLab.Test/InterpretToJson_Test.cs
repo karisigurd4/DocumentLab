@@ -1,8 +1,9 @@
 ﻿namespace DocumentLab.Test
 {
-  using System.Drawing;
+  using DocumenLab;
   using Microsoft.VisualStudio.TestTools.UnitTesting;
   using PdfiumViewer;
+  using System.Drawing;
 
   [TestClass]
   public class InterpretToJson_Test
@@ -22,7 +23,7 @@ TotalAmount:
 Text(Total Due) Right [Amount];
 ";
 
-      var documentLab = new DocumentLab();
+      var documentLab = new DocumentInterpreter();
 
       PdfDocument pdfDocument = PdfDocument.Load("Data\\SomeDemoInvoice.pdf");
 

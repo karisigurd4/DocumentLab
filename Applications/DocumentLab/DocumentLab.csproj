@@ -106,11 +106,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Document.cs" />
-    <Compile Include="Components\DocumentLab.cs" />
+    <Compile Include="Components\DocumentInterpreter.cs" />
     <Compile Include="Components\DocumentLabBase.cs" />
     <Compile Include="Infrastructure\DocumentLabInstaller.cs" />
     <Compile Include="Interfaces\IDocument.cs" />
-    <Compile Include="Interfaces\IDocumentLab.cs" />
+    <Compile Include="Interfaces\IDocumentInterpreter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

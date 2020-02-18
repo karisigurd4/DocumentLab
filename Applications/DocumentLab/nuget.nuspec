@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata minClientVersion="4.7.0.0">
     <id>DocumentLab-x64</id>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     <title>DocumentLab-x64</title>
     <authors>Kári Sigurðsson</authors>
     <owners>Kári Sigurðsson</owners>
