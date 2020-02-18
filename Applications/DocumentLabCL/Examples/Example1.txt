@@ -1,4 +1,0 @@
-Label1: Text(Label1) Right Amount Right [Email];
-Label2: Text(Label2) Right [WebAddress];
-LastColumn: 'EmailAddress': [Email] Down 'WebAddress': [WebAddress] Down 'Number': [Number] Down 'Text': [Text];
-Dates: Any [Date];
