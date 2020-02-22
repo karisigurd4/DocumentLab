@@ -1,5 +1,3 @@
-<img src="https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/logo.png" width="70%" />
-
 *Optical character recognition, image processing and intelligent data extraction* <br/>
 **Version 1.3 on NuGet Now! [Release notes](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/RealeaseNotes.md)**
 
