@@ -15,10 +15,6 @@ This is a solution for data extraction from images of documents. You send in a b
 * It provides a [query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) created specifically for document data extraction 
   * Defining documents by [queries, patterns and tables](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns) allows DocumentLab to understand documents *intelligently*
   * A [C# interface](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) to the query language is also supported
-* **Production ready** for scalable **real-world** data extraction
-  * Fits seamlessly into a scalable architecture 
-  * Speed and efficiency are among the primary design goals
-  * [Optimizable via configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Host-system-resource-optimization) for maximum performance on a single host
 
 <img src="https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/Example.png" />
 
