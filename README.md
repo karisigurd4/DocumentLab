@@ -11,6 +11,7 @@ This is a solution for data extraction from images of documents. You send in a b
   * Defining documents by [queries, patterns and tables](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns) allows DocumentLab to understand documents *intelligently*
   * DocumentLab is well versed for extracting data from documents with layouts it has never seen before
   * A [C# interface](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) to the query language is also supported
+* Extensive [configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md) for all parts of the process are available to facilitate your requirements
 
 <img src="https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/Example.png" />
 
