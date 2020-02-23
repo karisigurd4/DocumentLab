@@ -14,7 +14,7 @@ This is a solution for data extraction from images of documents. You send in a b
 * Extensive [configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md) for all parts of the process are available to facilitate your requirements
 
 <img src="https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/Example.png" />
-[Open image] (https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/Example.png) 
+[Open image](https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/Example.png) 
 
 ---
 **Getting started**
