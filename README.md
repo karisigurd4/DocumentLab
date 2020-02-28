@@ -9,7 +9,7 @@ This is a solution for data extraction from images of documents. You send in a b
 * DocumentLab takes care of image analysis and processing, optical character recognition, [text classification](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md#Language-configuration-and-text-analysis) 
 * It provides a [query language](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md) created specifically for document data extraction 
   * Defining documents by [queries, patterns and tables](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md#building-patterns) allows DocumentLab to understand documents *intelligently*
-  * DocumentLab is well versed for extracting data from documents with layouts it has never seen before
+  * Intelligently meaning that the solution has the capacity to extract data from documents with layouts it has never seen before
   * A [C# interface](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/FluentDocumentLab.md) to the query language is also supported
 * Extensive [configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md) for all parts of the process are available to facilitate your requirements
 
