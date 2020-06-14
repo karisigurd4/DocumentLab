@@ -72,9 +72,31 @@ A lot of the choices made for this component of the solution were motivated by t
 
 ### Transform the data into a representational model of the original photo
 
-By this point we have a set of data which consists of the OCR result for each subsection and their associated positional coordinates. The primary requirement I had for the model in which to transform these results into was that it should be easy to intuitively understand and work with. 
+The transformation process starts by classifying the text contained in the OCR results. The set of possible classifications is arbitrary and depends on configuration. The text classifier component of the solution uses regular expressions primarily. For example, when it encounters a piece of text like "abc 123.0" it will extract the text, the numbers and the decimal separated number as a whole as an amount. 
 
-The solution I created for this purpose starts by classifying the text contained in the OCR results. The set of possible classifications is arbitrary and depends on configuration. The text classifier component of the solution uses regular expressions. 
+After classification, we construct a three dimensional grid in which the X and Y axis represents the corresponding two dimensions of the photograph of the document. The length of the Z axis is dynamic and contains every classification identified in that part of the document. Let's say we have a label in the document "Total amount" and an amount value below it, ideally, we want the text label to be placed in the grid exactly above the cell containing the total amount so that we can define intuitive patterns to represent and query that piece of information. 
 
+A problem that occurs in this process is that real world documents don't really place elements according to a predefined grid. So in order to avoid constructing a grid in which the actual pixel coordinates for each element necessitates a corresponding column or a row in the model we begin by normalizing all of the indices from all of the OCR result positional coordinates.
 
-![The model construction process](https://lh3.googleusercontent.com/M6xcppjQnB7GI4huLorYaipA9m7Wna5yZ-yAXppxDm_uw9fjrS6BBqHblXLhFGuUejgcmaPcsFMZHOpe0y2soJ9cVugrLJrVrWSw3kWFOLB83dL4MBBT_27G-kf9wRufEnTsJ1jATRaE6204lyhbb-rDwsKZAdyHjFMZO20m4RseLvBHg7j_oc4DIlQZjYVXHWWgnlx_5uYvo-mdY3dG4Ti7tnSDi9rpdrtE4A7c8gIL2Hd9CIacmm19KDQyVfYPl5_iDBkQwFjjU2JEgOssmoB2OYOfQcgmfXsmJZDOW2YCIllxu_7btfUWx4oN7hEkTOgEgkV9XprhYqGsVQfvkTJCFYSzFkW_15s9mt2mzC0kIsn7tBaLTmyQkVpvhJhBj3FkSr_0SdDYqSsN0FhYMsyz-I8YGWRa42rogbUk9HdoyT5V3TrG6rncJUVK-xzC77aelciiYhhwl3ZBosQjHpP62vqnk5xewsFAf4mujp3WlZa4M02Ns7ml1TSlevq4rWrbEE992CZhcpuV-9LISx4D7jmo_F9BZ5_-7wgz8_0u2edJTU1zgyed6M5p0c79jnRXGl61uxcJYIF9PDrF4Y4eDtjI6RMsndsdigtNq2irVDkZbYBFDAmTI4x_QYKj07pySGykwRXjKBfp9LDLscQLsrX9PNEIrUJZeL5ELjEnMNBw1V4CfbsTNpltlQ=w786-h94-no?authuser=0)
+The normalization process involves selecting the set of all pixel indices of an axis, rounding each index by an arbitrary constant, then selecting the distinct resulting integers. The size of the resulting set will denote the length of that axis in the model, then we use the set to infer the closest X or Y model coordinate by finding the closest actual positional value from the set of rounded indices.
+
+The following pseudocode presents the algorithm that takes care of finding where to place elements in the model grid using the actual index coordinate values.
+
+     rc: integer rounding constant
+     si: set of all indices of an axis
+     sr: distinct set of all indices in si rounded down by rc
+
+	 func findModelCoordinate(bx: axis coordinate of OCR result bounding box):
+	     for i in si:
+			 if si[i] > bx:
+				 distanceToNext: ABS(si[i] - bx)
+				 distanceToPrevious: ABS(si[i - 1] - bx)
+				 
+				 if distanceToNext > distanceToPrevious: return i - 1
+				 else: return i
+				 
+		 return i - 1
+     
+     
+
+Due to the nature of the previous algorithm, cells which ideally should exist on the same X coordinate might end up offset from each other due to the rounding. To compensate for that error, a component implementing a *trimming* algorithm follows. The trimming algorithm scans the model three columns and three rows at a time, comparing the left and the right columns with the middle one and determining whether the cells have been erroneously offset due to the rounding. The algorithm determines that by comparing the absolute distance between the actual coordinates between the two and if they fall shorter than an arbitrary constant, the algorithm moves the cell to the appropriate position.
