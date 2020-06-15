@@ -1,4 +1,5 @@
 
+
 ## DocumentLab
 
 Back in 2017 I encountered a problem which for the subsequent 3 years I would obsess on and off over. It was one of those problems that had an air of "many have tried, none have succeeded" around it. Immediately my mind started spinning, trying to imagine possible methods for solving this problem. The more I thought about it, the more I wanted to go for it.
@@ -42,7 +43,6 @@ On a practical level these categories have high-level subcategories that are sub
  -- Text analysis
  -- Inferential analysis
  - Interpret the model and generate desired output
- -- State machines
  -- Language theory
 
 The solution will be discussed in the sequence presented above. 
@@ -72,11 +72,25 @@ A lot of the choices made for this component of the solution were motivated by t
 
 ### Transform the data into a representational model of the original photo
 
-The transformation process starts by classifying the text contained in the OCR results. The set of possible classifications is arbitrary and depends on configuration. The text classifier component of the solution uses regular expressions primarily. For example, when it encounters a piece of text like "abc 123.0" it will extract the text, the numbers and the decimal separated number as a whole as an amount. 
+***Intro***
+
+In order to be able to parse the textual data generated from the previous OCR process we'll need to transform the currently disjunct result sets into a cohesive data structure. The basic idea from the start was to *map* the data thus far onto a grid that would represent the original document in terms of placement of elements. With such a data structure we could easily reason and build algorithms analogous to our own mode of thinking when extracting information.
+
+***Text classification***
+
+The transformation process starts by classifying the text contained in the OCR results. The set of possible classifications is arbitrary and depends on configuration. The text classifier component of the solution uses regular expressions primarily. For example, when it encounters a piece of text like "abc 123.0" it will extract the entire text with and without the numbers, the numbers [ "123", "0" ] and the decimal separated number as an amount [ "123.0" ]. 
+
+***Mapping data onto a grid***
 
 After classification, we construct a three dimensional grid in which the X and Y axis represents the corresponding two dimensions of the photograph of the document. The length of the Z axis is dynamic and contains every classification identified in that part of the document. Let's say we have a label in the document "Total amount" and an amount value below it, ideally, we want the text label to be placed in the grid exactly above the cell containing the total amount so that we can define intuitive patterns to represent and query that piece of information. 
 
-A problem that occurs in this process is that real world documents don't really place elements according to a predefined grid. So in order to avoid constructing a grid in which the actual pixel coordinates for each element necessitates a corresponding column or a row in the model we begin by normalizing all of the indices from all of the OCR result positional coordinates.
+NEEDS PICTURE
+
+This proved to be a more difficult problem to solve than initially thought and required a lot of trial and error. The biggest problem that is that real world documents don't really place elements according to a predefined grid. Furthermore, documents don't seem to care so much about precise pixel coordinates either, so a label and a value might be offset by a tiny number of pixels. How do we then map the data onto a grid which can be sensibly evaluated? 
+
+***Normalization aglgorithm***
+
+This required the design and implementation of a *normalization algortihm* that takes the input data and finds out a good grid approximation derived from all of the element positions. 
 
 The normalization process involves selecting the set of all pixel indices of an axis, rounding each index by an arbitrary constant, then selecting the distinct resulting integers. The size of the resulting set will denote the length of that axis in the model, then we use the set to infer the closest X or Y model coordinate by finding the closest actual positional value from the set of rounded indices.
 
@@ -98,5 +112,13 @@ The following pseudocode presents the algorithm that takes care of finding where
 		 return i - 1
      
      
+This algorithm doesn't yield the most optimal results due to the rounding mechanism involved. For instance, let's assume a rounding constant of 15, two elements that represent cohesive information in a document together are placed at X coordinates 14 and 16 with some difference in the Y axis. One element would be rounded down to 0 and the other to 15, leaving what was supposed to be cohesive offset from each other in the final result.
+
+***Trimming algorithm***
 
 Due to the nature of the previous algorithm, cells which ideally should exist on the same X coordinate might end up offset from each other due to the rounding. To compensate for that error, a component implementing a *trimming* algorithm follows. The trimming algorithm scans the model three columns and three rows at a time, comparing the left and the right columns with the middle one and determining whether the cells have been erroneously offset due to the rounding. The algorithm determines that by comparing the absolute distance between the actual coordinates between the two and if they fall shorter than an arbitrary constant, the algorithm moves the cell to the appropriate position.
+
+**NEEDS PICTURE**
+
+### Interpret the model and generate desired output
+
