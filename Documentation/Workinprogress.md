@@ -24,6 +24,12 @@ Given how incredibly varied the structure of an invoice can be, how do I even in
 
 I was interested in modeling this process and evaluating how the output would perform. My hypothesis was that if a model was sufficiently robust, all we would need to do was to define what kind of patterns to look for. An algorithm could parse the model with the patterns as input and the output should be the actual information contained within the document. Given that documents across a whole range of domains have patterns which we can intuitively interpret and use to extract information, I had a hunch that such a method could be generalized across all those domains.
 
+I had this image in my mind for the entire process,
+
+![Idea](https://i.imgur.com/Vaq6vFY.png)
+
+If we can sufficiently model the document in a grid where elements would be placed intuitively enough we could define simple queries to extract whatever data we want to extract. The realization of this became my obsession and I had to tackle every part of the technical process with the entire goal in mind.
+
 ## The solution
 
 In order to provide a thoroughly comprehensive overview of the solution. I believe a merely theoretical discussion wouldn't convey the insight a more technically oriented reader would appreciate. Therefore in this section I'll combine discussions about the idea as well as the technical aspects.  
@@ -66,7 +72,7 @@ Through trial and error, the eventual process is summarized in the following lis
 
 The following figure presents the sequence from input on the left to output on the right,
 
-![Photohraph to computer data process](https://lh3.googleusercontent.com/1gxu9im-XCqSF2Sn8S7X5qOOcCicSUaZmMJQNqrMQ8_6zGyYNPgt-DLK2XyMcnjWVGjXXeEuGCNHJoPnxbCWFR95Y3AkPddDiBTZISqy-8ivV7L93mgBGzpzHfUuIopN6eToCG3jGuZhW3Q80OFlTq_1EZj8_sYGwTutvLbaoK8y69GRK4EItLBv6A6MdLamFr0hCwdqfUrgCESRcEVPEh64Kh_odZVAr1oR3v1lkW93fm8KuU-T91lQs3RRIkQOeKvHvoS_83TSrPi7GB83RXuxWGm3Kc-gxMqyi2Lgy9mTxqIrtU2yeQ50A_yk5hZigNDs8IFTCS-QCpQ2WMVSMOJPO9fUkJqQtGhQBEGbP6Grnbjav-iVPmzLfdrTiozA-7xrbFvJZscx2tJHTvT_Wvz4x3Rf_xFjNR1GIqLGQ__8_euTpYqXdU6VSZG_tdVu9Cf9sOU7KFYzACThBwXssUjwc4OmlGCtqb4m15XJcKtaQx2l9zrjiC3ayHqqBvcxYeCDJWqdmTrX2G64S6cOWGwoDPasKKwSFLnPw8Yv1bQeUn_-Kq75BYvaSHKfB-b_R8O9d5R0ZFamBrs-Zujhj7ULCf8dYOn7sByi1EpLaHygkL0mSY7PcKi-gwoYlASS7LIHIRLBTo0HCpADx_5QjDqThWH0uVgXVztb4lN1q2bafy3pNyr71-7WfX6QDg=w841-h126-no?authuser=0)
+![Photohraph to computer data process](https://i.imgur.com/KWXyC2L.png)
 
 A lot of the choices made for this component of the solution were motivated by technical necessity. Performing optical character recognition on an image is a computationally heavy operation. The feature analysis part of the process was added in order to optimize for performance, namely, it allows us to perform OCR on sections of the image in parallel which provides better throughput. 
 
@@ -76,6 +82,11 @@ A lot of the choices made for this component of the solution were motivated by t
 
 In order to be able to parse the textual data generated from the previous OCR process we'll need to transform the currently disjunct result sets into a cohesive data structure. The basic idea from the start was to *map* the data thus far onto a grid that would represent the original document in terms of placement of elements. With such a data structure we could easily reason and build algorithms analogous to our own mode of thinking when extracting information.
 
+The following figure describes a rough summary of the eventual process,
+![Rough summary](https://i.imgur.com/oDvpCi0.png)
+
+Each step will be discussed within its own following subsection.
+
 ***Text classification***
 
 The transformation process starts by classifying the text contained in the OCR results. The set of possible classifications is arbitrary and depends on configuration. The text classifier component of the solution uses regular expressions primarily. For example, when it encounters a piece of text like "abc 123.0" it will extract the entire text with and without the numbers, the numbers [ "123", "0" ] and the decimal separated number as an amount [ "123.0" ]. 
@@ -84,17 +95,15 @@ The transformation process starts by classifying the text contained in the OCR r
 
 After classification, we construct a three dimensional grid in which the X and Y axis represents the corresponding two dimensions of the photograph of the document. The length of the Z axis is dynamic and contains every classification identified in that part of the document. Let's say we have a label in the document "Total amount" and an amount value below it, ideally, we want the text label to be placed in the grid exactly above the cell containing the total amount so that we can define intuitive patterns to represent and query that piece of information. 
 
-NEEDS PICTURE
-
 This proved to be a more difficult problem to solve than initially thought and required a lot of trial and error. The biggest problem that is that real world documents don't really place elements according to a predefined grid. Furthermore, documents don't seem to care so much about precise pixel coordinates either, so a label and a value might be offset by a tiny number of pixels. How do we then map the data onto a grid which can be sensibly evaluated? 
 
-***Normalization aglgorithm***
+***Normalization algorithm***
 
-This required the design and implementation of a *normalization algortihm* that takes the input data and finds out a good grid approximation derived from all of the element positions. 
+This required the design and implementation of a *normalization algorithm* that takes the input data and finds out a good grid approximation derived from all of the element positions. 
 
 The normalization process involves selecting the set of all pixel indices of an axis, rounding each index by an arbitrary constant, then selecting the distinct resulting integers. The size of the resulting set will denote the length of that axis in the model, then we use the set to infer the closest X or Y model coordinate by finding the closest actual positional value from the set of rounded indices.
 
-The following pseudocode presents the algorithm that takes care of finding where to place elements in the model grid using the actual index coordinate values.
+The following pseudo-code presents the algorithm that takes care of finding where to place elements in the model grid using the actual index coordinate values.
 
      rc: integer rounding constant
      si: set of all indices of an axis
@@ -118,7 +127,11 @@ This algorithm doesn't yield the most optimal results due to the rounding mechan
 
 Due to the nature of the previous algorithm, cells which ideally should exist on the same X coordinate might end up offset from each other due to the rounding. To compensate for that error, a component implementing a *trimming* algorithm follows. The trimming algorithm scans the model three columns and three rows at a time, comparing the left and the right columns with the middle one and determining whether the cells have been erroneously offset due to the rounding. The algorithm determines that by comparing the absolute distance between the actual coordinates between the two and if they fall shorter than an arbitrary constant, the algorithm moves the cell to the appropriate position.
 
-**NEEDS PICTURE**
+The algorithm is illustrated in the following figure, showing how the traversal though the grid happens,
+
+![Grid scan](https://i.imgur.com/Ali8njS.png)
+
+After trimming, we have a grid in which element placements are both intuitive to us and extremely easy to interact with via traversal algorithms with the intention to extract information.
 
 ### Interpret the model and generate desired output
 
