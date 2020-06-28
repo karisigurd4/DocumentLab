@@ -2,11 +2,13 @@
 
 ## DocumentLab
 
-Back in 2017 I encountered a problem which for the subsequent 3 years I would obsess on and off over. It was one of those problems that had an air of "many have tried, none have succeeded" around it. Immediately my mind started spinning, trying to imagine possible methods for solving this problem. The more I thought about it, the more I wanted to go for it.
+Back in 2017 I encountered a problem which for the subsequent 2 years I would obsess on and off over. It was one of those problems that had an air of "many have tried, none have succeeded" around it. Immediately my mind started spinning, trying to imagine possible methods for solving this problem. The more I thought about it, the more I wanted to go for it.
 
 This was a personal research project for myself. I never knew what eventual goal I wanted to reach. I still don't, however at this time I believe the solution which I have created is sufficient enough to have a more high-level discussion about. Hopefully what I've learned can help others in a similar situation in the future or to provide useful insight for further research. 
 
 ##  The problem
+How do we convert images of documents to structured json formats which we can easily integrate with our systems?
+![Idea](https://i.imgur.com/2Sko0it.png)
 
 I'll present the problem by giving a hypothetical example, the example will be limited to the domain of invoices however the example could just as well have picked any other domain in which information exchange on paper is applicable. Let's say we're building an app that allows us to keep track of our finances, one of the features of the app is that we should be able to take a picture of an invoice, let the app scan the information contained in the invoice and then store the information in a database in order to give us statistics about what we're paying for. Maybe we want to track increase or decrease in price from a given sender for some service. 
 
@@ -126,9 +128,7 @@ This algorithm doesn't yield the most optimal results due to the rounding mechan
 
 Due to the nature of the previous algorithm, cells which ideally should exist on the same X coordinate might end up offset from each other due to the rounding. To compensate for that error, a component implementing a *trimming* algorithm follows. The trimming algorithm scans the model three columns and three rows at a time, comparing the left and the right columns with the middle one and determining whether the cells have been erroneously offset due to the rounding. The algorithm determines that by comparing the absolute distance between the actual coordinates between the two and if they fall shorter than an arbitrary constant, the algorithm moves the cell to the appropriate position.
 
-The algorithm is illustrated in the following figure, showing how the traversal though the grid happens,
-
-![Grid scan](https://i.imgur.com/Ali8njS.png)
+![Trimming](https://i.imgur.com/fLrKmos.png)
 
 After trimming, we have a grid in which element placements are both intuitive to us and extremely easy to interact with via traversal algorithms with the intention to extract information.
 
@@ -190,6 +190,9 @@ And finally the direction token is executed as follows,
 		else
 			visit next token
 
+Visual example follows,
+![Interpreter](https://i.imgur.com/d4eAgQS.png)
+
 The language proved to be simple yet incredibly versatile in practice. It includes a good deal more operations than discussed here such as filtering by fuzzy value matching, specifying a limiting subset of the matrix, logical OR between text types, multiple prioritized (top to bottom) pattern definitions and a special *"Right-Down"* search algorithm implemented directly in the language. 
 
 ***Additional components***
@@ -209,7 +212,7 @@ Note the table token at the start of the pattern indicating to the parser that w
 
 Finally, DocumentLab outputs results in Json format whose structure depends on what the input patterns look like. I.e., either as a set of key-value objects or as a set of more complex objects for more complex patterns. This allows easy external integration with DocumentLab for any system that knows how to parse Json.
 
-## Evaluation
+## Example
 
 I've witnessed the integration of DocumentLab in an enterprise system with a huge number of varying types of input and the amazing potential it has to bewilder and impress. For the purpose of the evaluation presented in this article I have created a fake invoice in Photoshop. There is absolutely nothing that makes this invoice any more uniquely usable with DocumenLab.
 
@@ -222,3 +225,13 @@ DocumentLab is able to evaluate and extract information exactly and accurately f
 ![Invoice](https://i.imgur.com/ahAN27D.png)
 
 Again, there is nothing unique or provides any additional help for DocumentLab contained within the fake invoice created for the purpose of this evaluation presentation. The choice of input document is arbitrary and should yield the same result given that the input is of comparable quality.
+
+## Final thoughts
+
+I don't know if I'll obsess over this project again in such a way that I have previously. For now I'd like to sit down one day and continue cleaning up the github repository, the interface to the DocumentLab library and providing it in a package that is easy to integrate with. 
+
+For now, you can check out the [github repository](https://github.com/karisigurd4/DocumentLab) and hopefully the provided documentation is comprehensive engough to get you started,
+* Query language is designed for flexibility, capture all invoices in a single script containing many pattern definitions, see [query langugage documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md)
+* DocumentLab is extensively configurable on all levels, see [configuration documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md)
+  * Optimize performance according to your system requirements
+  * Configure the text analyzer to match your unique data
