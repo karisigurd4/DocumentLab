@@ -191,6 +191,7 @@ And finally the direction token is executed as follows,
 			visit next token
 
 Visual example follows,
+
 ![Interpreter](https://i.imgur.com/d4eAgQS.png)
 
 The language proved to be simple yet incredibly versatile in practice. It includes a good deal more operations than discussed here such as filtering by fuzzy value matching, specifying a limiting subset of the matrix, logical OR between text types, multiple prioritized (top to bottom) pattern definitions and a special *"Right-Down"* search algorithm implemented directly in the language. 
