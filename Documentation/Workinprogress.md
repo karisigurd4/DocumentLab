@@ -2,7 +2,7 @@
 
 ## DocumentLab
 
-Back in 2017 I encountered a problem which for the subsequent 3 years I would obsess on and off over. It was one of those problems that had an air of "many have tried, none have succeeded" around it. Immediately my mind started spinning, trying to imagine possible methods for solving this problem. The more I thought about it, the more I wanted to go for it.
+Back in 2017 I encountered a problem which for the subsequent 2 years I would obsess on and off over. It was one of those problems that had an air of "many have tried, none have succeeded" around it. Immediately my mind started spinning, trying to imagine possible methods for solving this problem. The more I thought about it, the more I wanted to go for it.
 
 This was a personal research project for myself. I never knew what eventual goal I wanted to reach. I still don't, however at this time I believe the solution which I have created is sufficient enough to have a more high-level discussion about. Hopefully what I've learned can help others in a similar situation in the future or to provide useful insight for further research. 
 
@@ -191,7 +191,6 @@ And finally the direction token is executed as follows,
 			visit next token
 
 Visual example follows,
-
 ![Interpreter](https://i.imgur.com/d4eAgQS.png)
 
 The language proved to be simple yet incredibly versatile in practice. It includes a good deal more operations than discussed here such as filtering by fuzzy value matching, specifying a limiting subset of the matrix, logical OR between text types, multiple prioritized (top to bottom) pattern definitions and a special *"Right-Down"* search algorithm implemented directly in the language. 
@@ -213,26 +212,36 @@ Note the table token at the start of the pattern indicating to the parser that w
 
 Finally, DocumentLab outputs results in Json format whose structure depends on what the input patterns look like. I.e., either as a set of key-value objects or as a set of more complex objects for more complex patterns. This allows easy external integration with DocumentLab for any system that knows how to parse Json.
 
-## Example
+## Evaluation
 
-I've witnessed the integration of DocumentLab in an enterprise system with a huge number of varying types of input and the amazing potential it has to bewilder and impress. For the purpose of the evaluation presented in this article I have created a fake invoice in Photoshop. There is absolutely nothing that makes this invoice any more uniquely usable with DocumenLab.
+Running some images through DocumentLab with a set of queries to extract the desired information is relatively easy enough. The following table presents the results of one such experiment,
 
-Given the following patterns, 
+![BoringEvaluation](https://i.imgur.com/iehS5Eo.png)
+
+It gets the imagination going a bit more to see how DocumentLab performs on actual *real world* data. Well, data that looks *real world* more like since the image in the following example was created in Photoshop and doesn't contain any real information.
+
+Let's say we're in the situation where we want to extract a variety of information from the following invoice.
+
+![TheExample](https://i.imgur.com/BOQur27.png)
+
+We create the following set of patterns,
 
 ![Patterns](https://i.imgur.com/OTTGEF1.png)
 
-DocumentLab is able to evaluate and extract information exactly and accurately from the following invoice, overlay shows what the output looks like,
+When the invoice is evaluated by DocumentLab, the following image showcases the resulting JSON, split at some points for presentational purposes,
 
 ![Invoice](https://i.imgur.com/ahAN27D.png)
 
-Again, there is nothing unique or provides any additional help for DocumentLab contained within the fake invoice created for the purpose of this evaluation presentation. The choice of input document is arbitrary and should yield the same result given that the input is of comparable quality.
+There is nothing unique or provides any additional help for DocumentLab contained within the fake invoice created for the purpose of this evaluation presentation. The choice of input document is arbitrary and should yield the same result given that the input is of comparable quality.
 
 ## Final thoughts
 
 I don't know if I'll obsess over this project again in such a way that I have previously. For now I'd like to sit down one day and continue cleaning up the github repository, the interface to the DocumentLab library and providing it in a package that is easy to integrate with. 
 
 For now, you can check out the [github repository](https://github.com/karisigurd4/DocumentLab) and hopefully the provided documentation is comprehensive engough to get you started,
-* Query language is designed for flexibility, capture all invoices in a single script containing many pattern definitions, see [query langugage documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md)
+* Query language is designed for flexibility, using the prioritization of pattern executions or the logical or operators you can encompass a great deal of different document formats in one query, see [query langugage documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md)
 * DocumentLab is extensively configurable on all levels, see [configuration documentation](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/QueryLanguage.md)
   * Optimize performance according to your system requirements
   * Configure the text analyzer to match your unique data
+
+
