@@ -7,18 +7,28 @@ Back in 2017 I encountered a problem which for the subsequent 2 years I would ob
 This was at its core a personal research project. I never knew what eventual goal I wanted to reach. I still don't, however at this time I believe the solution which I have created is sufficient enough to have a more high-level discussion about. Hopefully what I've learned can help others in a similar situation in the future or to provide useful insight for further research. 
 
 ##  The problem
-How do we convert images of documents to structured json formats which we can easily integrate with our systems?
+
+Is it possible to implement a generalized process which converts images of documents to structured data which we can easily integrate with our systems? By generalized I mean in such a way that the interpretation of the input image can be arbitrarily interchanged enough to generate meaningful and valuable output independent of the input image context. The generalized process should be able to handle on a high level the differences between invoices and purchase orders and on a more detailed level the individual differences in information presentational formatting across varying different document origins. What it boils down to, a process which can model, interpret and extract textual inforamtion from photos of documents.
+
 ![Idea](https://i.imgur.com/2Sko0it.png)
 
-I'll present the problem by giving a hypothetical example, the example will be limited to the domain of invoices however the example could just as well have picked any other domain in which information exchange on paper is applicable. Let's say we're building an app that allows us to keep track of our finances, one of the features of the app is that we should be able to take a picture of an invoice, let the app scan the information contained in the invoice and then store the information in a database in order to give us statistics about what we're paying for. Maybe we want to track increase or decrease in price from a given sender for some service. 
+The rough problem statement inherently assumes a set of parameters already, an input image, instructions on how to interpret the input and the eventual generated output. 
 
-Sounds simple enough right? 
+The scope of the problem domain discussed in this article focuses on interpretation and data extraction of invoices, however any other sort of doucment category could have applied. 
 
-Well here comes the tricky part.
+There exists an entire enteprise around the action of converting paper invoices to structured data which can be processed by a computer. When we want to perform OCR and interpret information from two invoices from two distinct origins, we quickly encounter the following problems, 
 
-How can we teach a computer to scan invoice contents in such an intelligent way that it can organize the information automatically for us? Keep in mind that all we have to work with is an image of an invoice which contains no additional information other than pixel information. To begin with, we'll need some method for extracting text from an image. That's where OCR or Optical Character Recognition comes in. What if the photograph was taken in sub-optimal lighting conditions, or at a slight angle? That's where computer vision and image manipulation techniques can be used.
+* Placement of information varies
+  * No precise pixel placement of elements
+* Structural variation
+  * Different fonts used
+  * Element ordering 
+    * Variation whether values are placed below or to the right of a label
+    * Receiver ex., variation whether a postal code is placed next to a city name or below
+* Data representation varies 
+  * Amounts ex., 2 00 or 2.00
+  * Dates ex., 2018-12-01 or 18/12/01 or 1st December 2018 
 
-Using the techniques mentioned above a common solution to our problem has historically been to define pixel boundaries where information on invoices commonly can be found. There exists an entire industry around providing solutions that do exactly that from very specific to very general cases. But taking that approach to solving the problem has some very unfortunate drawbacks. The structure of an invoice varies so incredibly between origin that even if we know that an invoice from sender A has some piece of information at some pixel coordinates x and y there's no guarantee that an invoice from sender B will have that piece of info anywhere close by. How do we solve that? We would need to keep a database of every possible invoice structure to refer to when we want to scan information from them. 
 
 ## The idea
 
@@ -45,13 +55,13 @@ The idea proposed in the previous section involves processes that can be distinc
 On a practical level these categories have high-level subcategories that are substantially notable. Those can essentially be separated into the following
 
  - Turn a photograph into data which a computer can process
- -- Computer vision / Image manipulation
- -- Optical character recognition
+   - Computer vision / Image manipulation
+   - Optical character recognition
  - Transform the data into a representational model of the original photo
- -- Text analysis
- -- Inferential analysis
+   - Text analysis
+   - Inferential analysis
  - Interpret the model and generate desired output
- -- Language theory
+   - Language theory
 
 The solution will be discussed in the sequence presented above. 
 
