@@ -72,14 +72,14 @@ It is kind of amazing that the notion of extracting text from images has been a 
 Through trial and error, the eventual process is summarized in the following list,
 
  1. Process the input image and optimize for OCR quality
-   - Essentially a process of input normalization
-   - Eliminates transient noise 
+     - Essentially a process of input normalization
+     - Eliminates transient noise 
  2. Identify cohesive sections of information in the image
-   - Split each cohesive sections into individual images
-   - Achieved feature analysis of a filter that blends together nearby text 
+     - Split each cohesive sections into individual images
+     - Achieved feature analysis of a filter that blends together nearby text 
  3. Perform OCR on each section in parallel
-   - Split results by subsections of the input image
-   - Maintain positional coordinate information within each result
+     - Split results by subsections of the input image
+     - Maintain positional coordinate information within each result
  4. Combine the OCR results into one result set
 
 The following figure presents the sequence from input on the left to output on the right,
