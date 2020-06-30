@@ -4,7 +4,7 @@
 
 Back in 2017 I encountered a problem which for the subsequent 2 years I would obsess on and off over. It was one of those problems that had an air of "many have tried, none have succeeded" around it. Immediately my mind started spinning, trying to imagine possible methods for solving this problem. The more I thought about it, the more I wanted to go for it.
 
-This was a personal research project for myself. I never knew what eventual goal I wanted to reach. I still don't, however at this time I believe the solution which I have created is sufficient enough to have a more high-level discussion about. Hopefully what I've learned can help others in a similar situation in the future or to provide useful insight for further research. 
+This was at its core a personal research project. I never knew what eventual goal I wanted to reach. I still don't, however at this time I believe the solution which I have created is sufficient enough to have a more high-level discussion about. Hopefully what I've learned can help others in a similar situation in the future or to provide useful insight for further research. 
 
 ##  The problem
 How do we convert images of documents to structured json formats which we can easily integrate with our systems?
