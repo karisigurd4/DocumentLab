@@ -1,1 +1,0 @@
-﻿nuget pack DocumentLab.csproj -IncludeReferencedProjects
