@@ -17,6 +17,13 @@ This is a solution for data extraction from images of documents. You send in a b
 ---
 **Getting started**
 
+You can [download the prebuilt binary](https://github.com/karisigurd4/DocumentLab/blob/master/Build-win64.zip). Parameter usage: (Picture file path) (Query file path) ((Optional) Output file path)
+
+<img src="https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/cmd.PNG" /> 
+
+
+... Or if you want to integrate with code,
+
 Quickly
 ```C#
 // To use the scripting interface
