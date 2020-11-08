@@ -7,6 +7,8 @@
   {
     public Dictionary<string, string> Result { get; set; } = new Dictionary<string, string>();
 
+    private int anyCounter = 0;
+
     public string GetResultAt(int index)
     {
       return Result.ElementAt(index).Value;
@@ -24,10 +26,12 @@
     {
       if (Result.ContainsKey(key ?? Result.Count.ToString()))
       {
-        Result[key] = value;
+        Result.Add(key + anyCounter.ToString(), value);
       }
-
-      Result.Add(key ?? Result.Count.ToString(), value);
+      else
+      {
+        Result.Add(key ?? Result.Count.ToString(), value);
+      }
     }
   }
 }

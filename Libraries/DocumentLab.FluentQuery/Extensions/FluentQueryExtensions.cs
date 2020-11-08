@@ -330,11 +330,16 @@
 
     private static FluentQuery MatchBase(FluentQuery response, string[] textType, string[] matchText)
     {
-      return response.AppendToScript(matchText.Count() > 0 ? $"{Or(textType.Select(x => x + string.Join("||", matchText)).ToArray())}" : Or(textType));
+      return response.AppendToScript(matchText.Count() > 0 ? $"{Or(textType.Select(x => $"{x}({string.Join("||", matchText)})").ToArray())}" : Or(textType));
     }
 
     private static string CaptureBase(FluentQuery response, string[] captureTextType)
     {
+      if (response.QueryType == QueryType.None)
+      {
+        response.QueryType = QueryType.SingleCapture;
+      }
+
       return ExecuteSingleCapture(response.AppendToScript($"[{Or(captureTextType)}]"));
     }
 

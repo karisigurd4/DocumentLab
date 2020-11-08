@@ -139,6 +139,13 @@
           try
           {
             base.VisitPattern(context);
+            if (currentPatternResult != null)
+            {
+              foreach (var item in currentPatternResult.Result)
+              {
+                Result.AddResult(queryLabel, item.Key, item.Value);
+              }
+            }
             if (onlyFirstCaptured)
             {
               x = page.Contents.GetLength(0);
@@ -152,8 +159,6 @@
         }
       }
 
-      Result.Results.Add(queryLabel, currentPatternResult);
-
       return new Symbol(SymbolType.Success);
     }
 
@@ -165,8 +170,8 @@
       var rightPageTraverser = (PageTraverser)pageTraverser.Clone();
       var downPageTraverser = (PageTraverser)pageTraverser.Clone();
 
-      results.Add(Tuple.Create(Direction.Right, rightPageTraverser.Traverse(Direction.Right)));
-      results.Add(Tuple.Create(Direction.Down, downPageTraverser.Traverse(Direction.Down)));
+      results.Add(Tuple.Create(Direction.Right, rightPageTraverser.Traverse(Direction.Right, maxSteps)));
+      results.Add(Tuple.Create(Direction.Down, downPageTraverser.Traverse(Direction.Down, maxSteps)));
 
       results = results.Where(x => x.Item2 != null && x.Item2.Steps < maxSteps).OrderBy(x => x.Item2.Steps).ToList();
 

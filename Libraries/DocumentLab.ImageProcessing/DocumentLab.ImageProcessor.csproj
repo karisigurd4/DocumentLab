@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\..\packages\EmguCV.3.1.0.1\build\EmguCV.props" Condition="Exists('..\..\packages\EmguCV.3.1.0.1\build\EmguCV.props')" />
-  <Import Project="..\..\packages\OpenCvSharp3-AnyCPU.3.4.1.20181108\build\OpenCvSharp3-AnyCPU.props" Condition="Exists('..\..\packages\OpenCvSharp3-AnyCPU.3.4.1.20181108\build\OpenCvSharp3-AnyCPU.props')" />
-  <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="..\packages\EmguCV.3.1.0.1\build\EmguCV.props" Condition="Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.props')" />
   <Import Project="..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\build\OpenCvSharp3-AnyCPU.props" Condition="Exists('..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\build\OpenCvSharp3-AnyCPU.props')" />
@@ -85,8 +82,8 @@
     <Reference Include="Emgu.CV.World, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.World.dll</HintPath>
     </Reference>
-    <Reference Include="Magick.NET-Q8-x64, Version=7.5.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=AMD64">
-      <HintPath>..\..\packages\Magick.NET-Q8-x64.7.5.0.1\lib\net40\Magick.NET-Q8-x64.dll</HintPath>
+    <Reference Include="Magick.NET-Q8-x64, Version=7.0.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=AMD64">
+      <HintPath>..\..\packages\Magick.NET-Q8-x64.7.0.5.900\lib\net40-client\Magick.NET-Q8-x64.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -172,21 +169,14 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Magick.NET-Q8-x64.7.5.0\build\net40\Magick.NET-Q8-x64.targets" Condition="Exists('..\packages\Magick.NET-Q8-x64.7.5.0\build\net40\Magick.NET-Q8-x64.targets')" />
+  <Import Project="..\..\packages\Magick.NET-Q8-x64.7.0.5.900\build\net40-client\Magick.NET-Q8-x64.targets" Condition="Exists('..\..\packages\Magick.NET-Q8-x64.7.0.5.900\build\net40-client\Magick.NET-Q8-x64.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets'))" />
-    <Error Condition="!Exists('..\..\packages\Magick.NET-Q8-x64.7.5.0.1\build\net40\Magick.NET-Q8-x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Magick.NET-Q8-x64.7.5.0.1\build\net40\Magick.NET-Q8-x64.targets'))" />
-    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\..\packages\OpenCvSharp3-AnyCPU.3.4.1.20181108\build\OpenCvSharp3-AnyCPU.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\OpenCvSharp3-AnyCPU.3.4.1.20181108\build\OpenCvSharp3-AnyCPU.props'))" />
+    <Error Condition="!Exists('..\..\packages\Magick.NET-Q8-x64.7.0.5.900\build\net40-client\Magick.NET-Q8-x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Magick.NET-Q8-x64.7.0.5.900\build\net40-client\Magick.NET-Q8-x64.targets'))" />
     <Error Condition="!Exists('..\..\packages\EmguCV.3.1.0.1\build\EmguCV.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EmguCV.3.1.0.1\build\EmguCV.props'))" />
     <Error Condition="!Exists('..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets'))" />
   </Target>
-  <Import Project="..\packages\EmguCV.3.1.0.1\build\EmguCV.targets" Condition="Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" />
-  <Import Project="..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets" Condition="Exists('..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets')" />
-  <Import Project="..\..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets" Condition="Exists('..\..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets')" />
-  <Import Project="..\..\packages\Magick.NET-Q8-x64.7.5.0.1\build\net40\Magick.NET-Q8-x64.targets" Condition="Exists('..\..\packages\Magick.NET-Q8-x64.7.5.0.1\build\net40\Magick.NET-Q8-x64.targets')" />
   <Import Project="..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets" Condition="Exists('..\..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" />
 </Project>

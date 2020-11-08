@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata minClientVersion="4.7.0.0">
+    <id>DocumentLab-x64</id>
+    <version>1.3.0</version>
+    <title>DocumentLab-x64</title>
+    <authors>Kári Sigurðsson</authors>
+    <owners>Kári Sigurðsson</owners>
+    <copyright>Kári Sigurðsson</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/karisigurd4/DocumentLab/blob/master/README.md</projectUrl>
+    <license type="expression">GPL-3.0-or-later</license>
+    <description>OCR using Tesseract, ImageMagick and EmguCV and an advanced query language. See the GitHub page for language documentation.</description>
+    <dependencies>
+      <dependency id="Castle.Core" version="4.3.1" />
+      <dependency id="Castle.Windsor" version="4.1.0" />
+      <dependency id="EmguCV" version="3.1.0.1" />
+      <dependency id="Newtonsoft.Json" version="11.0.2" />
+      <dependency id="OpenTK" version="1.1.2225.0" />
+      <dependency id="OpenTK.GLControl" version="1.1.2225.0" />
+      <dependency id="ZedGraph" version="5.1.5" />
+      <dependency id="Microsoft.Net.Compilers" version="3.4.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Debug\Data\**\*.*" target="content\Data" />
+    <file src="tessdata\*" target="content\tessdata" />
+    <file src="scripts\Install.ps1" target="tools" />
+  </files>
+</package>

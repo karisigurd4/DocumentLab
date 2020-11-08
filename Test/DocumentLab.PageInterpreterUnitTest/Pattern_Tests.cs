@@ -49,8 +49,8 @@
       Assert.IsTrue(result.Results["0"].Result.Count == 2);
       Assert.AreEqual("0", result.Results["0"].Result.ToArray()[0].Key);
       Assert.AreEqual("Correct", result.Results["0"].GetResultAt(0));
-      Assert.AreEqual("1", result.Results["0"].Result.ToArray()[1].Key);
-      Assert.AreEqual("Also correct", result.Results["0"].GetResultAt(1));
+      Assert.AreEqual("00", result.Results["0"].Result.ToArray()[1].Key);
+      Assert.AreEqual("Also correct", result.Results["0"].Result["00"]);
     }
 
     [TestMethod]

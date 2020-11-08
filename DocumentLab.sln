@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1259
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.Contracts", "Libraries\DocumentLab.Contracts\DocumentLab.Contracts.csproj", "{57BDF394-9BDD-49E8-AE1A-3436F73D1451}"
 EndProject
@@ -29,14 +29,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.Test", "Test\Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.TextAnalyzerUnitTest", "Test\DocumentLab.TextAnalyzerUnitTest\DocumentLab.TextAnalyzerUnitTest.csproj", "{16A2DE17-6836-44B0-9C4D-7F0081B19B66}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{18AE01FA-DE36-41E0-80D8-D8334D679444}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{18AE01FA-DE36-41E0-80D8-D8334D679444}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab", "Applications\DocumentLab\DocumentLab.csproj", "{2E423F58-1944-49B8-B84F-F8C982424577}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bin", "bin", "{33597F5F-5500-401A-AAEA-BD297B665FBE}"
-	ProjectSection(SolutionItems) = preProject
-		bin\DocumentLabCL-Win64.zip = bin\DocumentLabCL-Win64.zip
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab", "Nuget\DocumentLab\DocumentLab.csproj", "{2E423F58-1944-49B8-B84F-F8C982424577}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.FluentQuery", "Libraries\DocumentLab.FluentQuery\DocumentLab.FluentQuery.csproj", "{55F25B67-D183-46F7-8489-FC096B82E86B}"
 EndProject
@@ -54,7 +49,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\TesseractPoolDiagram.png = Documentation\TesseractPoolDiagram.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.CoreTest", "DocumentLab.CoreTest\DocumentLab.CoreTest.csproj", "{3F941450-8DC8-47B4-8A34-B51B3CB04B7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.CoreTest", "Test\DocumentLab.CoreTest\DocumentLab.CoreTest.csproj", "{3F941450-8DC8-47B4-8A34-B51B3CB04B7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{BBD104D5-6AC2-4D26-89DB-62533CA60D6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentLab.Application", "Applications\DocumentLab.Application\DocumentLab.Application.csproj", "{E6A4CC0E-487E-448D-B61E-E05D9958B53E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -184,6 +183,14 @@ Global
 		{3F941450-8DC8-47B4-8A34-B51B3CB04B7E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3F941450-8DC8-47B4-8A34-B51B3CB04B7E}.Release|x64.ActiveCfg = Release|Any CPU
 		{3F941450-8DC8-47B4-8A34-B51B3CB04B7E}.Release|x64.Build.0 = Release|Any CPU
+		{E6A4CC0E-487E-448D-B61E-E05D9958B53E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A4CC0E-487E-448D-B61E-E05D9958B53E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A4CC0E-487E-448D-B61E-E05D9958B53E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E6A4CC0E-487E-448D-B61E-E05D9958B53E}.Debug|x64.Build.0 = Debug|Any CPU
+		{E6A4CC0E-487E-448D-B61E-E05D9958B53E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A4CC0E-487E-448D-B61E-E05D9958B53E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6A4CC0E-487E-448D-B61E-E05D9958B53E}.Release|x64.ActiveCfg = Release|Any CPU
+		{E6A4CC0E-487E-448D-B61E-E05D9958B53E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -204,6 +211,7 @@ Global
 		{55F25B67-D183-46F7-8489-FC096B82E86B} = {0964BB76-68FC-4B16-9446-025003D1CCA8}
 		{8527FFCA-3077-4659-9F4D-22A730C67678} = {7404CB9A-5B0B-440E-B06F-35CFAA854BFF}
 		{3F941450-8DC8-47B4-8A34-B51B3CB04B7E} = {7404CB9A-5B0B-440E-B06F-35CFAA854BFF}
+		{E6A4CC0E-487E-448D-B61E-E05D9958B53E} = {BBD104D5-6AC2-4D26-89DB-62533CA60D6A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {701A6698-D495-4C6B-B68A-B0D778ADB656}

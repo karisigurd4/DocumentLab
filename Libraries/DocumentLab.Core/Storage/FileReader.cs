@@ -23,7 +23,7 @@
       return AutoCache.CacheRetrieve(() =>
       {
         return GetFileContent(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filePath))
-          .Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+          .Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
       });
     }
 
