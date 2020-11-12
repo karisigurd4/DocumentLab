@@ -17,9 +17,9 @@ This is a solution for data extraction from images of documents. You send in a b
 ---
 **Getting started**
 
-You can [download the prebuilt binary](https://github.com/karisigurd4/DocumentLab/blob/master/Build-win64.zip) and get started immediately. Parameter usage: (Picture file path) (Query file path) ((Optional) Output file path)
+You can [download the prebuilt binary](https://github.com/karisigurd4/DocumentLab/raw/master/Build-win64.zip) and get started immediately. Parameter usage: (Picture file path) (Query file path) ((Optional) Output file path)
 
-<img src="https://github.com/karisigurd4/DocumentLab/raw/master/Documentation/cmd.PNG" /> 
+<img src="https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/cmd.PNG" /> 
 
 The (Query file path) parameter needs to be a text file containing a set of queries that DocumentLab can perform on the picture provided alongside as an argument. This still requires investigating the DocumentLab query language. The script used in the example above was the same as was used for the topmost picture with the fake invoice.
 
