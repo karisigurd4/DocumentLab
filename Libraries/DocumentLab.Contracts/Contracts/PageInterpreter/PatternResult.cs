@@ -26,7 +26,7 @@
     {
       if (Result.ContainsKey(key ?? Result.Count.ToString()))
       {
-        Result.Add(key + anyCounter.ToString(), value);
+        Result.Add(key + (anyCounter++).ToString(), value);
       }
       else
       {

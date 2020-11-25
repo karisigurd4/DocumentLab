@@ -128,7 +128,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Applications\DocumentLab\DocumentLab.csproj">
+    <ProjectReference Include="..\..\Nuget\DocumentLab\DocumentLab.csproj">
       <Project>{2e423f58-1944-49b8-b84f-f8c982424577}</Project>
       <Name>DocumentLab</Name>
     </ProjectReference>

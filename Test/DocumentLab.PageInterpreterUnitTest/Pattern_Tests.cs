@@ -28,6 +28,36 @@
     }
 
     [TestMethod]
+    public void Using_Any_On_All_Text_Takes_All_Text()
+    {
+      var pageCreator = new TestPageCreator(10, 10);
+
+      pageCreator.SetValue(4, 4, "Text", "Hello");
+      pageCreator.SetValue(4, 5, "Text", "234.3");
+      pageCreator.SetValue(4, 6, "Text", "5%");
+      pageCreator.SetValue(4, 7, "Text", "Correct");
+
+      pageCreator.SetValue(6, 4, "Text", "Hello");
+      pageCreator.SetValue(6, 5, "Text", "234.3");
+      pageCreator.SetValue(6, 6, "Text", "5%");
+      pageCreator.SetValue(6, 7, "Text", "Also correct");
+
+      string query = "Any [Text];";
+
+      var result = Visit(query, pageCreator.Page);
+
+      Assert.IsTrue(result.Results["0"].Result.Count == 8);
+      Assert.AreEqual("Hello", result.Results["0"].GetResultAt(0));
+      Assert.AreEqual("234.3", result.Results["0"].GetResultAt(1));
+      Assert.AreEqual("5%", result.Results["0"].GetResultAt(2));
+      Assert.AreEqual("Correct", result.Results["0"].GetResultAt(3));
+      Assert.AreEqual("Hello", result.Results["0"].GetResultAt(4));
+      Assert.AreEqual("234.3", result.Results["0"].GetResultAt(5));
+      Assert.AreEqual("5%", result.Results["0"].GetResultAt(6));
+      Assert.AreEqual("Also correct", result.Results["0"].GetResultAt(7));
+    }
+
+    [TestMethod]
     public void Using_Any_Takes_All_Matching_Patterns()
     {
       var pageCreator = new TestPageCreator(10, 10);
