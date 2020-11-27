@@ -23,7 +23,7 @@ You can [download the prebuilt binary](https://github.com/karisigurd4/DocumentLa
 
 The (Query file path) parameter needs to be a text file containing a set of queries that DocumentLab can perform on the picture provided alongside as an argument. This still requires investigating the DocumentLab query language. The script used in the example above was the same as was used for the topmost picture with the fake invoice.
 
-* **Important**: DocumentLab has been optimized to expect certain relative size ranges when it comes to text analysis. Which means that if the picture you pass in is too large, or too small you won't get optimal results. You can use the [fakeinvoice.png shown below for reference scale](https://github.com/karisigurd4/DocumentLab/blob/master/Test/DocumentLab.Test/Data/fakeinvoice.png) if you need to resize your input data.
+* **Important**: DocumentLab has been optimized to expect a certain size range when it comes to analysing text from images. Which means that if the picture you pass in has text that is too big or too small (pixel wise) then you will not get optimal results. You can use the [fakeinvoice.png shown below for reference scale](https://github.com/karisigurd4/DocumentLab/blob/master/Test/DocumentLab.Test/Data/fakeinvoice.png) if you need to resize your input data.
 
 ... Or if you want to integrate with code,
 
