@@ -135,4 +135,4 @@ Then you'd want to lower the highlight intensity used for area detection since w
 
 */Libraries/DocumentLab.ImageProcessing/Data/Configuration/ImageProcessorConfiguration.json*
 
-From some tests I've done this yields equal results, but it may depend on the fuzziness and quality of images we're working with. 
+From some tests I've done this yields equal results but the total execution time DocumentLab takes is halved. But it may depend on the fuzziness and quality of images we're working with. 
