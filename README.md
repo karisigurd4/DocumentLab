@@ -18,13 +18,13 @@ This is a solution for data extraction from images of documents. You send in a b
 **Getting started**
 * **Important**: DocumentLab has been optimized to expect a certain size range when it comes to analysing text from images. Which means that if the picture you pass in has text that is too big or too small (pixel wise) then you will not get optimal results. You can use the [fakeinvoice.png from the example above](https://github.com/karisigurd4/DocumentLab/blob/master/Test/DocumentLab.Test/Data/fakeinvoice.png) for a scale reference if you need to resize your input data.
 
+* **Important** *: A drawback of using the prebuilt binary application is that on each execution DocumentLab needs to load configuration files and initialize a tesseract engine for each thread. This initialization overhead might take 3x the amount of time DocumentLab would otherwise need to scan a single page. It's in the plans to provide a better prebuilt binary application for integration.
+
 You can [download the prebuilt binary](https://github.com/karisigurd4/DocumentLab/raw/master/Build-win64.zip) and get started immediately. Parameter usage: (Picture file path) (Query file path) ((Optional) Output file path)
 
 <img src="https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/cmd.PNG" /> 
 
 The (Query file path) parameter needs to be a text file containing a set of queries that DocumentLab can perform on the picture provided alongside as an argument. This still requires investigating the DocumentLab query language. The script used in the example above was the same as was used for the topmost picture with the fake invoice.
-
-**Note**: A drawback of using the prebuilt binary application is that on each execution DocumentLab needs to load configuration files and initialize a tesseract engine for each thread. This initialization overhead might take 3x the amount of time DocumentLab would otherwise need to scan a single page. It's in the plans to provide a better prebuilt binary application for integration.
 
 ... Or if you want to integrate with code,
 
