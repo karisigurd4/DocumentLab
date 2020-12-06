@@ -11,7 +11,7 @@
     {
       using (var processed = new MagickImage(bitmap.ToArray()))
       {
-        processed.Resize(new Percentage(25));
+        processed.Resize(new Percentage(Constants.ScaleDownPercentage));
         return processed.ToByteArray();
       }
     }

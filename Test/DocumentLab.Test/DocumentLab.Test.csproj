@@ -128,10 +128,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Nuget\DocumentLab\DocumentLab.csproj">
-      <Project>{2e423f58-1944-49b8-b84f-f8c982424577}</Project>
-      <Name>DocumentLab</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Libraries\DocumentLab.Contracts\DocumentLab.Contracts.csproj">
       <Project>{57bdf394-9bdd-49e8-ae1a-3436f73d1451}</Project>
       <Name>DocumentLab.Contracts</Name>
@@ -164,9 +160,16 @@
       <Project>{347d62f9-14eb-408b-bbf9-240850f27721}</Project>
       <Name>DocumentLab.TextAnalyzer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Nuget\DocumentLab\DocumentLab.csproj">
+      <Project>{2e423f58-1944-49b8-b84f-f8c982424577}</Project>
+      <Name>DocumentLab</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Example1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Expected.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\fakeinvoice.png">

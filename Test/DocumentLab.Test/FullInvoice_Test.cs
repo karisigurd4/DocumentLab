@@ -1,6 +1,7 @@
 ﻿namespace DocumentLab.Test
 {
   using DocumenLab;
+  using DocumentLab.Core.Storage;
   using Microsoft.VisualStudio.TestTools.UnitTesting;
   using System.Drawing;
 
@@ -66,7 +67,8 @@ Text(Total amount) Right [Amount];
 
       var result = documentLab.InterpretToJson(script, (Bitmap)Image.FromFile("Data\\fakeinvoice.png"));
 
-      Assert.IsNotNull(result);
+      Assert.IsNotNull(result, FileReader.GetFileContent("Data\\Expected.txt"));
+      
     }
   }
 }

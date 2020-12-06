@@ -133,6 +133,9 @@
     </Antlr4>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\Configuration\TableAnalyzerConfiguration.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

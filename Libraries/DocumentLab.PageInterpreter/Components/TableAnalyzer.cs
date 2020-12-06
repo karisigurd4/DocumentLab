@@ -13,10 +13,6 @@
 
   public class TableAnalyzer : ITableAnalyzer
   {
-    private const int MinimumNumberOfColumnsForRow = 2;
-    private const int MinimumDistanceFromLastRow = 3;
-    private const int MinimumDistanceFromLastColumn = 3;
-
     public InterpreterResult AnalyzeTable(Page page, string tableName, TableColumn[] tableColumns)
     {
       var columns = GetAnalyzedTableColumns(page, tableColumns);
@@ -69,7 +65,7 @@
       var analyzedRowCoordinates = columns
         .SelectMany(x => x.Rows.Select(y => y.Coordinate.Y))
         .GroupBy(x => x)
-        .Where(x => x.Count() > MinimumNumberOfColumnsForRow)
+        .Where(x => x.Count() > Constants.TableAnalyzer.Configuration.MinimumNumberOfColumnsForRow)
         .Select(x => x.First())
         .ToArray();
 
@@ -80,7 +76,7 @@
       continuousRows.Add(analyzedRowCoordinates.First());
       for (int i = 1; i < analyzedRowCoordinates.Count(); i++)
       {
-        if (analyzedRowCoordinates[i] - continuousRows.Last() < MinimumDistanceFromLastRow)
+        if (analyzedRowCoordinates[i] - continuousRows.Last() < Constants.TableAnalyzer.Configuration.MinimumDistanceFromLastRow)
         {
           continuousRows.Add(analyzedRowCoordinates[i]);
         }
@@ -95,37 +91,7 @@
         columns[i].Rows = columns[i].Rows.Where(x => continuousRows.Any(z => z == x.Coordinate.Y)).ToArray();
       }
 
-      var rowsToRemove = new List<int>();
-      //bool pickLatestPrevious = true;
-      //PageUnit[] previousRows = null;
-      //for (int i = 1; i < continuousRows.Count; i++)
-      //{
-      //  if (pickLatestPrevious)
-      //  {
-      //    previousRows = columns.SelectMany(x => x.Rows).Where(x => x.Coordinate.Y == continuousRows[i - 1]).OrderBy(x => x.Coordinate.X).ToArray();
-      //  }
-
-      //  var currentRow = columns.SelectMany(x => x.Rows).Where(x => x.Coordinate.Y == continuousRows[i]).OrderBy(x => x.Coordinate.X).ToArray();
-
-      //  for (int x = 0; x < previousRows.Length; x++)
-      //  {
-      //    if (currentRow.Count() > x)
-      //    {
-      //      if (Math.Abs(previousRows[x].Coordinate.X - currentRow[x].Coordinate.X) > MinimumDistanceFromLastColumn)
-      //      {
-      //        rowsToRemove.Add(continuousRows[i]);
-      //        pickLatestPrevious = false;
-      //        break;
-      //      }
-      //      else
-      //      {
-      //        pickLatestPrevious = true;
-      //      }
-      //    }
-      //  }
-      //}
-
-      return continuousRows.Where(x => !rowsToRemove.Contains(x)).ToArray();
+      return continuousRows.ToArray();
     }
 
     private AnalyzedTableColumns[] GetAnalyzedTableColumns(Page page, TableColumn[] tableColumns)

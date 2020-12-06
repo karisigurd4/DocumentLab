@@ -1,0 +1,21 @@
+﻿{
+  "InvoiceNumber": "lnv9900223",
+  "InvoiceDate": "2020-02-20",
+  "DueDate": "2020-03-11",
+  "Receiver": {
+    "Name": "Receiver Personson",
+    "Address": "Storgatan 360",
+    "PostalCode": "54160",
+    "Town": "Stockholm",
+    "Country": "Sverige"
+  },
+  "PaymentTerms": "21",
+  "InterestRate": "10.00%",
+  "OrganizationNumber": "998877-664",
+  "Items": {
+    "0": "{\"ItemNo\":\"A909\",\"Description\":\"Horse food 10 kg\",\"Quantity\":\"50\",\"UnitPrice\":\"50.00\",\"VatPercentage\":\"25%\",\"Total\":\"250.00\"}",
+    "1": "{\"ItemNo\":\"55044\",\"Description\":\"Leather saddle x-99\",\"Quantity\":\"1\",\"UnitPrice\":\"599.99\",\"VatPercentage\":\"25%\",\"Total\":\"599.99\"}",
+    "2": "{\"ItemNo\":\"559\",\"Description\":\"Fine haired brush L\",\"Quantity\":\"2\",\"UnitPrice\":\"99.50\",\"VatPercentage\":\"25%\",\"Total\":\"109.00\"}"
+  },
+  "TotalAmount": "958.99"
+}
