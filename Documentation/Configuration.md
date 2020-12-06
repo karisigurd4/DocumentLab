@@ -127,7 +127,7 @@ One of the things DocumentLab already does to improve performance during the ima
 
 In order to squeeze more performance out of DocumentLab it is possible to modify the scale percentage used and the highlight intensity value used for area detection. Namely,
 
-You could theoretically lower the scale percentage value to, let's say, 15
+You could theoretically lower the scale percentage value to, let's say, 15%
 
 */Libraries/DocumentLab.ImageProcessing/Strategies/ProcessImageStrategies/DownsampleStrategy.cs*
 
