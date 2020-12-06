@@ -24,6 +24,8 @@ You can [download the prebuilt binary](https://github.com/karisigurd4/DocumentLa
 
 The (Query file path) parameter needs to be a text file containing a set of queries that DocumentLab can perform on the picture provided alongside as an argument. This still requires investigating the DocumentLab query language. The script used in the example above was the same as was used for the topmost picture with the fake invoice.
 
+**Note**: A drawback of using the prebuilt binary application is that on each execution DocumentLab needs to load configuration files and initialize a tesseract engine for each thread. This initialization overhead might take 3x the amount of time DocumentLab would otherwise need to scan a single page. It's in the plans to provide a better prebuilt binary application for integration.
+
 ... Or if you want to integrate with code,
 
 Quickly
