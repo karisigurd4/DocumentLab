@@ -61,7 +61,7 @@ The following predicates are valid from the text analysis classifications,
 * Percentage
 * Text 
 * WebAddress
-* Definitions by custom files under *Data\Context* (see: [techical overview](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Overview.md) text analysis section)
+* Definitions by custom files under *Data\Context* (see: [Custom text type definitions](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md))
 * Custom defined text types configured in *Data\TextTypeDefinitions.json*
 
 ## Output
