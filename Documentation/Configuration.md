@@ -116,3 +116,23 @@ If you need DocumentLab to understand custom contextual information you can achi
 When DocumentLab starts, it loads the contents of these files into memory. It uses a binary search algorithm that allows a certain degree of fuzzy-matching. Search time is O(log n) so the files can contain quite a lot of information before performance becomes an issue.
 
 *Note:* There is a configuration parameter specifically intended for configuring street address information files in *Data\Configuration\FromFileConfiguration.json*. There aren't further configuration options available for dynamically loaded contextual files at the moment. 
+
+## Additional performance optimization jazz
+
+I'll find a better place to write this down later. 
+
+**Adjusting image analysis process** 
+
+One of the things DocumentLab already does to improve performance during the image analysis phase is to scale down the input image to 25% of its original size, performing area detection on the scaled down image and then scaling up the results to match the original image size. 
+
+In order to squeeze more performance out of DocumentLab it is possible to modify the scale percentage used and the highlight intensity value used for area detection. Namely,
+
+You could theoretically lower the scale percentage value to, let's say, 15
+
+*/Libraries/DocumentLab.ImageProcessing/Strategies/ProcessImageStrategies/DownsampleStrategy.cs*
+
+Then you'd want to lower the highlight intensity used for area detection since we have fewer pixels, I've tried lowering it to 2 - 3 with good results,
+
+*/Libraries/DocumentLab.ImageProcessing/Data/Configuration/ImageProcessorConfiguration.json*
+
+From some tests I've done this yields equal results, but it may depend on the fuzziness and quality of images we're working with. 
