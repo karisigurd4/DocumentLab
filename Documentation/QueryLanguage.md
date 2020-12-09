@@ -88,7 +88,7 @@ In the [priority](https://github.com/karisigurd4/DocumentLab/blob/master/Documen
 
 A Right-Down search pattern can be expressed with the following syntax
 ```
-CustomerNumber: RD 6 Text(Customer nu || Cust n) [Text];
+CustomerNumber: Text(Customer nu || Cust n) RD 6 [Text];
 ```
 
 The numeric value following RD indicates the maximum number of distance in cells in the DocumentLab page grid the following predicate can be in order to consider the pattern matched or not. This helps when there is actually information to the right or below the label but it's too far away to be considered relevant.
