@@ -4,6 +4,6 @@
   {
     Single,
     Array,
-    Success,
+    Success
   }
 }

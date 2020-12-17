@@ -17,5 +17,35 @@
         }
       ]
     }
+  },
+  {
+    "Name": "PostalCode",
+    "Regexes": [
+      "((?<!\\d)\\d{5}(?!\\d))"
+    ],
+    "Text": {
+      "GetAs": "Text",
+      "Replace": [
+        {
+          "Find": [ "\\s*" ],
+          "Replace": ""
+        }
+      ]
+    }
+  },
+  {
+    "Name": "PaymentReference",
+    "Regexes": [
+      "((?<!\\d)\\d{5}\\d*(?!\\d))"
+    ],
+    "Text": {
+      "GetAs": "Text",
+      "Replace": [
+        {
+          "Find": [ "\\s*" ],
+          "Replace": ""
+        }
+      ]
+    }
   }
 ]

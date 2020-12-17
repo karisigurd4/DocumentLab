@@ -32,7 +32,7 @@
       if (MemoryCache.Default.Contains(cacheKey))
         return (IEnumerable<string>)MemoryCache.Default[cacheKey];
 
-      var fileLines =  GetFileContent(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filePath))
+      var fileLines =  GetFileContent(Path.Combine(AppDomain.CurrentDomain.RelativeSearchPath ?? AppDomain.CurrentDomain.BaseDirectory, filePath))
           .Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
       MemoryCache.Default.Add(new CacheItem(cacheKey, fileLines), new CacheItemPolicy());
@@ -47,7 +47,7 @@
       if (MemoryCache.Default.Contains(cacheKey))
         return (string)MemoryCache.Default[cacheKey];
 
-      var fileContent = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filePath));
+      var fileContent = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.RelativeSearchPath ?? AppDomain.CurrentDomain.BaseDirectory, filePath));
       
       MemoryCache.Default.Add(new CacheItem(cacheKey, fileContent), new CacheItemPolicy());
 

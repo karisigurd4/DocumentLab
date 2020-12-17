@@ -1,5 +1,6 @@
 ﻿namespace DocumenLab
 {
+  using DocumentLab.Contracts;
   using global::DocumentLab;
   using global::DocumentLab.Interfaces;
   using global::DocumentLab.PageInterpreter;
@@ -11,9 +12,17 @@
 
     public string InterpretToJson(string script, Bitmap bitmap)
     {
-      var page = GetAnalyzedPage(bitmap);
+      return InterpretToJson(AnalyzePage(bitmap), script);
+    }
 
-      return documentInterpreter.Interpret(page, script).ConvertToJson(script);
+    public Page AnalyzePage(Bitmap bitmap)
+    {
+      return GetAnalyzedPage(bitmap);
+    }
+
+    public string InterpretToJson(Page analyzedPage, string script)
+    {
+      return documentInterpreter.Interpret(analyzedPage, script).ConvertToJson(script);
     }
   }
 }

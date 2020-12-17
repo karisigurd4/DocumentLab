@@ -21,7 +21,7 @@
     public TesseractEngineWrapper(string languageFilePath = null, string language = null)
     {
       Engine = new TesseractEngine(
-        Path.Combine(languageFilePath ?? AppDomain.CurrentDomain.BaseDirectory, language ?? Constants.LanguageFilePath),
+        Path.Combine(languageFilePath ?? AppDomain.CurrentDomain.RelativeSearchPath ?? AppDomain.CurrentDomain.BaseDirectory, language ?? Constants.LanguageFilePath),
         Constants.DefaultLanguage,
         EngineMode.Default);
     }

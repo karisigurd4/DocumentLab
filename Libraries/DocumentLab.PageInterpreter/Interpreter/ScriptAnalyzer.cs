@@ -9,6 +9,7 @@
   public class ScriptAnalyzer : PageInterpreterBaseVisitor<object>
   {
     public Dictionary<string, AnalyzedQuery> ResultCountByQuery { get; private set; } = new Dictionary<string, AnalyzedQuery>();
+    private List<string> visitedTables = new List<string>();
 
     private string currentQuery;
     private int currentCount;
@@ -30,11 +31,18 @@
 
     public override object VisitTable([NotNull] PageInterpreterParser.TableContext context)
     {
+      if (visitedTables.Contains(currentQuery))
+      {
+        return null;
+      }
+
       ResultCountByQuery.Add(currentQuery, new AnalyzedQuery()
       {
         NumberOfCaptures = context.tableColumn().Length,
         IsArray = false
       });
+
+      visitedTables.Add(currentQuery);
 
       return null;
     }

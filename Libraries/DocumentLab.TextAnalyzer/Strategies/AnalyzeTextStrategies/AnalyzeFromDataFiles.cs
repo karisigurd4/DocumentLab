@@ -14,7 +14,7 @@
   {
     public IEnumerable<AnalyzedText> Analyze(OcrResult ocrResult)
     {
-      var files = Directory.GetFiles(Constants.TextTypeDataFilePath);
+      var files = Directory.GetFiles((System.AppDomain.CurrentDomain.RelativeSearchPath ?? System.AppDomain.CurrentDomain.BaseDirectory) + "\\" + Constants.TextTypeDataFilePath);
 
       return files.SelectMany(filePath => 
       {

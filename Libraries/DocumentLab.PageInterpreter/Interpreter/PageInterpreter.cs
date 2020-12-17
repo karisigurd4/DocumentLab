@@ -19,6 +19,7 @@
     public PatternResult currentPatternResult = null;
 
     private string queryLabel;
+    private List<string> visitedTables = new List<string>();
     private readonly Page page;
     private IPageTraverser pageTraverser;
 
@@ -40,16 +41,23 @@
 
     public override Symbol VisitSubset([NotNull] PageInterpreterParser.SubsetContext context)
     {
-      return new Symbol(
-        SymbolType.Array,
-        context
-          .Parameters().GetText().Substring(1, context.Parameters().GetText().Length - 2)
-          .Split(',')
-          .Select(x => new SubsetParameter()
-          {
-            Percentage = int.Parse(x.Split(' ')[1]),
-            SubsetPart = (SubsetPart)Enum.Parse(typeof(SubsetPart), x.Split(' ')[0])
-          }).ToDictionary(x => x.SubsetPart, x => x.Percentage));
+      try
+      {
+        return new Symbol(
+          SymbolType.Array,
+          context
+            .Parameters().GetText().Substring(1, context.Parameters().GetText().Length - 2)
+            .Split(',')
+            .Select(x => new SubsetParameter()
+            {
+              Percentage = int.Parse(x.Trim().Split(' ')[1]),
+              SubsetPart = (SubsetPart)Enum.Parse(typeof(SubsetPart), x.Trim().Split(' ')[0])
+            }).ToDictionary(x => x.SubsetPart, x => x.Percentage));
+      }
+      catch
+      {
+        throw new Exception($"Exception occurred when parsing Subset");
+      }
     }
 
     public override Symbol VisitQuery([NotNull] PageInterpreterParser.QueryContext context)
@@ -63,6 +71,11 @@
 
     public override Symbol VisitTable([NotNull] PageInterpreterParser.TableContext context)
     {
+      if (visitedTables.Contains(queryLabel))
+      {
+        return new Symbol(SymbolType.Success);
+      }
+
       var tableColumns = context.tableColumn().Select(x => (TableColumn)x.Accept(this).Value).ToArray();
       var tableAnalyzer = new TableAnalyzer();
       var result = tableAnalyzer.AnalyzeTable(page, queryLabel, tableColumns);
@@ -70,6 +83,7 @@
       {
         Result.Results.Add(queryLabel, result.Results.First().Value);
       }
+      visitedTables.Add(queryLabel);
       return new Symbol(SymbolType.Success);
     }
 

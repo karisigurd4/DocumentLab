@@ -8,9 +8,6 @@
   "AmountIgnoreRegex": "kr",
   "StreetAddressRegexes": [
   ],
-  "PostalCodeRegexes": [
-    "((?<!\\d)\\d{5}(?!\\d))"
-  ],
   "KnownDateDelimiters": [
     "\\s",
     "-",
