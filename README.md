@@ -2,6 +2,12 @@
 
 [![NuGet version (DocumentLab-x64)](https://img.shields.io/nuget/v/DocumentLab-x64.svg?style=flat-square)](https://www.nuget.org/packages/DocumentLab-x64/1.3.0) ![License)](https://img.shields.io/github/license/karisigurd4/DocumentLab) ![Platform](https://img.shields.io/badge/platform-win--64-green)
 
+**Comming soon: Realtime script editor and visualization tool** 
+
+<p align="center">
+ <img src="https://github.com/karisigurd4/DocumentLab/raw/master/Documentation/Editor.gif" />
+</p>
+
 ---
 This is a solution for data extraction from images of documents. You send in a bitmap, a set of queries and get extracted data in structured json. 
 
@@ -13,13 +19,6 @@ This is a solution for data extraction from images of documents. You send in a b
 * Extensive [configuration](https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/Configuration.md) for all parts of the process are available to facilitate your requirements
 
 <img src="https://raw.githubusercontent.com/karisigurd4/DocumentLab/master/Documentation/Example.png" /> 
-
-**Comming soon: Realtime script editor and visualization tool** 
-
-<p align="center">
- <img src="https://github.com/karisigurd4/DocumentLab/raw/master/Documentation/Editor.gif" />
-</p>
-
 
 ---
 **Getting started**
