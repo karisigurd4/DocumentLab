@@ -7,7 +7,6 @@
   {
     public static void Register(HttpConfiguration config)
     {
-      // Web API routes
       config.MapHttpAttributeRoutes();
       var corsAttribute = new EnableCorsAttribute("*", "*", "*");
       config.EnableCors(corsAttribute);

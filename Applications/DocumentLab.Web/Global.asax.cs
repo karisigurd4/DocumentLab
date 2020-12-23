@@ -5,7 +5,6 @@
 	using System.Web.Http;
 	using System.Web.Http.Dispatcher;
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 	public class WebApiApplication : ContainerApplication
 	{
 		protected override void AppStart()
@@ -15,10 +14,7 @@
 				Formatting = Newtonsoft.Json.Formatting.Indented,
 				ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 			};
-
 			ConfigureDependencyResolvers();
-
-			// Manually resolve a service descriptor to read the ApiVersion for use in the routing before releasing it again.
 			GlobalConfiguration.Configure(config => WebApiConfig.Register(config));
 			GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
 		}
@@ -33,5 +29,4 @@
 			base.Dispose();
 		}
 	}
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

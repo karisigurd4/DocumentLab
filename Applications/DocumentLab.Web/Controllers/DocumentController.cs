@@ -20,13 +20,6 @@
       interpreter = new DocumentInterpreter();
     }
 
-    [Route("")]
-    [HttpGet]
-    public string GetRoot()
-    {
-      return "Hello";
-    }
-
     [Route("interpret")]
     [HttpPost]
     public PostInterpretDocumentResponse PostInterpretDocument(PostInterpretDocumentRequest request)

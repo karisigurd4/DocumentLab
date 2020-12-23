@@ -1,41 +1,18 @@
 html,body 
 {
-  height: 100%;
-}
-
-#root 
-{
-  height: 100%;
+  background-color: #181c20;
   font-family: 'Montserrat', sans-serif;
   font-family: 'PT Sans', sans-serif;
+  height: 100%; 
+  margin: 0;
+}
+
+#root {
+  height: 100%;
 }
 
 .App {
-  min-height:100%;
   height: 100%;
-  position: relative;
-}
-
-.Flex {
-  display: flex;
-}
-
-.FullWidth {
-  margin-left: 0px !important;
-  margin-right: 0px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  width: 100%;
-}
-
-.FullHeight 
-{
-  height: 100%;
-}
-
-.MainArea 
-{
-  padding-bottom: 360px;
 }
 
 .DropFileArea
@@ -43,7 +20,6 @@ html,body
   text-align: center;
   font-size: 170px;
   transition: all .2s ease-in-out; 
-  border-bottom: 1px solid rgba(0, 0, 0, 0.0);
 }
 
 .DropFileArea:hover
@@ -51,100 +27,10 @@ html,body
   font-size: 190px;
 }
 
-.Fill {
-  display: block;
-  max-height: 100%;
-  max-width: 100%;
-}
-
-.Top {
-  width: 100%;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgba(0, 0, 0, 0.085);
-  border-radius: 2px;
-  padding: 0.4em;
-  font-size: 24px;
-}
-
-.Top > Span:nth-child(1) 
-{
-  transition: all .2s ease-in-out; 
-  padding-left: 0.3sem;
-  padding-right: 0.5em;
-  font-size: 24px;
-  box-shadow: none;
-}
-
-.Top > Span:nth-child(1):hover
-{
-  font-size:28px;
-}
-
-.Top > Span:nth-child(2) 
-{
-  border-left: 1px solid rgba(0, 0, 0, 0.085);
-  padding-left: 0.5em;
-}
-
-.CodeArea 
-{
-  float: right;
-  height: 100%;
-  width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.085);
-  overflow: hidden
-}
-
-.indent2 
-{
-  padding-left: 2em;
-}
-
-.indent4 
-{
-  padding-left: 4em;
-}
-
-#ErrorLine
-{
-  background-color: rgba(197,172,82, 0.3);
-}
-
-.CodeArea > .div
-{
-  width: 100%;
-  min-width: 100%;
-}
-
-#ErrorLine > #ErrorIcon
-{
-  float: right;
-}
-
-.ResultToolTip > .tooltip-inner 
-{
-  max-width: 100%;
-}
-
-.ResultArea 
-{
-  transition: all .2s ease-in-out; 
-  height: 300px;
-  position: fixed;
-  width:100%;
-  left: 0;
-  bottom: 0;
-}
-
-.ResultArea:hover
-{
-  transition: all .8s ease-in-out; 
-  height: 90%;
-}
-
 .DropFileImage 
 {
   transition: all .3s ease-in-out; 
+  animation-iteration-count: 2;
 }
 
 .rotate5
@@ -154,7 +40,28 @@ html,body
 
 .rotate360
 {
-  transform: rotate(360deg);
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 .DropFileArea > nav > a 
@@ -162,37 +69,62 @@ html,body
   font-size: 14px;
 }
 
-.ResultContent 
-{
-  min-height: 300px;
-  max-height: 300px;
+.CodeCard {
+  height: 100%;
+  width: 55%;
+  float: left;
+  background-color: #303841;
+  color: #eeeeee;
+}
+
+.CodeCard > div:first-child {
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0.5em;
 }
 
 .Card {
-  margin: 0.1em;
+  width: 45%;
+  float: right;
   height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.085);
-  border-radius: 2px;
-  padding: 0.75rem;
-  background-color: rgb(254, 253, 254);
-  color: var(--font-color);
+  background-color: #303841;
+  color: #eeeeee;
 }
 
 .Card > div:first-child {
   align-self: flex-start;
-  text-align: left;
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom:0.5em;
-}
-
-.Card > div:first-child > span {
-  margin: .2em;
-  font-weight: 600;
-}
-
-.Card > div:first-child > span:nth-child(2) {
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.5);
-  margin-left: 1em;
+  font-weight: 600;
+  padding: 0.5em;
+}
+
+.errorCodeLine {
+  border-bottom: 1px dotted red;
+}
+
+.errorGlyphMargin {
+  background: red;
+  width: 15px;
+  height: 15px;
+}
+
+.validResultGlyphMargin {
+  background: green;
+  width: 15px;
+  height: 15px;
+}
+
+.result {
+  height: 19px;
+  font-size: 12px;
+  color: green;
+  margin-left:10px;
+}
+
+.error {
+  height: 19px;
+  font-size: 12px;
+  color: red;
+  margin-left:10px;
 }
