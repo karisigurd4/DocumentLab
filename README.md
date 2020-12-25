@@ -2,6 +2,12 @@
 
 [![NuGet version (DocumentLab-x64)](https://img.shields.io/nuget/v/DocumentLab-x64.svg?style=flat-square)](https://www.nuget.org/packages/DocumentLab-x64/1.3.0) ![License)](https://img.shields.io/github/license/karisigurd4/DocumentLab) ![Platform](https://img.shields.io/badge/platform-win--64-green)
 
+**Comming soon: Realtime script editor and visualization tool** 
+
+<p align="center">
+ <img src="https://github.com/karisigurd4/DocumentLab/raw/master/Documentation/Editor.gif" />
+</p>
+
 ---
 This is a solution for data extraction from images of documents. You send in a bitmap, a set of queries and get extracted data in structured json. 
 
@@ -22,7 +28,7 @@ This is a solution for data extraction from images of documents. You send in a b
 
 You can [download the prebuilt binary](https://github.com/karisigurd4/DocumentLab/raw/master/Build-win64.zip) and get started immediately. Parameter usage: (Picture file path) (Query file path) ((Optional) Output file path)
 
-<img src="https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/cmd.PNG" /> 
+<img align="right" width="100" height="100" src="https://github.com/karisigurd4/DocumentLab/blob/master/Documentation/cmd.PNG" /> 
 
 The (Query file path) parameter needs to be a text file containing a set of queries that DocumentLab can perform on the picture provided alongside as an argument. This still requires investigating the DocumentLab query language. The script used in the example above was the same as was used for the topmost picture with the fake invoice.
 
