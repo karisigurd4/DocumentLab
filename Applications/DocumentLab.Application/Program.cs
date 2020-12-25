@@ -36,7 +36,7 @@
       var script = File.ReadAllText(scriptFilePath);
       var patternInterpreter = new DocumentInterpreter();
 
-      var result = patternInterpreter.InterpretToJson(script, (Bitmap)Image.FromFile(pictureFilePath));
+      var result = patternInterpreter.InterpretToJson((Bitmap)Image.FromFile(pictureFilePath), script);
 
       Console.WriteLine(result);
 

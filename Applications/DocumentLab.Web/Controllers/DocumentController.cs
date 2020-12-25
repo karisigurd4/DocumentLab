@@ -8,7 +8,6 @@
   using System.IO;
   using System.Text.RegularExpressions;
   using System.Web.Http;
-  using System.Web.Http.Cors;
 
   [RoutePrefix("api/document")]
   public class DocumentController : ApiController
@@ -81,6 +80,16 @@
           Result = PostAnalyzeDocumentResult.Failed_InternalError
         };
       }
+    }
+
+    [Route("texttypes")]
+    [HttpGet]
+    public GetTextTypesResponse GetTextTypes()
+    {
+      return new GetTextTypesResponse()
+      {
+        TextTypes = interpreter.GetDefinedTextTypes()
+      };
     }
   }
 }

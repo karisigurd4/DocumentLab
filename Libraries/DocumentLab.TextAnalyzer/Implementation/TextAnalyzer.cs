@@ -4,7 +4,9 @@
   using Contracts.Ocr;
   using Interfaces;
   using System.Collections.Generic;
+  using System.IO;
   using System.Linq;
+  using System.Reflection;
 
   public class TextAnalyzer : ITextAnalyzer
   {

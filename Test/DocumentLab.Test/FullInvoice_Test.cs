@@ -65,7 +65,7 @@ Text(Total amount) Right [Amount];
       //csv = csv.Substring(0, csv.LastIndexOf(',') - 1);
       //File.WriteAllText("test.csv", csv);
 
-      var result = documentLab.InterpretToJson(script, (Bitmap)Image.FromFile("Data\\fakeinvoice.png"));
+      var result = documentLab.InterpretToJson((Bitmap)Image.FromFile("Data\\fakeinvoice.png"), script);
 
       Assert.IsNotNull(result, FileReader.GetFileContent("Data\\Expected.txt"));
       

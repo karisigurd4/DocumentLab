@@ -170,6 +170,7 @@
     <Compile Include="Infrastructure\ControllerInstaller.cs" />
     <Compile Include="Infrastructure\DependencyResolvers\WindsorControllerActivator.cs" />
     <Compile Include="Infrastructure\DependencyResolvers\WindsorControllerReleaser.cs" />
+    <Compile Include="Models\GetTextTypesResponse.cs" />
     <Compile Include="Models\PostAnalyzeDocumentRequest.cs" />
     <Compile Include="Models\PostAnalyzeDocumentResponse.cs" />
     <Compile Include="Models\PostInterpretDocumentRequest.cs" />

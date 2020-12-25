@@ -27,7 +27,7 @@ Text(Total Due) Right [Amount];
 
       PdfDocument pdfDocument = PdfDocument.Load("Data\\SomeDemoInvoice.pdf");
 
-      var firstPageResults = documentLab.InterpretToJson(script, (Bitmap)pdfDocument.Render(0, 250, 250, PdfRenderFlags.CorrectFromDpi));
+      var firstPageResults = documentLab.InterpretToJson((Bitmap)pdfDocument.Render(0, 250, 250, PdfRenderFlags.CorrectFromDpi), script);
 
       //Assert.AreEqual("DEMO - Sliced Invoices".ToLower(), firstPageResults["Sender"].GetResultByKey("SenderName").ToLower());
       //Assert.AreEqual("Suite 5A-1204".ToLower(), firstPageResults["Sender"].GetResultByKey("SenderApartment").ToLower());

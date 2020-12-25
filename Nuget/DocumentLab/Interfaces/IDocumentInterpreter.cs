@@ -5,8 +5,9 @@
 
   public interface IDocumentInterpreter
   {
-    string InterpretToJson(string script, Bitmap bitmap);
-    Page AnalyzePage(Bitmap bitmap);
+    string InterpretToJson(Bitmap bitmap, string script);
     string InterpretToJson(Page analyzedPage, string script);
+    Page AnalyzePage(Bitmap bitmap);
+    string[] GetDefinedTextTypes();
   }
 }

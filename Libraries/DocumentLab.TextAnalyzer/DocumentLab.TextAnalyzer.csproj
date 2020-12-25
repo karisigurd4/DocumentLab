@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utilities\TextTypeHelper.cs" />
     <None Include="Data\Configuration\TextAnalysis.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

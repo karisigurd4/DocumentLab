@@ -53,64 +53,72 @@ class App extends Component {
   };
 
   editorWillMount(monaco) {
-    monaco.languages.register({ id: 'documentlab' });
-    monaco.languages.setMonarchTokensProvider('documentlab', {
-      keywords: [
-        'Text', 'StreetAddress', 'Date', 'Number', 'Letters', 'AmountOrNumbers', 'Amount',
-        'Email', 'Percentage', 'PageNumber', 'WebAddress', 'PostalCode', 'Town', 'Country',
-        'Right', 'Down', 'Left', 'Up', 'Any', 'RD'
-       ],
-     
-       operators: [
-         '||'
-       ],
-     
-       // we include these common regular expressions
-       symbols:  /[=><!~?:&|+\-*\/\^%]+/,
-     
-       // C# style strings
-       escapes: /\\(?:[abfnrtv\\"']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
-     
-       // The main tokenizer for our languages
-       tokenizer: {
-         root: [
-           // identifiers and keywords
-           [/[(a-z_$)|(A-Z_$)][\w\$]*\:/, 'type.identifier' ],  // to show class names nicely
-           [/[(a-z_$)|(A-Z_$)][\w$]*/, { cases: { '@keywords': 'keyword', '@default': 'identifier' } }],
-     
-           // whitespace
-           { include: '@whitespace' },
-     
-           // numbers
-           [/\d*\.\d+([eE][\-+]?\d+)?/, 'number.float'],
-           [/0[xX][0-9a-fA-F]+/, 'number.hex'],
-           [/\d+/, 'number'],
-     
-           // delimiter: after number because of .\d floats
-           [/[;,.]/, 'delimiter'],
-     
+    axios.get("https://localhost:44343/api/document/texttypes").then(res => {
+      monaco.languages.register({ id: 'documentlab' });
+      monaco.languages.setMonarchTokensProvider('documentlab', {
+        keywords: [ ...res.data.TextTypes, 'Right', 'Down', 'Left', 'Up', 'Any', 'RD', 'Table', 'Subset', 'Top', 'Bottom' ],
+       
+         operators: [
+           '||'
          ],
-     
-         comment: [
-           [/[^\/*]+/, 'comment' ],
-           [/\/\*/,    'comment', '@push' ],    // nested comment
-           ["\\*/",    'comment', '@pop'  ],
-           [/[\/*]/,   'comment' ]
-         ],
-     
-          bracketCounting: [
-            [/[(a-z_$)|(A-Z_$)|(\s*)][\w\$]*\:/, 'delimiter.bracket', '@push'],
-            [/[(a-z_$)|(A-Z_$)|(\s*)|\]][\w\$]*\;/, 'delimiter.bracket', '@pop'],
-            { include: 'root' }
-          ],
-
-         whitespace: [
-           [/[ \t\r\n]+/, 'white'],
-           [/\/\*/,       'comment', '@comment' ],
-           [/\/\/.*$/,    'comment'],
-         ]
-       }
-    });
+       
+         // we include these common regular expressions
+         symbols:  /[=><!~?:&|+\-*\/\^%]+/,
+       
+         // C# style strings
+         escapes: /\\(?:[abfnrtv\\"']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
+       
+         // The main tokenizer for our languages
+         tokenizer: {
+           root: [
+             // identifiers and keywords
+             [/[(a-z_$)|(A-Z_$)][\w\$]*\:/, 'type.identifier' ],  // to show class names nicely
+             [/[(a-z_$)|(A-Z_$)][\w$]*/, { cases: { '@keywords': 'keyword', '@default': 'identifier' } }],
+       
+             // whitespace
+             { include: '@whitespace' },
+       
+             // numbers
+             [/\d*\.\d+([eE][\-+]?\d+)?/, 'number.float'],
+             [/0[xX][0-9a-fA-F]+/, 'number.hex'],
+             [/\d+/, 'number'],
+       
+             // delimiter: after number because of .\d floats
+             [/[;,.]/, 'delimiter'],
+       
+             // strings
+            [/'([^'\\]|\\.)*$/, 'string.invalid' ],  // non-teminated string
+            [/'/,  { token: 'string.quote', bracket: '@open', next: '@string' } ],
+           ],
+       
+           comment: [
+             [/[^\/*]+/, 'comment' ],
+             [/\/\*/,    'comment', '@push' ],    // nested comment
+             ["\\*/",    'comment', '@pop'  ],
+             [/[\/*]/,   'comment' ]
+           ],
+       
+            bracketCounting: [
+              [/[(a-z_$)|(A-Z_$)|(\s*)][\w\$]*\:/, 'delimiter.bracket', '@push'],
+              [/[(a-z_$)|(A-Z_$)|(\s*)|\]][\w\$]*\;/, 'delimiter.bracket', '@pop'],
+              { include: 'root' }
+            ],
+  
+            string: [
+              [/[^\\']+/,  'string'],
+              [/@escapes/, 'string.escape'],
+              [/\\./,      'string.escape.invalid'],
+              [/'/,        { token: 'string.quote', bracket: '@close', next: '@pop' } ]
+            ],
+  
+           whitespace: [
+             [/[ \t\r\n]+/, 'white'],
+             [/\/\*/,       'comment', '@comment' ],
+             [/\/\/.*$/,    'comment'],
+           ]
+         }
+      });
+    })
   }
 
   editorDidMount(editor, monaco) {
@@ -153,38 +161,50 @@ class App extends Component {
       })
   }
 
-  clearDecorations = () => {
+  clearDecorations = (onlyErrors = false) => {
     var elems = document.querySelectorAll(".errorCodeLine");
     var elems2 = document.querySelectorAll(".errorGlyphMargin");
-    var elems3 = document.querySelectorAll(".validResultGlyphMargin");
     var elems4 = document.querySelectorAll(".error");
-    var elems5 = document.querySelectorAll(".result");
+    
+    if (!onlyErrors) {
+      var elems3 = document.querySelectorAll(".validResultGlyphMargin");
+      var elems5 = document.querySelectorAll(".result");
 
+      if (elems3 && elems3.length > 0) {
+        [].forEach.call(elems3, function(el) {
+          el.remove();
+        });
+      }
 
-    [].forEach.call(elems, function(el) {
-      el.classList.remove("errorCodeLine");
-    });
+      if (elems5 && elems5.length > 0) {
+        [].forEach.call(elems5, function(el) {
+          el.remove();
+        });
+      }
+    }
 
-    [].forEach.call(elems2, function(el) {
-      el.remove();
-    });
+    if (elems && elems.length > 0) {
+      [].forEach.call(elems, function(el) {
+        el.classList.remove("errorCodeLine");
+      });
+    }
 
-    [].forEach.call(elems3, function(el) {
-      el.remove();
-    });
+    if (elems2 && elems2.length > 0) {
+      [].forEach.call(elems2, function(el) {
+        el.remove();
+      });
+    }
 
-    [].forEach.call(elems4, function(el) {
-      el.remove();
-    });
-
-    [].forEach.call(elems5, function(el) {
-      el.remove();
-    });
+    if (elems4 && elems4.length > 0) {
+      [].forEach.call(elems4, function(el) {
+        el.remove();
+      });
+    }
   }
 
-  addGlyph = (lineNumber, className) => {
+  addGlyph = (lineNumber, character, className) => {
     var div = document.createElement('div', )
-    div.innerHTML = '';
+    div.innerHTML = character;
     div.className = `cgmr codicon ${className}`;
 
     var lineNumbers = document.getElementsByClassName('margin-view-overlays')[0]
@@ -269,7 +289,7 @@ class App extends Component {
           const lineNumbersDict = Object.assign({}, ...mapped.map((x) => ({[x.word]: x.line})));
           const keys = Object.keys(JSON.parse(result[selectedDocumentIndex].data));
           Object.keys(JSON.parse(result[selectedDocumentIndex].data)).forEach(x => {
-            this.addGlyph(lineNumbersDict[x] + 1, 'validResultGlyphMargin')
+            this.addGlyph(lineNumbersDict[x] + 1, '✓', 'validResultGlyphMargin')
           })
 
           this.setState({ result, error: null })
@@ -277,6 +297,7 @@ class App extends Component {
         else if (res.data.Message) {
           this.setState({ error: res.data.Message },
             () => {
+
               const lineMatches = this.state.error.match(/Line\:\s*(\d*)/)
               const characterMatches = this.state.error.match(/Char\:\s*(\d*)/)
               if (lineMatches && lineMatches.length > 1 && characterMatches && characterMatches.length > 1)
@@ -287,7 +308,7 @@ class App extends Component {
                 
                 if (this.editor && this.editor.current.editor) {
                   this.addErrors(lineNumber, res.data.Message);
-                  this.addGlyph(lineNumber, 'errorGlyphMargin');
+                  this.addGlyph(lineNumber, 'X', 'errorGlyphMargin');
                 }
               }
             })
@@ -296,6 +317,7 @@ class App extends Component {
   }
 
   onKeyDown = (newValue, e) => {
+    this.clearDecorations(true);
     const currentScript = newValue
 
     this.setState({script: currentScript},
